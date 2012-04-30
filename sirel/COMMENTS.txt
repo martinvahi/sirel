@@ -1,0 +1,143 @@
+===========================================================================
+=========================  Sirel PHP Library  ============================
+===========================================================================
+
+A word "sirel" stands for "lilac" in Estonian.
+
+The sirel library is pretty general and contains a mixture of various
+things that one might need for building a server side software.
+
+---------------------------------------------------------------------------
+                            W A R N I N G ! ! !
+---------------------------------------------------------------------------
+
+    The only reason, why the current version has been published, 
+    is to demonstrate that I, Martin.Vahi@softf1.com, have been
+    working working with PHP extensively. 
+
+    Sub-parts of it are pretty tried and tested and I as the 
+    original author of this library have been using it for production,
+    but the whole library needs HEAVY REFACTORING and
+    one really needs to know one's way around the library to use it.
+
+    So please, don't even try to use the current version of it 
+    for anything useful, other than entertainment, because it really 
+    needs to be prepared for others to use.
+
+    Actually, the text below this line also needs to be updated a little.
+
+
+---------------------------------------------------------------------------
+                             Introduction
+---------------------------------------------------------------------------
+
+The Sirel PHP Library is a mixture of PHP5 subroutines/classes that are
+meant to facilitate the writing of web applications.
+
+To use the whole library, one should "require_once" the ./src/sirel.php.
+As each of the Sirel PHP Library files includes, "requires once",
+all of the other Sirel PHP Library files that it depends on.
+It's also possible to use the library by "requiring once" only
+the files that one finds immanently necessary.
+
+Code examples are provided in a form of small demo-applications that
+reside in ./doc/usage_examples
+
+---------------------------------------------------------------------------
+                              Dependencies
+---------------------------------------------------------------------------
+Mandatory dependencies for client code:
+
+        - The Sirel PHP library has been written in PHP 5.2.
+
+        - The PHP mbstring extension. 
+              The sirel_core.php switches the internal string 
+              representation to UTF-8 and all of the library 
+              source relies on an assumption that the internal 
+              string representation is UTF-8.
+
+        - Perl 5.10
+              Given that the PHP is Turing Complete, one can not 
+              claim that the PHP lacks functionality, but 
+              due to speed considerations Perl 5.10 is used for 
+              some string operations that are not that well 
+              supported by the mbstring extension.
+
+        - The PHP GNU Multiple Precision extension (GMP extension).
+
+Optional dependencies for client code:
+
+        - Memcached support.
+
+
+Client code dependencies that are shipped with the Sirel PHP library:
+
+        - spyc library (http://code.google.com/p/spyc/ ),
+          which provides YAML (http://www.yaml.org/ ) support.
+
+Dependencies for developing (modifying) the Sirel PHP library:
+
+        - Ruby (http://ruby-lang.org/ )
+
+        - Kibuvits Ruby Library (http://rubyforge.org/projects/kibuvits/ )
+
+
+In order to use the Sirel library, one also needs to add some configuration
+code to one's PHP-souce. For example, one has to furnish sirel with the
+database username and password.
+
+---------------------------------------------------------------------------
+                       Some of the Files in the ./src
+---------------------------------------------------------------------------
+
+sirel.php         --- An inclusion file for client applications that want
+                      to use the whole library. This file should
+                      be "included" ("required once") by any of the sirel's
+                      own files. It also contains a description of sirel
+                      file dependencies.
+
+sirel_core.php    --- The core of the sirel library. All other sirel
+                      library PHP-files depend on that file.
+
+sirel_lang.php    --- Mainly type verification routines and string
+                      operations, but it also deals with Memcached daemon.
+
+sirel_db.php      --- Database engine abstraction. It provides an SQL
+                      interface that does not depend on any of the
+                      supported database engine. The idea is that if one
+                      wants to port the web-application from one database
+                      engine to another, one just updates the database
+                      engine name, port and password in the config file
+                      and everything just runs fluently. Even data types
+                      are abstracted away, because different database
+                      engines use slightly different type names. :-)
+
+sirel_dbcomm.php  --- Much higher level database access abstraction than
+                      the sirel_db.php. The sirel_db.php
+                      abstracted away the database engine specific issues,
+                      but sirel_dbcomm.php depends on the sirel_db.php
+                      and implements an interface, where the
+                      SQL statements are assembled automatically
+                      from hashtables.
+
+sirel_resource.php--- Routines that are related to user interface media.
+                      For example user interface messages, menu item
+                      names in different languages, etc.
+
+sirel_security.php--- It does not deal with only crypto related issues.
+
+sirel_html.php    --- Practically it provides a class, sirelHTMLPage,
+                      that has a method "to_s()", which prints out
+                      a string representation of a HTML page. Different
+                      regions of the HTML page are public
+                      fields of the class sirelHTMLPage.
+
+sirel_request_handling.php ---
+                      Just some rather high-level stuff that seem
+                      to fit nowhere else.
+
+
+---------------------------------------------------------------------------
+
+
+==========================================================================
