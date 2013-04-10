@@ -20,6 +20,13 @@ that one might find useful, when building server side software.
     use this library, despite the fact that it's the main PHP library
     that I use for all of my PHP projects.
 
+    This version of the Sirel PHP Library only supports 
+    ProgFTE_v0 (http://martin.softf1.com/g/n//a2/doc/progfte/index.html )
+    and the Raudrohi JavaScript Library 
+    (RJSL, https://github.com/martinvahi/raudrohi )
+    does support the ProgFTE_v0, but the RJSL uses the ProgFTE_v1
+    by default.
+
 ---------------------------------------------------------------------------
                              Introduction
 ---------------------------------------------------------------------------
