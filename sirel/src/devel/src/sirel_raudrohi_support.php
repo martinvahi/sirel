@@ -221,7 +221,7 @@ class raudrohi_support {
 		} // catch
 	} // process_config_hooks
 
-	// The mainidea of this function is that the version of the
+	// The main idea of this function is that the version of the
 	// Raudrohi JavaScript Library CSS and JavaScript files changes
 	// from time to time and due to web browser cache the CSS and
 	// JavaScript file names have to change with every version change.

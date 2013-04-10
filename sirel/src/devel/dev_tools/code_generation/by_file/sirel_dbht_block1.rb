@@ -15,8 +15,8 @@ end # if
 require "rubygems"
 require "monitor"
 if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/include/kibuvits_str.rb"
-   require  KIBUVITS_HOME+"/include/kibuvits_io.rb"
+   require  KIBUVITS_HOME+"/src/include/kibuvits_str.rb"
+   require  KIBUVITS_HOME+"/src/include/kibuvits_io.rb"
 else
    require  "kibuvits_str.rb"
    require  "kibuvits_io.rb"

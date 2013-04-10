@@ -34,7 +34,7 @@
 // ------------------------------------------------------------------------
 
 class php_shell_config {
-	public static $b_activated=False;
+	public static $b_activated=True;
 	public static $s_path_lib_sirel='';// assigned below
 	public static $ar_paths_to_PHP_files_that_get_loaded_by_default=array();
 
