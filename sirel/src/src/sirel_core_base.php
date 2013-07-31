@@ -107,7 +107,7 @@ class sirelSiteConfig {
 	// value of the i_raudrohi_version is
 	public static $i_raudrohi_version=NULL;
 
-	public static $s_sirel_version='1.5.0';
+	public static $s_sirel_version='1.6.0';
 
 	public static $language; // a string
 
@@ -181,6 +181,8 @@ class sirelSiteConfig {
 	public static $log_folder=null;
 	public static $tmp_folder=null;
 	public static $ui_messages_folder=null; // a string
+	public static $s_fp_application_root=''; // a string
+	public static $s_table_name_application_specific_prefix=''; // a string
 
 	public static function partialreset2defaults($s_path_lib_sirel) {
 		if (!defined('s_path_lib_sirel')) {
@@ -190,7 +192,7 @@ class sirelSiteConfig {
 		} // if
 		$s_path_lib_sirel=constant('s_path_lib_sirel');
 		if (array_key_exists('application_root', sirelSiteConfig::$various)) {
-			sirelSiteConfig::$log_folder=sirelSiteConfig::$various['application_root'].
+			sirelSiteConfig::$log_folder=sirelSiteConfig::$s_fp_application_root.
 				'/var/log';
 		} else {
 			sirelSiteConfig::$log_folder=$s_path_lib_sirel.
@@ -278,10 +280,9 @@ if($sirel_impl_s_path_lib_sirel_candidate=='') {
 	// ./bonnet, rely on the sirelSiteConfig::$various['s_path_lib_sirel'].
 	throw new Exception($s_msg);
 } // if
-sirelSiteConfig::$various['s_path_lib_sirel']=$sirel_impl_s_path_lib_sirel_candidate;
-sirelSiteConfig::$log_folder=sirelSiteConfig::$various['s_path_lib_sirel'].
+sirelSiteConfig::$log_folder=$sirel_impl_s_path_lib_sirel_candidate.
 	'/src/src/var_default/log';
-sirelSiteConfig::$tmp_folder=sirelSiteConfig::$various['s_path_lib_sirel'].
+sirelSiteConfig::$tmp_folder=$sirel_impl_s_path_lib_sirel_candidate.
 	'/src/src/bonnet/tmp';
 sirelSiteConfig::$various['sirel_impl_s_fp_php_ini']=$sirel_impl_s_path_lib_sirel_candidate.
 	'/src/src/bonnet/etc/php.ini';
@@ -298,7 +299,7 @@ define('b_sirelSiteConfig_defined',True);
 
 // It's in here in stead of the sirel_db.php because
 // it does not make sense to parse the whole sirel_db.php
-// at pages that do not use databases.
+// at database based application pages that do not use a database.
 class sirelDatabaseDescriptor {
 	// The reason, why the fields are not static is that
 	// some web applications might need to use more than one

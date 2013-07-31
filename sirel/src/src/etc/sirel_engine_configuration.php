@@ -18,7 +18,7 @@
 sirelSiteConfig::$debug_PHP=True;
 sirelSiteConfig::$debug_JavaScript=True;
 
-sirelSiteConfig::$i_raudrohi_version=21;
+sirelSiteConfig::$i_raudrohi_version=25;
 sirelSiteConfig::$various['confighook_raudrohi_port']='YUI_3_0';
 //sirelSiteConfig::$various['confighook_raudrohi_port']='YUI_3_3_0';
 sirelSiteConfig::$use_content_delivery_networks_for_JavaScript_dependency_libs=True;

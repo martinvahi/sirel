@@ -50,7 +50,9 @@ class sirel_test_sirel_security_utilities {
 			$s_x=sirel_security_utilities::s_generate_random_ASCIIstyle_string($i_expected);
 			$i_x=mb_strlen($s_x);
 			if($i_x!=$i_expected) {
-				$test_case['msg']='$i_x=='.$i_x.' $i_expected=='.$i_expected;
+				$test_case['msg']='$i_x=='.$i_x.
+					' $i_expected=='.$i_expected.
+					"\n GUID='2cb9ab58-c023-4fa7-83bb-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -59,7 +61,9 @@ class sirel_test_sirel_security_utilities {
 			$s_x=sirel_security_utilities::s_generate_random_ASCIIstyle_string($i_expected);
 			$i_x=mb_strlen($s_x);
 			if($i_x!=$i_expected) {
-				$test_case['msg']='$i_x=='.$i_x.' $i_expected=='.$i_expected;
+				$test_case['msg']='$i_x=='.$i_x.
+					' $i_expected=='.$i_expected.
+					"\n GUID='f534231a-6ea8-4a72-b1bb-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -68,7 +72,9 @@ class sirel_test_sirel_security_utilities {
 			$s_x=sirel_security_utilities::s_generate_random_ASCIIstyle_string($i_expected);
 			$i_x=mb_strlen($s_x);
 			if($i_x!=$i_expected) {
-				$test_case['msg']='$i_x=='.$i_x.' $i_expected=='.$i_expected;
+				$test_case['msg']='$i_x=='.$i_x.
+					' $i_expected=='.$i_expected.
+					"\n GUID='a2220af6-aa92-427d-95ab-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -77,7 +83,9 @@ class sirel_test_sirel_security_utilities {
 			$s_x=sirel_security_utilities::s_generate_random_ASCIIstyle_string($i_expected);
 			$i_x=mb_strlen($s_x);
 			if($i_x!=$i_expected) {
-				$test_case['msg']='$i_x=='.$i_x.' $i_expected=='.$i_expected;
+				$test_case['msg']='$i_x=='.$i_x.
+					' $i_expected=='.$i_expected.
+					"\n GUID='821bfc6f-f4ea-44a1-a3ab-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -88,7 +96,7 @@ class sirel_test_sirel_security_utilities {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_1
 
@@ -100,7 +108,7 @@ class sirel_test_sirel_security_utilities {
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // selftest
 

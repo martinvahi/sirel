@@ -33,11 +33,9 @@ fi
 
 
 PHP_SCRIPT="
-        \$s_path_lib_sirel=realpath('./../../');
-        if(exec('uname -n ;')=='2ikeselaulja') {
-        	\$s_path_lib_sirel='/home/zornilemma/Projektid/progremise_infrastruktuur/teeke/sirel/sirel/src';
-        } // if
-        require_once(\$s_path_lib_sirel.'/sirel_core.php');
+        \$s_path_lib_sirel=realpath('./../../../../');
+        define(\"s_path_lib_sirel\",\$s_path_lib_sirel);
+        require_once(\$s_path_lib_sirel.'/src/src/sirel_core.php');
 "
 
 PHP_SCRIPT="$PHP_SCRIPT sirelSiteConfig::\$log_folder='$PWD'; "

@@ -59,6 +59,7 @@
 /*                        */require_once('sirel_javascript.php');
 /*                */require_once('sirel_security_arch_1.php');
 /*                */require_once('sirel_security_utilities.php');
+/*                */require_once('sirel_cg_set_1.php');
 /*                *///require_once('sirel_db.php');
 /*                        *///require_once('sirel_dbcomm.php');
 /*                                *///require_once('sirel_dbhashtable.php');

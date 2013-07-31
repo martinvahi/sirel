@@ -42,20 +42,24 @@ class sirelFS {
 		try {
 			if (!file_exists($s_file_path)) {
 				throw(new Exception('A File or a folder with the path of "'.
-						$s_file_path.'" does not exist.'));
+					$s_file_path.'" does not exist.'));
 			} // if
 			if (is_dir($s_file_path)) {
 				throw(new Exception('"'.$s_file_path.'" is a folder, but '.
-						'a file is required.'));
+					'a file is required.'));
 			} // if
 			$file_handle = fopen($s_file_path, "rb"); // b for Windows.
 			$s_raw=fread($file_handle, filesize($s_file_path));
 			fclose($file_handle);
-			$s_out=utf8_encode($s_raw);
+			// The
+			// $s_out=utf8_encode($s_raw);
+			// causes some weird errors.
+			// Test txt-file content: "Résumé". Hence:
+			$s_out=$s_raw;
 			return $s_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // file2str
 
@@ -64,14 +68,14 @@ class sirelFS {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_file_content);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_file_content);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_file_path);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_file_path);
 			} // if
 			if (file_exists($s_file_path)) {
 				if (is_dir($s_file_path)) {
 					throw(new Exception('"'.$s_file_path.'" is a folder, but '.
-							'only a file is allowed to be overwritten.'));
+						'only a file is allowed to be overwritten.'));
 				} // if
 			} // if
 			$s_0=utf8_encode($s_file_content);
@@ -82,7 +86,7 @@ class sirelFS {
 			fclose($file_handle);
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // str2file
 
@@ -94,15 +98,15 @@ class sirelFS {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_path_to_a_folder);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_path_to_a_folder);
 			} // if
 			if (!file_exists($s_path_to_a_folder)) {
 				throw(new Exception('A folder with a path of "'.
-						$s_path_to_a_folder.'" does not exist.'));
+					$s_path_to_a_folder.'" does not exist.'));
 			} // if
 			if (!is_dir($s_path_to_a_folder)) {
 				throw(new Exception('"'.$s_path_to_a_folder.'" is a file, but '.
-						'a folder is required.'));
+					'a folder is required.'));
 			} // if
 			$ar_out=array();
 			$b_go_on=True;
@@ -126,7 +130,7 @@ class sirelFS {
 			return $ar_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // ls
 
@@ -134,21 +138,21 @@ class sirelFS {
 
 	// If the b_search_for_folders==false, then files are searched.
 	private static function arht_folder_or_file_paths_impl(&$s_path_to_a_folder,
-			$b_search_for_folders) {
+		$b_search_for_folders) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_path_to_a_folder);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_path_to_a_folder);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_bool',$b_search_for_folders);
+					__FUNCTION__,'sirelTD_is_bool',$b_search_for_folders);
 			} // if
 			if (!file_exists($s_path_to_a_folder)) {
 				throw(new Exception('A folder with a path of "'.
-						$s_path_to_a_folder.'" does not exist.'));
+					$s_path_to_a_folder.'" does not exist.'));
 			} // if
 			if (!is_dir($s_path_to_a_folder)) {
 				throw(new Exception('"'.$s_path_to_a_folder.'" is a file, but '.
-						'a folder is required.'));
+					'a folder is required.'));
 			} // if
 			$arht_out=array();
 			$arht_files_and_folders=sirelFS::ls($s_path_to_a_folder);
@@ -192,7 +196,7 @@ class sirelFS {
 			return $arht_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // arht_folder_or_file_paths_impl
 
@@ -202,11 +206,11 @@ class sirelFS {
 		try {
 			$b_search_for_folders=True;
 			$arht_out=sirelFS::arht_folder_or_file_paths_impl(
-					$s_path_to_a_folder,$b_search_for_folders);
+				$s_path_to_a_folder,$b_search_for_folders);
 			return $arht_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // arht_folder_paths
 
@@ -216,11 +220,11 @@ class sirelFS {
 		try {
 			$b_search_for_folders=False;
 			$arht_out=sirelFS::arht_folder_or_file_paths_impl(
-					$s_path_to_a_folder,$b_search_for_folders);
+				$s_path_to_a_folder,$b_search_for_folders);
 			return $arht_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // arht_file_paths
 
@@ -240,7 +244,7 @@ class sirelFS {
 			return $arht_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // arht_image_file_extensions
 
@@ -275,7 +279,7 @@ class sirelFS {
 			return $arht_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // arht_image_file_paths
 
@@ -318,7 +322,7 @@ class sirelFS {
 			sirelFS::$i_arht_fileextension2MIMEtype_load_state=1;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // s_file_MIME_type_loadstage_1
 
@@ -334,7 +338,7 @@ class sirelFS {
 			sirelFS::$i_arht_fileextension2MIMEtype_load_state=2;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // s_file_MIME_type_loadstage_2
 
@@ -344,15 +348,15 @@ class sirelFS {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_path_to_a_file);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_path_to_a_file);
 			} // if
 			if (!file_exists($s_path_to_a_file)) {
 				throw(new Exception('A file with a path of "'.
-						$s_path_to_a_file.'" does not exist.'));
+					$s_path_to_a_file.'" does not exist.'));
 			} // if
 			if (is_dir($s_path_to_a_file)) {
 				throw(new Exception('"'.$s_path_to_a_file.'" is a folder, but '.
-						'a file is required.'));
+					'a file is required.'));
 			} // if
 			// Credits for the "correct", but not universally functional,
 			// solution go to
@@ -389,7 +393,7 @@ class sirelFS {
 			return($s_out);
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // s_file_MIME_type
 
@@ -399,11 +403,11 @@ class sirelFS {
 		try {
 			$s_fp_tmp_folder=sirelSiteConfig::$tmp_folder;
 			$s_out=$s_fp_tmp_folder.
-					'/tmpfile_'.time().'_'.mt_rand(0,99999).'.php';
+				'/tmpfile_'.time().'_'.mt_rand(0,99999).'.php';
 			return $s_out;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // s_gen_tmpfilename
 
@@ -415,7 +419,7 @@ class sirelFS {
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // selftest
 

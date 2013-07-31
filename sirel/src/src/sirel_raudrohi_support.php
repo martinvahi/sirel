@@ -70,7 +70,7 @@ class raudrohi_support {
 			$ob_html->add_2_ar_javascript($s_1.'async-queue/async-queue-min.js');
 		} catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // port_YUI_3_0_JS_and_CSS
 
@@ -132,7 +132,7 @@ class raudrohi_support {
 			*/
 		} catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // port_YUI_3_x_common_t1
 
@@ -147,7 +147,7 @@ class raudrohi_support {
 			} // else
 		} catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // port_YUI_3_0
 
@@ -159,12 +159,12 @@ class raudrohi_support {
 				$ob_html->add_2_ar_javascript('http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js&3.3.0/build/oop/oop-min.js&3.3.0/build/dom/dom-min.js&3.3.0/build/dom/dom-style-ie-min.js&3.3.0/build/event-custom/event-custom-min.js&3.3.0/build/event/event-min.js&3.3.0/build/pluginhost/pluginhost-min.js&3.3.0/build/node/node-min.js&3.3.0/build/event/event-base-ie-min.js&3.3.0/build/node/align-plugin-min.js&3.3.0/build/attribute/attribute-min.js&3.3.0/build/base/base-min.js&3.3.0/build/anim/anim-min.js&3.3.0/build/arraysort/arraysort-min.js&3.3.0/build/async-queue/async-queue-min.js&3.3.0/build/classnamemanager/classnamemanager-min.js&3.3.0/build/collection/collection-min.js&3.3.0/build/escape/escape-min.js&3.3.0/build/event-valuechange/event-valuechange-min.js&3.3.0/build/intl/intl-min.js&3.3.0/build/datatype/lang/datatype.js&3.3.0/build/datatype/datatype-min.js&3.3.0/build/querystring/querystring-stringify-simple-min.js&3.3.0/build/queue-promote/queue-promote-min.js&3.3.0/build/io/io-min.js&3.3.0/build/json/json-min.js&3.3.0/build/jsonp/jsonp-min.js&3.3.0/build/jsonp/jsonp-url-min.js&3.3.0/build/dom/selector-css3-min.js&3.3.0/build/widget/widget-min.js&3.3.0/build/widget/widget-base-ie-min.js&3.3.0/build/widget/widget-position-min.js&3.3.0/build/widget/widget-position-align-min.js&3.3.0/build/widget/widget-stack-min.js&3.3.0/build/yql/yql-min.js&3.3.0/build/autocomplete/lang/autocomplete.js&3.3.0/build/autocomplete/autocomplete-min.js&3.3.0/build/autocomplete/autocomplete-list-keys-min.js&3.3.0/build/text/text-min.js&3.3.0/build/autocomplete/autocomplete-filters-min.js&3.3.0/build/autocomplete/autocomplete-filters-accentfold-min.js&3.3.0/build/highlight/highlight-min.js&3.3.0/build/autocomplete/autocomplete-highlighters-min.js&3.3.0/build/autocomplete/autocomplete-highlighters-accentfold-min.js&3.3.0/build/autocomplete/autocomplete-list-keys-min.js&3.3.0/build/autocomplete/autocomplete-plugin-min.js&3.3.0/build/plugin/plugin-min.js&3.3.0/build/cache/cache-min.js&3.3.0/build/charts/charts-min.js&3.3.0/build/dump/dump-min.js&3.3.0/build/substitute/substitute-min.js&3.3.0/build/console/lang/console.js&3.3.0/build/console/console-min.js&3.3.0/build/console/console-filters-min.js&3.3.0/build/cookie/cookie-min.js&3.3.0/build/dataschema/dataschema-min.js&3.3.0/build/datasource/datasource-min.js&3.3.0/build/recordset/recordset-min.js&3.3.0/build/stylesheet/stylesheet-min.js&3.3.0/build/datatable/lang/datatable.js&3.3.0/build/datatable/datatable-min.js&3.3.0/build/dd/dd-min.js&3.3.0/build/dd/dd-gestures-min.js&3.3.0/build/dd/dd-drop-plugin-min.js&3.3.0/build/event/event-touch-min.js&3.3.0/build/event-gestures/event-gestures-min.js&3.3.0/build/dd/dd-gestures-min.js&3.3.0/build/dd/dd-plugin-min.js&3.3.0/build/transition/transition-min.js&3.3.0/build/dial/lang/dial.js&3.3.0/build/dial/dial-min.js&3.3.0/build/dom/dom-style-ie-min.js&3.3.0/build/editor/editor-min.js&3.3.0/build/event/event-base-ie-min.js&3.3.0/build/event-simulate/event-simulate-min.js&3.3.0/build/history/history-min.js&3.3.0/build/history/history-hash-ie-min.js&3.3.0/build/history/history-hash-ie-min.js&3.3.0/build/imageloader/imageloader-min.js&3.3.0/build/loader/loader-min.js&3.3.0/build/node-flick/node-flick-min.js&3.3.0/build/node/node-event-simulate-min.js&3.3.0/build/node-focusmanager/node-focusmanager-min.js&3.3.0/build/node/node-load-min.js&3.3.0/build/node-menunav/node-menunav-min.js&3.3.0/build/widget/widget-position-constrain-min.js&3.3.0/build/widget/widget-stdmod-min.js&3.3.0/build/overlay/overlay-min.js&3.3.0/build/querystring/querystring-min.js&3.3.0/build/querystring/querystring-parse-simple-min.js&3.3.0/build/async-queue/async-queue-min.js&3.3.0/build/resize/resize-min.js&3.3.0/build/scrollview/scrollview-base-min.js&3.3.0/build/scrollview/scrollview-base-ie-min.js&3.3.0/build/scrollview/scrollview-scrollbars-min.js&3.3.0/build/scrollview/scrollview-min.js&3.3.0/build/scrollview/scrollview-base-ie-min.js&3.3.0/build/scrollview/scrollview-paginator-min.js&3.3.0/build/node/shim-plugin-min.js&3.3.0/build/slider/slider-min.js&3.3.0/build/sortable/sortable-min.js&3.3.0/build/sortable/sortable-scroll-min.js&3.3.0/build/tabview/tabview-base-min.js&3.3.0/build/widget/widget-child-min.js&3.3.0/build/widget/widget-parent-min.js&3.3.0/build/tabview/tabview-min.js&3.3.0/build/tabview/tabview-plugin-min.js&3.3.0/build/test/test-min.js&3.3.0/build/swfdetect/swfdetect-min.js&3.3.0/build/swf/swf-min.js&3.3.0/build/uploader/uploader-min.js&3.3.0/build/widget-anim/widget-anim-min.js&3.3.0/build/widget/widget-base-ie-min.js&3.3.0/build/widget/widget-locale-min.js&3.3.0/build/profiler/profiler-min.js');
 			} else {
 				$p=sirelSiteConfig::$various['confighook_url_yui_3_3_0'].
-						'/build/';
+					'/build/';
 				raudrohi_support::port_YUI_3_x_common_t1($p,$ob_html);
 			} // else
 		} catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // port_YUI_3_3_0
 
@@ -175,28 +175,27 @@ class raudrohi_support {
 				return;
 			} // if
 			if(array_key_exists('confighook_url_lib_raudrohi',sirelSiteConfig::$various)!=True) {
-				if(array_key_exists('application_root',sirelSiteConfig::$various)!=True) {
+				if(sirelSiteConfig::$s_fp_application_root=='') {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'Configuration variable named "application_root" '.
-							'is missing from the sirelSiteConfig::$various.'.
-							"\n GUID='56d2e944-2aaa-4ea5-8290-02a26101ccd7'");
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'sirelSiteConfig::$s_fp_application_root has not been set.'."\n".
+						"\n GUID='56d2e944-2aaa-4ea5-8290-02a26101ccd7'");
 				} // if
-				$application_root=sirelSiteConfig::$various['application_root'];
+				$application_root=sirelSiteConfig::$s_fp_application_root;
 				$s_candidate=$application_root.'/lib/raudrohi';
 				if(is_dir($s_candidate)==True) {
 					sirelSiteConfig::$various['confighook_url_lib_raudrohi']='./'.
-							'lib/raudrohi/';
+						'lib/raudrohi/';
 				} else {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'Configuration variable named '.
-							'"confighook_url_lib_raudrohi" '.
-							'could not be auto-assembled from the '.
-							'"application_root"(=='.$application_root.
-							', nor is it explicitly present '.
-							'in the sirelSiteConfig::$various.'.
-							"\n GUID='c3e09a50-c20f-4fef-8190-02a26101ccd7'");
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'Configuration variable named '.
+						'"confighook_url_lib_raudrohi" '.
+						'could not be auto-assembled from the '.
+						'"application_root"(=='.$application_root.
+						', nor is it explicitly present '.
+						'in the sirelSiteConfig::$various.'.
+						"\n GUID='c3e09a50-c20f-4fef-8190-02a26101ccd7'");
 				} // else
 			} // if
 			$s_url_lib_raudrohi=sirelSiteConfig::$various['confighook_url_lib_raudrohi'];
@@ -208,16 +207,16 @@ class raudrohi_support {
 			} // if
 			if(array_key_exists('confighook_url_yui_3_0',sirelSiteConfig::$various)!=True) {
 				sirelSiteConfig::$various['confighook_url_yui_3_0']=$s_url_lib_raudrohi.
-						'/third_party/yahoo/yui_3_0/';
+					'/third_party/yahoo/yui_3_0/';
 			} // if
 			if(array_key_exists('confighook_url_yui_3_3_0',sirelSiteConfig::$various)!=True) {
 				sirelSiteConfig::$various['confighook_url_yui_3_3_0']=$s_url_lib_raudrohi.
-						'/third_party/yahoo/yui_3_3_0/';
+					'/third_party/yahoo/yui_3_3_0/';
 			} // if
 			raudrohi_support::$b_config_hooks_processed=True;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // process_config_hooks
 
@@ -232,69 +231,68 @@ class raudrohi_support {
 			$b_raudrohi_all_in_one_found=False;
 			$b_raudrohi_css_found=False;
 			$s_url_lib_raudrohi=sirelSiteConfig::$various['confighook_url_lib_raudrohi'];
-			if(array_key_exists('application_root',sirelSiteConfig::$various)!=True) {
+			if(sirelSiteConfig::$s_fp_application_root=='') {
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.': '.
-						'Configuration variable named "application_root" '.
-						'is missing from the sirelSiteConfig::$various.'.
-						"\n GUID='e435892a-7f93-4e40-9590-02a26101ccd7'");
+					__CLASS__.'->'.__FUNCTION__.': '.
+					'sirelSiteConfig::$s_fp_application_root has not been set.'."\n".
+					"\n GUID='56d2e944-2aaa-4ea5-8290-02a26101ccd7'");
 			} // if
-			$application_root=sirelSiteConfig::$various['application_root'];
+			$application_root=sirelSiteConfig::$s_fp_application_root;
 			$s_candidate=$application_root.'/'.$s_url_lib_raudrohi;
 			if(is_dir($s_candidate)!=True) {
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.': '.
-						'Due to bandwidth concernes the current version '.
-						'of the Sirel PHP library requires that each site '.
-						'serves its own copy of the '.
-						'Raudrohi JavaScript Library. '."\n".
-						'The configuration variable, '."\n".
-						'"confighook_url_lib_raudrohi"(=='.
-						$s_url_lib_raudrohi.'),'."\n".
-						' must depict a relative file paht. '.
-						'Configuration variable "application_root"=='.
-						$application_root.'  .'.
-						"\n GUID='3aa42f58-a434-4504-b380-02a26101ccd7'");
+					__CLASS__.'->'.__FUNCTION__.': '.
+					'Due to bandwidth concernes the current version '.
+					'of the Sirel PHP library requires that each site '.
+					'serves its own copy of the '.
+					'Raudrohi JavaScript Library. '."\n".
+					'The configuration variable, '."\n".
+					'"confighook_url_lib_raudrohi"(=='.
+					$s_url_lib_raudrohi.'),'."\n".
+					' must depict a relative file paht. '.
+					'Configuration variable "application_root"=='.
+					$application_root.'  .'.
+					"\n GUID='3aa42f58-a434-4504-b380-02a26101ccd7'");
 			} // if
 			$ar_fp=sirelFS::ls($s_candidate,
-					'.*raudrohi_all_in_one_v..?.?.?.?.?.js');
+				'.*raudrohi_all_in_one_v..?.?.?.?.?.js');
 			if(count($ar_fp)==0) {
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.': '.
-						'Due to bandwidth concernes the current version '.
-						'of the Sirel PHP library requires that each site '.
-						'serves its own copy of the '.
-						'Raudrohi JavaScript Library. '."\n".
-						'The file raudrohi_all_in_one_v<version number>.js '.
-						'could not be found from '.$s_url_lib_raudrohi.
-						"\n GUID='9300da4f-e228-47c1-b480-02a26101ccd7'");
+					__CLASS__.'->'.__FUNCTION__.': '.
+					'Due to bandwidth concernes the current version '.
+					'of the Sirel PHP library requires that each site '.
+					'serves its own copy of the '.
+					'Raudrohi JavaScript Library. '."\n".
+					'The file raudrohi_all_in_one_v<version number>.js '.
+					'could not be found from '.$s_url_lib_raudrohi.
+					"\n GUID='9300da4f-e228-47c1-b480-02a26101ccd7'");
 			} // if
 			$s_url=$s_url_lib_raudrohi.'/'.$ar_fp[0];
 			$sirelHTMLPage_instance->add_2_ar_javascript($s_url);
 
 			$ar_fp=sirelFS::ls($s_candidate.'/css',
-					'.*raudrohi_v..?.?.?.?.?.css');
+				'.*raudrohi_v..?.?.?.?.?.css');
 			if(count($ar_fp)==0) {
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.': '.
-						'Due to bandwidth concernes the current version '.
-						'of the Sirel PHP library requires that each site '.
-						'serves its own copy of the '.
-						'Raudrohi JavaScript Library. '."\n".
-						'The file raudrohi_v<version number>.css'.
-						'could not be found from '.$s_url_lib_raudrohi.
-						"\n GUID='9f5e8315-0843-4105-a480-02a26101ccd7'");
+					__CLASS__.'->'.__FUNCTION__.': '.
+					'Due to bandwidth concernes the current version '.
+					'of the Sirel PHP library requires that each site '.
+					'serves its own copy of the '.
+					'Raudrohi JavaScript Library. '."\n".
+					'The file raudrohi_v<version number>.css'.
+					'could not be found from '.$s_url_lib_raudrohi.
+					"\n GUID='9f5e8315-0843-4105-a480-02a26101ccd7'");
 			} // if
 			$s_url=$s_url_lib_raudrohi.'/css/'.$ar_fp[0];
 			$sirelHTMLPage_instance->add_2_ar_css($s_url);
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // set_raudrohi_all_in_one_and_raudrohi_vX_CSS
 
 	public static function set_CSS_and_JavaScript_includes(
-			&$sirelHTMLPage_instance) {
+		&$sirelHTMLPage_instance) {
 		try {
 			raudrohi_support::process_config_hooks();
 			$s_raudrohi_port=sirelSiteConfig::$various['confighook_raudrohi_port'];
@@ -308,15 +306,15 @@ class raudrohi_support {
 				default:
 					throw new Exception(
 					__CLASS__.'->'.__FUNCTION__.
-							': There\'s no branch for '.
-							'sirelSiteConfig::$various["confighook_raudrohi_port"]=='.
-							$s_raudrohi_port.'.');
+						': There\'s no branch for '.
+						'sirelSiteConfig::$various["confighook_raudrohi_port"]=='.
+						$s_raudrohi_port.'.');
 					break;
 			} // switch
 			raudrohi_support::set_raudrohi_all_in_one_and_raudrohi_vX_CSS($sirelHTMLPage_instance);
 		} catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	}
 	// set_CSS_and_JavaScript_includes
@@ -332,14 +330,14 @@ class raudrohi_support {
 	public static function unpack_microsession_package(&$dpckg) {
 		try {
 			raudrohi_support::$microsession_wrapper_ht_cache_=sirelLang::ProgFTE2ht(
-					$dpckg->data_);
+				$dpckg->data_);
 			$arht_wrapper=&raudrohi_support::$microsession_wrapper_ht_cache_;
 			$arht_data_in=&sirelLang::ProgFTE2ht($arht_wrapper['data']);
 			$arht_wrapper['data']='unset at 86fa713b-29b5-4d19-8fdf-3090fbee9b10';
 			return $arht_data_in;
 		} catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	}
 	// unpack_microsession_package
@@ -353,19 +351,19 @@ class raudrohi_support {
 			$arht_wrapper=&raudrohi_support::$microsession_wrapper_ht_cache_;
 			if ($arht_wrapper == NULL) {
 				sirelThrowLogicException(__FILE__,__LINE__,
-						__CLASS__.'->'.__FUNCTION__.': '.
-						'May be the raudrohi_support::'.
-						'unpack_microsession_package '.
-						'wasn\'nt used before calling this method? ');
+					__CLASS__.'->'.__FUNCTION__.': '.
+					'May be the raudrohi_support::'.
+					'unpack_microsession_package '.
+					'wasn\'nt used before calling this method? ');
 			} // if
 			$arht_wrapper['data']=&sirelLang::ht2ProgFTE($arht_data_out);
 			$answer=$arht_wrapper['return_command'].'|||'.
-					sirelLang::ht2ProgFTE($arht_wrapper);
+				sirelLang::ht2ProgFTE($arht_wrapper);
 			raudrohi_support::$microsession_wrapper_ht_cache_=null;
 			return $answer;
 		} catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	}
 // pack_microsession_package

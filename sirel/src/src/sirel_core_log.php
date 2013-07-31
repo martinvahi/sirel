@@ -277,7 +277,8 @@ class sirelLoggerLogWriterDefault implements sirelLoggerLogWriter {
 			if(!$this->individual_messages_folder_is_readable()) {
 				return $answer;
 			} // if
-			$ar=$this->to_s_rehash_messages($this->to_s_collect_log_messages());
+			$ar_log_messages=$this->to_s_collect_log_messages();
+			$ar=$this->to_s_rehash_messages($ar_log_messages);
 			if(count($ar)==0) {
 				return $answer;
 			} // if
@@ -369,12 +370,17 @@ class sirelLogger {
 		} // if
 		$logger=sirelLogger::get_instance();
 		$answer='';
-		if(array_key_exists($log_writer_name, $logger->log_writers_)) {
-			$answer=$logger->log_writers_[$log_writer_name]->to_s();
+		$s_lc_debug='debug';
+		if($log_writer_name!==$s_lc_debug) {
+			if(array_key_exists($log_writer_name, $logger->log_writers_)) {
+				$answer=$logger->log_writers_[$log_writer_name]->to_s();
+				if(array_key_exists($s_lc_debug, $logger->log_writers_)) {
+					$answer=$answer."\n";
+				} // if
+			} // if
 		} // if
-		if(array_key_exists('debug', $logger->log_writers_)) {
-			$answer=$answer."\n".
-				$logger->log_writers_['debug']->to_s();
+		if(array_key_exists($s_lc_debug, $logger->log_writers_)) {
+			$answer=$answer.$logger->log_writers_[$s_lc_debug]->to_s();
 		} // if
 		return $answer;
 	} // to_s

@@ -63,7 +63,7 @@ class sirel_test_sirel_units {
 			return $ar_tests;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_fd_2_Si_ct_set1
 
@@ -92,9 +92,10 @@ class sirel_test_sirel_units {
 					$s_exp=number_format($fd_expected*1000, 7);
 					if($s_x!=$s_exp) {
 						$test_case['msg']='Conversion to Si units. '.
-								' $i_or_s_or_fd=='.$i_or_s_or_fd.
-								' $s_origin_unit=='.$s_origin_unit. '$fd=='.$fd.
-								' $fd_expected=='.$fd_expected;
+							' $i_or_s_or_fd=='.$i_or_s_or_fd.
+							' $s_origin_unit=='.$s_origin_unit. '$fd=='.$fd.
+							' $fd_expected=='.$fd_expected.
+							"\n GUID='3b4cfc71-75e8-4901-95bd-c14121015dd7'";
 						$test_case['line_number']=__LINE__;
 						$ar_tc[]=$test_case;
 					} // if
@@ -107,7 +108,7 @@ class sirel_test_sirel_units {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_fd_2_Si
 
@@ -117,46 +118,46 @@ class sirel_test_sirel_units {
 			$ar_tests=array();
 
 			array_push($ar_tests,
-					array('orig'=>'km','dst'=>'km','x'=>5.1,'exp'=>5.1));
+				array('orig'=>'km','dst'=>'km','x'=>5.1,'exp'=>5.1));
 			array_push($ar_tests,
-					array('orig'=>'km','dst'=>'m','x'=>5.1,'exp'=>5100));
+				array('orig'=>'km','dst'=>'m','x'=>5.1,'exp'=>5100));
 			array_push($ar_tests,
-					array('orig'=>'km','dst'=>'cm','x'=>'0.001','exp'=>100.0));
+				array('orig'=>'km','dst'=>'cm','x'=>'0.001','exp'=>100.0));
 			array_push($ar_tests,
-					array('orig'=>'km','dst'=>'mm','x'=>3.1,'exp'=>3100000.0));
+				array('orig'=>'km','dst'=>'mm','x'=>3.1,'exp'=>3100000.0));
 
 			array_push($ar_tests,
-					array('orig'=>'m','dst'=>'km','x'=>2.03,'exp'=>0.00203));
+				array('orig'=>'m','dst'=>'km','x'=>2.03,'exp'=>0.00203));
 			array_push($ar_tests,
-					array('orig'=>'m','dst'=>'m','x'=>0.03,'exp'=>0.03));
+				array('orig'=>'m','dst'=>'m','x'=>0.03,'exp'=>0.03));
 			array_push($ar_tests,
-					array('orig'=>'m','dst'=>'cm','x'=>0.03,'exp'=>3.0));
+				array('orig'=>'m','dst'=>'cm','x'=>0.03,'exp'=>3.0));
 			array_push($ar_tests,
-					array('orig'=>'m','dst'=>'mm','x'=>0.5,'exp'=>500.0));
+				array('orig'=>'m','dst'=>'mm','x'=>0.5,'exp'=>500.0));
 
 
 			array_push($ar_tests,
-					array('orig'=>'cm','dst'=>'km','x'=>90,'exp'=>0.0009));
+				array('orig'=>'cm','dst'=>'km','x'=>90,'exp'=>0.0009));
 			array_push($ar_tests,
-					array('orig'=>'cm','dst'=>'m','x'=>90,'exp'=>0.9));
+				array('orig'=>'cm','dst'=>'m','x'=>90,'exp'=>0.9));
 			array_push($ar_tests,
-					array('orig'=>'cm','dst'=>'cm','x'=>31.3,'exp'=>31.3));
+				array('orig'=>'cm','dst'=>'cm','x'=>31.3,'exp'=>31.3));
 			array_push($ar_tests,
-					array('orig'=>'cm','dst'=>'mm','x'=>31.3,'exp'=>313.0));
+				array('orig'=>'cm','dst'=>'mm','x'=>31.3,'exp'=>313.0));
 
 			array_push($ar_tests,
-					array('orig'=>'mm','dst'=>'km','x'=>37.2,'exp'=>0.0000372));
+				array('orig'=>'mm','dst'=>'km','x'=>37.2,'exp'=>0.0000372));
 			array_push($ar_tests,
-					array('orig'=>'mm','dst'=>'m','x'=>'37.2','exp'=>0.0372));
+				array('orig'=>'mm','dst'=>'m','x'=>'37.2','exp'=>0.0372));
 			array_push($ar_tests,
-					array('orig'=>'mm','dst'=>'cm','x'=>'3700.9','exp'=>370.09));
+				array('orig'=>'mm','dst'=>'cm','x'=>'3700.9','exp'=>370.09));
 			array_push($ar_tests,
-					array('orig'=>'mm','dst'=>'mm','x'=>'3700.9','exp'=>3700.9));
+				array('orig'=>'mm','dst'=>'mm','x'=>'3700.9','exp'=>3700.9));
 
 			return $ar_tests;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_fd_convert_ct_length
 
@@ -166,45 +167,45 @@ class sirel_test_sirel_units {
 			$ar_tests=array();
 
 			array_push($ar_tests,
-					array('orig'=>'t','dst'=>'t','x'=>5000,'exp'=>5000));
+				array('orig'=>'t','dst'=>'t','x'=>5000,'exp'=>5000));
 			array_push($ar_tests,
-					array('orig'=>'t','dst'=>'kg','x'=>'5','exp'=>5000.0));
+				array('orig'=>'t','dst'=>'kg','x'=>'5','exp'=>5000.0));
 			array_push($ar_tests,
-					array('orig'=>'t','dst'=>'g','x'=>0.03,'exp'=>30000.0));
+				array('orig'=>'t','dst'=>'g','x'=>0.03,'exp'=>30000.0));
 			array_push($ar_tests,
-					array('orig'=>'t','dst'=>'mg','x'=>0.005,'exp'=>5000000.0));
+				array('orig'=>'t','dst'=>'mg','x'=>0.005,'exp'=>5000000.0));
 
 			array_push($ar_tests,
-					array('orig'=>'kg','dst'=>'t','x'=>5000,'exp'=>5.0));
+				array('orig'=>'kg','dst'=>'t','x'=>5000,'exp'=>5.0));
 			array_push($ar_tests,
-					array('orig'=>'kg','dst'=>'kg','x'=>5000,'exp'=>5000.0));
+				array('orig'=>'kg','dst'=>'kg','x'=>5000,'exp'=>5000.0));
 			array_push($ar_tests,
-					array('orig'=>'kg','dst'=>'g','x'=>5,'exp'=>5000.0));
+				array('orig'=>'kg','dst'=>'g','x'=>5,'exp'=>5000.0));
 			array_push($ar_tests,
-					array('orig'=>'kg','dst'=>'mg','x'=>5,'exp'=>5000000.0));
+				array('orig'=>'kg','dst'=>'mg','x'=>5,'exp'=>5000000.0));
 
 			array_push($ar_tests,
-					array('orig'=>'g','dst'=>'t','x'=>9000000,'exp'=>9.0));
+				array('orig'=>'g','dst'=>'t','x'=>9000000,'exp'=>9.0));
 			array_push($ar_tests,
-					array('orig'=>'g','dst'=>'kg','x'=>3.7,'exp'=>0.0037));
+				array('orig'=>'g','dst'=>'kg','x'=>3.7,'exp'=>0.0037));
 			array_push($ar_tests,
-					array('orig'=>'g','dst'=>'g','x'=>'3700.9','exp'=>3700.9));
+				array('orig'=>'g','dst'=>'g','x'=>'3700.9','exp'=>3700.9));
 			array_push($ar_tests,
-					array('orig'=>'g','dst'=>'mg','x'=>'37.9','exp'=>37900));
+				array('orig'=>'g','dst'=>'mg','x'=>'37.9','exp'=>37900));
 
 			array_push($ar_tests,
-					array('orig'=>'mg','dst'=>'t','x'=>9000000,'exp'=>0.009));
+				array('orig'=>'mg','dst'=>'t','x'=>9000000,'exp'=>0.009));
 			array_push($ar_tests,
-					array('orig'=>'mg','dst'=>'kg','x'=>3001.0,'exp'=>0.003001));
+				array('orig'=>'mg','dst'=>'kg','x'=>3001.0,'exp'=>0.003001));
 			array_push($ar_tests,
-					array('orig'=>'mg','dst'=>'g','x'=>'3700.9','exp'=>3.7009));
+				array('orig'=>'mg','dst'=>'g','x'=>'3700.9','exp'=>3.7009));
 			array_push($ar_tests,
-					array('orig'=>'mg','dst'=>'mg','x'=>'3700.9','exp'=>3700.9));
+				array('orig'=>'mg','dst'=>'mg','x'=>'3700.9','exp'=>3700.9));
 
 			return $ar_tests;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_fd_convert_ct_mass
 
@@ -214,114 +215,114 @@ class sirel_test_sirel_units {
 			$ar_tests=array();
 
 			array_push($ar_tests,
-					array('orig'=>'t/(m^3)','dst'=>'t/(m^3)','x'=>'5300','exp'=>5300));
+				array('orig'=>'t/(m^3)','dst'=>'t/(m^3)','x'=>'5300','exp'=>5300));
 			array_push($ar_tests,
-					array('orig'=>'t/(m^3)','dst'=>'kg/(m^3)','x'=>53,'exp'=>53000));
+				array('orig'=>'t/(m^3)','dst'=>'kg/(m^3)','x'=>53,'exp'=>53000));
 			array_push($ar_tests,
-					array('orig'=>'t/(m^3)','dst'=>'kg/l','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'t/(m^3)','dst'=>'kg/l','x'=>53.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'t/(m^3)','dst'=>'g/l','x'=>53.0,'exp'=>53000));
+				array('orig'=>'t/(m^3)','dst'=>'g/l','x'=>53.0,'exp'=>53000));
 			array_push($ar_tests,
-					array('orig'=>'t/(m^3)','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'t/(m^3)','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'t/(m^3)','dst'=>'mg/l','x'=>53.0,'exp'=>53000000));
+				array('orig'=>'t/(m^3)','dst'=>'mg/l','x'=>53.0,'exp'=>53000000));
 			array_push($ar_tests,
-					array('orig'=>'t/(m^3)','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53000));
+				array('orig'=>'t/(m^3)','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53000));
 
 			array_push($ar_tests,
-					array('orig'=>'kg/(m^3)','dst'=>'t/(m^3)','x'=>53.0,'exp'=>0.053));
+				array('orig'=>'kg/(m^3)','dst'=>'t/(m^3)','x'=>53.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'kg/(m^3)','dst'=>'kg/(m^3)','x'=>'53.0','exp'=>53.0));
+				array('orig'=>'kg/(m^3)','dst'=>'kg/(m^3)','x'=>'53.0','exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'kg/(m^3)','dst'=>'kg/l','x'=>53.0,'exp'=>0.053));
+				array('orig'=>'kg/(m^3)','dst'=>'kg/l','x'=>53.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'kg/(m^3)','dst'=>'g/l','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'kg/(m^3)','dst'=>'g/l','x'=>53.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'kg/(m^3)','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>0.053));
+				array('orig'=>'kg/(m^3)','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'kg/(m^3)','dst'=>'mg/l','x'=>53.0,'exp'=>53000));
+				array('orig'=>'kg/(m^3)','dst'=>'mg/l','x'=>53.0,'exp'=>53000));
 			array_push($ar_tests,
-					array('orig'=>'kg/(m^3)','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'kg/(m^3)','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53.0));
 
 			array_push($ar_tests,
-					array('orig'=>'kg/l','dst'=>'t/(m^3)','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'kg/l','dst'=>'t/(m^3)','x'=>53.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'kg/l','dst'=>'kg/(m^3)','x'=>53.0,'exp'=>53000.0));
+				array('orig'=>'kg/l','dst'=>'kg/(m^3)','x'=>53.0,'exp'=>53000.0));
 			array_push($ar_tests,
-					array('orig'=>'kg/l','dst'=>'kg/l','x'=>'53.0','exp'=>53.0));
+				array('orig'=>'kg/l','dst'=>'kg/l','x'=>'53.0','exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'kg/l','dst'=>'g/l','x'=>53.0,'exp'=>53000.0));
+				array('orig'=>'kg/l','dst'=>'g/l','x'=>53.0,'exp'=>53000.0));
 			array_push($ar_tests,
-					array('orig'=>'kg/l','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'kg/l','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'kg/l','dst'=>'mg/l','x'=>53.0,'exp'=>53000000));
+				array('orig'=>'kg/l','dst'=>'mg/l','x'=>53.0,'exp'=>53000000));
 			array_push($ar_tests,
-					array('orig'=>'kg/l','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53000));
+				array('orig'=>'kg/l','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53000));
 
 			array_push($ar_tests,
-					array('orig'=>'g/l','dst'=>'t/(m^3)','x'=>53.0,'exp'=>0.053));
+				array('orig'=>'g/l','dst'=>'t/(m^3)','x'=>53.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'g/l','dst'=>'kg/(m^3)','x'=>53.0,'exp'=>53));
+				array('orig'=>'g/l','dst'=>'kg/(m^3)','x'=>53.0,'exp'=>53));
 			array_push($ar_tests,
-					array('orig'=>'g/l','dst'=>'kg/l','x'=>53.0,'exp'=>0.053));
+				array('orig'=>'g/l','dst'=>'kg/l','x'=>53.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'g/l','dst'=>'g/l','x'=>'53.0','exp'=>53.0));
+				array('orig'=>'g/l','dst'=>'g/l','x'=>'53.0','exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'g/l','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>0.053));
+				array('orig'=>'g/l','dst'=>'g/(cm^3)','x'=>53.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'g/l','dst'=>'mg/l','x'=>53.0,'exp'=>53000));
+				array('orig'=>'g/l','dst'=>'mg/l','x'=>53.0,'exp'=>53000));
 			array_push($ar_tests,
-					array('orig'=>'g/l','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'g/l','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53.0));
 
 			array_push($ar_tests,
-					array('orig'=>'g/(cm^3)','dst'=>'t/(m^3)','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'g/(cm^3)','dst'=>'t/(m^3)','x'=>53.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'g/(cm^3)','dst'=>'kg/(m^3)','x'=>53.0,'exp'=>53000.0));
+				array('orig'=>'g/(cm^3)','dst'=>'kg/(m^3)','x'=>53.0,'exp'=>53000.0));
 			array_push($ar_tests,
-					array('orig'=>'g/(cm^3)','dst'=>'kg/l','x'=>53.0,'exp'=>53.0));
+				array('orig'=>'g/(cm^3)','dst'=>'kg/l','x'=>53.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'g/(cm^3)','dst'=>'g/l','x'=>53.0,'exp'=>53000));
+				array('orig'=>'g/(cm^3)','dst'=>'g/l','x'=>53.0,'exp'=>53000));
 			array_push($ar_tests,
-					array('orig'=>'g/(cm^3)','dst'=>'g/(cm^3)','x'=>'53.0','exp'=>53.0));
+				array('orig'=>'g/(cm^3)','dst'=>'g/(cm^3)','x'=>'53.0','exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'g/(cm^3)','dst'=>'mg/l','x'=>53.0,'exp'=>53000000));
+				array('orig'=>'g/(cm^3)','dst'=>'mg/l','x'=>53.0,'exp'=>53000000));
 			array_push($ar_tests,
-					array('orig'=>'g/(cm^3)','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53000));
+				array('orig'=>'g/(cm^3)','dst'=>'mg/(cm^3)','x'=>53.0,'exp'=>53000));
 
 			array_push($ar_tests,
-					array('orig'=>'mg/l','dst'=>'t/(m^3)','x'=>53000.0,'exp'=>0.053));
+				array('orig'=>'mg/l','dst'=>'t/(m^3)','x'=>53000.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'mg/l','dst'=>'kg/(m^3)','x'=>53000.0,'exp'=>53.0));
+				array('orig'=>'mg/l','dst'=>'kg/(m^3)','x'=>53000.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'mg/l','dst'=>'kg/l','x'=>53000.0,'exp'=>0.053));
+				array('orig'=>'mg/l','dst'=>'kg/l','x'=>53000.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'mg/l','dst'=>'g/l','x'=>53000.0,'exp'=>53.0));
+				array('orig'=>'mg/l','dst'=>'g/l','x'=>53000.0,'exp'=>53.0));
 			array_push($ar_tests,
-					array('orig'=>'mg/l','dst'=>'g/(cm^3)','x'=>53000.0,'exp'=>0.053));
+				array('orig'=>'mg/l','dst'=>'g/(cm^3)','x'=>53000.0,'exp'=>0.053));
 			array_push($ar_tests,
-					array('orig'=>'mg/l','dst'=>'mg/l','x'=>'53000.0','exp'=>53000.0));
+				array('orig'=>'mg/l','dst'=>'mg/l','x'=>'53000.0','exp'=>53000.0));
 			array_push($ar_tests,
-					array('orig'=>'mg/l','dst'=>'mg/(cm^3)','x'=>53000.0,'exp'=>53.0));
+				array('orig'=>'mg/l','dst'=>'mg/(cm^3)','x'=>53000.0,'exp'=>53.0));
 
 			array_push($ar_tests,
-					array('orig'=>'mg/(cm^3)','dst'=>'t/(m^3)','x'=>53000000.0,'exp'=>53000.0));
+				array('orig'=>'mg/(cm^3)','dst'=>'t/(m^3)','x'=>53000000.0,'exp'=>53000.0));
 			array_push($ar_tests,
-					array('orig'=>'mg/(cm^3)','dst'=>'kg/(m^3)','x'=>53000000.0,'exp'=>53000000));
+				array('orig'=>'mg/(cm^3)','dst'=>'kg/(m^3)','x'=>53000000.0,'exp'=>53000000));
 			array_push($ar_tests,
-					array('orig'=>'mg/(cm^3)','dst'=>'kg/l','x'=>53000000.0,'exp'=>53000));
+				array('orig'=>'mg/(cm^3)','dst'=>'kg/l','x'=>53000000.0,'exp'=>53000));
 			array_push($ar_tests,
-					array('orig'=>'mg/(cm^3)','dst'=>'g/l','x'=>53000000.0,'exp'=>53000000));
+				array('orig'=>'mg/(cm^3)','dst'=>'g/l','x'=>53000000.0,'exp'=>53000000));
 			array_push($ar_tests,
-					array('orig'=>'mg/(cm^3)','dst'=>'g/(cm^3)','x'=>53000000.0,'exp'=>53000));
+				array('orig'=>'mg/(cm^3)','dst'=>'g/(cm^3)','x'=>53000000.0,'exp'=>53000));
 			array_push($ar_tests,
-					array('orig'=>'mg/(cm^3)','dst'=>'mg/l','x'=>53000000.0,'exp'=>53000000000));
+				array('orig'=>'mg/(cm^3)','dst'=>'mg/l','x'=>53000000.0,'exp'=>53000000000));
 			array_push($ar_tests,
-					array('orig'=>'mg/(cm^3)','dst'=>'mg/(cm^3)','x'=>'53000000.0','exp'=>53000000));
+				array('orig'=>'mg/(cm^3)','dst'=>'mg/(cm^3)','x'=>'53000000.0','exp'=>53000000));
 
 			return $ar_tests;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_fd_convert_ct_density
 
@@ -349,16 +350,17 @@ class sirel_test_sirel_units {
 					$s_origin_unit=$arht_test['orig'];
 					$fd_expected=$arht_test['exp'];
 					$fd=sirel_units::fd_convert($s_destination_unit,
-							$i_or_s_or_fd,$s_origin_unit);
+						$i_or_s_or_fd,$s_origin_unit);
 
 					// One can not really compare floats due to rounding errors.
 					$s_x=number_format($fd*1000, 7);
 					$s_exp=number_format($fd_expected*1000, 7);
 					if($s_x!=$s_exp) {
 						$test_case['msg']='$s_destination_unit=='.
-								$s_destination_unit.' $i_or_s_or_fd=='.$i_or_s_or_fd.
-								' $s_origin_unit=='.$s_origin_unit. '$fd=='.$fd.
-								' $fd_expected=='.$fd_expected;
+							$s_destination_unit.' $i_or_s_or_fd=='.$i_or_s_or_fd.
+							' $s_origin_unit=='.$s_origin_unit. '$fd=='.$fd.
+							' $fd_expected=='.$fd_expected.
+							"\n GUID='3855776a-1ea3-41d2-82ad-c14121015dd7'";
 						$test_case['line_number']=__LINE__;
 						$ar_tc[]=$test_case;
 					} // if
@@ -371,7 +373,7 @@ class sirel_test_sirel_units {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_fd_convert
 
@@ -384,7 +386,7 @@ class sirel_test_sirel_units {
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // selftest
 

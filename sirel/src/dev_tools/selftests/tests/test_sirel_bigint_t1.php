@@ -42,89 +42,103 @@ class sirel_test_sirel_bigint_t1 {
 			//-----
 			$ar_x=sirel_operators::exec('ar_int2baseX',2,2);
 			if(count($ar_x)!=2) {
-				$test_case['msg']='test Err1, count($ar_x)=='.count($ar_x);
+				$test_case['msg']='test Err1, count($ar_x)=='.count($ar_x).
+					"\n GUID='245d9b74-30de-4444-9c0c-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[0];
 			if($i_x!=0) {
-				$test_case['msg']='test Err2, $i_x=='.$i_x;
+				$test_case['msg']='test Err2, $i_x=='.$i_x.
+					"\n GUID='a7cf8623-85fd-4704-820c-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[1];
 			if($i_x!=1) {
-				$test_case['msg']='test Err3, $i_x=='.$i_x;
+				$test_case['msg']='test Err3, $i_x=='.$i_x.
+					"\n GUID='d17b28a2-7ac7-4edb-b50c-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$ar_x=sirel_operators::exec('ar_int2baseX',0,2);
 			if(count($ar_x)!=1) {
-				$test_case['msg']='test Err4, count($ar_x)=='.count($ar_x);
+				$test_case['msg']='test Err4, count($ar_x)=='.count($ar_x).
+					"\n GUID='55e25134-935c-4437-92fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[0];
 			if($i_x!=0) {
-				$test_case['msg']='test Err5, $i_x=='.$i_x;
+				$test_case['msg']='test Err5, $i_x=='.$i_x.
+					"\n GUID='24726c74-3db3-442c-b2fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$ar_x=sirel_operators::exec('ar_int2baseX',5,2);
 			if(count($ar_x)!=3) {
-				$test_case['msg']='test Err6, count($ar_x)=='.count($ar_x);
+				$test_case['msg']='test Err6, count($ar_x)=='.count($ar_x).
+					"\n GUID='51bfdf34-8d13-4d15-b5fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[0];
 			if($i_x!=1) {
-				$test_case['msg']='test Err7, $i_x=='.$i_x;
+				$test_case['msg']='test Err7, $i_x=='.$i_x.
+					"\n GUID='307da0e4-6b29-47ca-b1fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[1];
 			if($i_x!=0) {
-				$test_case['msg']='test Err8, $i_x=='.$i_x;
+				$test_case['msg']='test Err8, $i_x=='.$i_x.
+					"\n GUID='7556488b-63a5-4e6a-82fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[2];
 			if($i_x!=1) {
-				$test_case['msg']='test Err9, $i_x=='.$i_x;
+				$test_case['msg']='test Err9, $i_x=='.$i_x.
+					"\n GUID='75548d5c-2c51-4d4b-82fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$ar_x=sirel_operators::exec('ar_int2baseX',2,3);
 			if(count($ar_x)!=1) {
-				$test_case['msg']='test Err10, count($ar_x)=='.count($ar_x);
+				$test_case['msg']='test Err10, count($ar_x)=='.count($ar_x).
+					"\n GUID='d71efc3a-2be9-4100-a3fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[0];
 			if($i_x!=2) {
-				$test_case['msg']='test Err11, $i_x=='.$i_x;
+				$test_case['msg']='test Err11, $i_x=='.$i_x.
+					"\n GUID='309313f5-6a1d-4f48-94fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$ar_x=sirel_operators::exec('ar_int2baseX',5,3);
 			if(count($ar_x)!=2) {
-				$test_case['msg']='test Err12, count($ar_x)=='.count($ar_x);
+				$test_case['msg']='test Err12, count($ar_x)=='.count($ar_x).
+					"\n GUID='3964dc91-9ae8-4aba-93fb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[0];
 			if($i_x!=2) {
-				$test_case['msg']='test Err13, $i_x=='.$i_x;
+				$test_case['msg']='test Err13, $i_x=='.$i_x.
+					"\n GUID='77395224-c48e-415a-92eb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$i_x=$ar_x[1];
 			if($i_x!=1) {
-				$test_case['msg']='test Err14, $i_x=='.$i_x;
+				$test_case['msg']='test Err14, $i_x=='.$i_x.
+					"\n GUID='26598764-d77a-444e-84eb-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -134,7 +148,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_ar_int2baseX
 
@@ -292,7 +306,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_BigInt_t1_instantiation
 
@@ -356,7 +370,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_BigInt_t1_add
 
@@ -420,7 +434,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_BigInt_t1_mul
 
@@ -481,7 +495,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_BigInt_t1_neg
 
@@ -542,7 +556,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_BigInt_t1_operator_plus
 
@@ -619,7 +633,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_BigInt_t1_operator_minus
 
@@ -681,7 +695,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_BigInt_t1_operator_star
 
@@ -700,7 +714,7 @@ class sirel_test_sirel_bigint_t1 {
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // selftest
 //-------------------------------------------------------------------------

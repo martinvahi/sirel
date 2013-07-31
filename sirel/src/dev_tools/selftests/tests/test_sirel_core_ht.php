@@ -32,9 +32,9 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------
 
-class sirel_test_sirel_core_ht{
+class sirel_test_sirel_core_ht {
 
-   private static function test_1() {
+	private static function test_1() {
 		try {
 			$test_result=array();
 			$ar_tc=array();
@@ -43,7 +43,8 @@ class sirel_test_sirel_core_ht{
 			$str2='Hi';
 			if(!sirelLang::str1ContainsStr2($str1,$str2,0)) {
 				$test_case['msg']='$str2=="'.$str2.'" is not seen within '.
-						'$str1=="'.$str1.'".';
+					'$str1=="'.$str1.'".'.
+					"\n GUID='1f0ea548-3742-47e2-a449-714121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -53,7 +54,7 @@ class sirel_test_sirel_core_ht{
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_1
 
@@ -65,7 +66,7 @@ class sirel_test_sirel_core_ht{
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // selftest
 

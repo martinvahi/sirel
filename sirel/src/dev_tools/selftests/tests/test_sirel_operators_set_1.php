@@ -47,13 +47,15 @@ class sirel_test_sirel_operators_set_1 {
 			$op=sirel_operators::exec($s_oper_name,32,64);
 			$fd_x=$op->value;
 			if($fd_x!=50) {
-				$test_case['msg']='test Err1 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err1 $fd_x=='.$fd_x.
+					"\n GUID='23dc6e49-1231-4420-81cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$sb=$op->sb_failure;
 			if($sb!='f') {
-				$test_case['msg']='test Err1a $sb=='.$sb;
+				$test_case['msg']='test Err1a $sb=='.$sb.
+					"\n GUID='37af0924-d113-44ae-a2cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -62,13 +64,15 @@ class sirel_test_sirel_operators_set_1 {
 			$op=sirel_operators::exec($s_oper_name,7.056,56);
 			$fd_x=$op->value;
 			if($fd_x!=12.6) {
-				$test_case['msg']='test Err2 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err2 $fd_x=='.$fd_x.
+					"\n GUID='70c37520-9f55-416c-a3cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$sb=$op->sb_failure;
 			if($sb!='f') {
-				$test_case['msg']='test Err2a $sb=='.$sb;
+				$test_case['msg']='test Err2a $sb=='.$sb.
+					"\n GUID='feecde15-0a03-477a-93cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -77,7 +81,8 @@ class sirel_test_sirel_operators_set_1 {
 			$op=sirel_operators::exec($s_oper_name,7.056,0);
 			$sb=$op->sb_failure;
 			if($sb!='t') {
-				$test_case['msg']='test Err3 $sb=='.$sb;
+				$test_case['msg']='test Err3 $sb=='.$sb.
+					"\n GUID='cc05ec1b-4a79-4f69-b4cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -87,7 +92,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_percentage_a_is_of_b
 
@@ -99,28 +104,32 @@ class sirel_test_sirel_operators_set_1 {
 			//----tests-cases-start----------------------
 			$fd_x=sirel_operators::exec('to_fd','7')+2;
 			if($fd_x!=9.0) {
-				$test_case['msg']='test Err1 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err1 $fd_x=='.$fd_x.
+					"\n GUID='3b661bd3-4e1f-441d-bbcf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$fd_x=sirel_operators::exec('to_fd','23.7')+2;
 			if($fd_x!=25.7) {
-				$test_case['msg']='test Err2 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err2 $fd_x=='.$fd_x.
+					"\n GUID='7fd20f11-1bec-4cd2-93cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$fd_x=sirel_operators::exec('to_fd',21.1)+2;
 			if($fd_x!=23.1) {
-				$test_case['msg']='test Err3 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err3 $fd_x=='.$fd_x.
+					"\n GUID='4f0cb11b-9f1b-45e1-b5cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$fd_x=sirel_operators::exec('to_fd',41)+2;
 			if($fd_x!=43.0) {
-				$test_case['msg']='test Err4 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err4 $fd_x=='.$fd_x.
+					"\n GUID='f89e3142-079a-4ec1-83cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -130,7 +139,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_to_fd
 
@@ -145,21 +154,24 @@ class sirel_test_sirel_operators_set_1 {
 			//-----
 			$fd_x=$ar_x[0]+4;
 			if($fd_x!=46) {
-				$test_case['msg']='test Err1 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err1 $fd_x=='.$fd_x.
+					"\n GUID='b9fb6d39-1da0-4bbb-92cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$fd_x=$ar_x[1]+7.1;
 			if($fd_x!=62.1) {
-				$test_case['msg']='test Err2 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err2 $fd_x=='.$fd_x.
+					"\n GUID='ecaccf4b-e5a8-4cad-b1cf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$fd_x=$ar_x[2]+2;
 			if($fd_x!=5.3) {
-				$test_case['msg']='test Err3 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err3 $fd_x=='.$fd_x.
+					"\n GUID='72933a4a-9f78-4f44-82bf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -169,7 +181,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_to_fd_in_map
 
@@ -188,28 +200,32 @@ class sirel_test_sirel_operators_set_1 {
 			$op_x=sirel_operators::exec($s_oper_name,$op,1);
 			$fd_x=$op_x->value;
 			if($fd_x!=7.5) {
-				$test_case['msg']='test Err1 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err1 $fd_x=='.$fd_x.
+					"\n GUID='a7fc5230-61fb-43a9-91bf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$op_x=sirel_operators::exec($s_oper_name,$op,2);
 			$fd_x=$op_x->value;
 			if($fd_x!=7.55) {
-				$test_case['msg']='test Err2 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err2 $fd_x=='.$fd_x.
+					"\n GUID='16838d85-b866-44ea-b2bf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$op_x=sirel_operators::exec($s_oper_name,$op,0);
 			$fd_x=$op_x->value;
 			if($fd_x!=8.0) {
-				$test_case['msg']='test Err3 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err3 $fd_x=='.$fd_x.
+					"\n GUID='57b4e63f-0595-451f-94bf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			$op_x=sirel_operators::exec($s_oper_name,$op,3);
 			$fd_x=$op_x->value;
 			if($fd_x!=7.546) {
-				$test_case['msg']='test Err4 $fd_x=='.$fd_x;
+				$test_case['msg']='test Err4 $fd_x=='.$fd_x.
+					"\n GUID='fc21c410-3260-40a7-95bf-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -219,7 +235,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_sirelOP_round_with_sb_failure_handling_t1
 
@@ -236,7 +252,8 @@ class sirel_test_sirel_operators_set_1 {
 			$s_hay='ybbaaa';
 			$s_x=sirel_operators::exec($s_oper_name,$s_regex,$s_new,$s_hay);
 			if($s_x!='yWaaa') {
-				$test_case['msg']='test Err1 $s_x=='.$s_x;
+				$test_case['msg']='test Err1 $s_x=='.$s_x.
+					"\n GUID='8be11e1e-f7d4-4239-917f-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -247,7 +264,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_replace_by_regex_t1
 
@@ -264,27 +281,30 @@ class sirel_test_sirel_operators_set_1 {
 			$s_new_dot='W';
 			$s_if_failure='ehee';
 			$s_x=sirel_operators::exec($s_oper_name,$op,
-					2,$s_if_failure,$s_new_dot);
+				2,$s_if_failure,$s_new_dot);
 			if($s_x!='ehee') {
-				$test_case['msg']='test Err1 $s_x=='.$s_x;
+				$test_case['msg']='test Err1 $s_x=='.$s_x.
+					"\n GUID='2a7c0312-4e8d-46f2-927f-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$op->sb_failure='f';
 			$s_x=sirel_operators::exec($s_oper_name,$op,
-					2,$s_if_failure,$s_new_dot);
+				2,$s_if_failure,$s_new_dot);
 			if($s_x!='2W47') {
-				$test_case['msg']='test Err2 $s_x=='.$s_x;
+				$test_case['msg']='test Err2 $s_x=='.$s_x.
+					"\n GUID='126a7cd3-c11c-4113-957f-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
 			$op->sb_failure='f';
 			$s_x=sirel_operators::exec($s_oper_name,$op,
-					1,$s_if_failure,$s_new_dot);
+				1,$s_if_failure,$s_new_dot);
 			if($s_x!='2W5') {
-				$test_case['msg']='test Err3 $s_x=='.$s_x;
+				$test_case['msg']='test Err3 $s_x=='.$s_x.
+					"\n GUID='a2bc5652-a8a1-4a2c-b36f-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -294,7 +314,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_sirelOP_fd_to_s_t1
 
@@ -307,7 +327,8 @@ class sirel_test_sirel_operators_set_1 {
 			$s_pile='Abc';
 			$s_x=sirel_operators::exec('str_reverse',$s_pile);
 			if($s_x!='cbA') {
-				$test_case['msg']='test Err1 $s_x=='.$s_x;
+				$test_case['msg']='test Err1 $s_x=='.$s_x.
+					"\n GUID='2083cc3f-d02d-4b79-926f-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -315,7 +336,8 @@ class sirel_test_sirel_operators_set_1 {
 			$s_pile='';
 			$s_x=sirel_operators::exec('str_reverse',$s_pile);
 			if($s_x!='') {
-				$test_case['msg']='test Err2 $s_x=='.$s_x;
+				$test_case['msg']='test Err2 $s_x=='.$s_x.
+					"\n GUID='df439633-6529-4d7e-916f-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -323,7 +345,8 @@ class sirel_test_sirel_operators_set_1 {
 			$s_pile='X';
 			$s_x=sirel_operators::exec('str_reverse',$s_pile);
 			if($s_x!='X') {
-				$test_case['msg']='test Err3 $s_x=='.$s_x;
+				$test_case['msg']='test Err3 $s_x=='.$s_x.
+					"\n GUID='172fa9b4-397b-4d6c-b46f-b14121015dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -333,7 +356,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // test_str_reverse
 
@@ -351,7 +374,7 @@ class sirel_test_sirel_operators_set_1 {
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': ');
 		} // catch
 	} // selftest
 

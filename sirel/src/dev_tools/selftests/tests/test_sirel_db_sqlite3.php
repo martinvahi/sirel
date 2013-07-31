@@ -1,6 +1,6 @@
 <?php
-//-------------------------------------------------------------------------
-// Copyright (c) 2011, martin.vahi@softf1.com that has an
+//=========================================================================
+// Copyright (c) 2013, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
 //
 // Redistribution and use in source and binary forms, with or
@@ -32,53 +32,82 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //-------------------------------------------------------------------------
 
-//-------------------------------------------------------------------------
-class sirel_test_sirel_GUID {
+class sirel_test_db_sqlite3 {
+
+
+	private static function s_get_db_tmp_file_path() {
+		try {
+			$s_path_lib_sirel=constant('s_path_lib_sirel');
+			$s_fp_tmp=$s_path_lib_sirel.'/var_default/tmp_';
+			$s_fp_db_file=$s_fp_tmp.'/sirel_test_db_sqlite3_tmp_1.db';
+			return $s_fp_db_file;
+		}catch (Exception $err_exception) {
+			sirelBubble(__FILE__,__LINE__,$err_exception,
+				__CLASS__.'->'.__FUNCTION__.': '.
+				"\nGUID=='f4091d47-46c5-40a8-b3d5-814121015dd7'");
+		} // catch
+	} // s_get_db_tmp_file_path
+
+	private static function del_db_file_if_it_exists() {
+		try {
+			$s_fp_db_file=sirel_test_db_sqlite3::s_get_db_tmp_file_path();
+			if(file_exists($s_fp_db_file)===True) {
+				unlink($s_fp_db_file);
+			} // if
+		}catch (Exception $err_exception) {
+			sirelBubble(__FILE__,__LINE__,$err_exception,
+				__CLASS__.'->'.__FUNCTION__.': '.
+				"\nGUID=='4833a3d6-b5b1-425f-81c5-814121015dd7'");
+		} // catch
+	} // del_db_file_if_it_exists
+
 //-------------------------------------------------------------------------
 
-	private static function selftest_test1() {
+	private static function test_db_connect() {
 		try {
 			$test_result=array();
 			$ar_tc=array();
+			sirel_test_db_sqlite3::del_db_file_if_it_exists();
 			//----tests-cases-start----------------------
-			// _0_1_2_3 _4_5 _6_7 _8_9 __11__13__15
-			// oooooooo-oooo-Xooo-Yooo-oooooooooooo
-			// 012345678901234567890123456789012345
-			// _________9_________9_________9______
-
-			$s_guid=sirel_GUID();
-			$s_x=sirelLang::s_get_char($s_guid, 14); // the version
-			if($s_x!='4') {
-				$test_case['msg']='test 1, $s_x=='.$s_x.
-					"\n GUID='2c2bf946-204a-407d-a515-814121015dd7'";
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
-			} // if
-			//-----
-			$s_x=sirelLang::s_get_char($s_guid, 19); // the variant
-			if(($s_x!='8')&&($s_x!='9')&&($s_x!='a')&&($s_x!='b')) {
-				$test_case['msg']='test 2, $s_x=='.$s_x.
-					"\n GUID='24a71609-3b65-43ac-a415-814121015dd7'";
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
-			} // if
-			//-----
+			$test_case['msg']='The class sirel_test_db_sqlite3'.
+				'is inclomplete and it should not be part of selftestss.'.
+				"\nGUID=='3dfe2bd2-a6a5-435b-83c5-814121015dd7'";
+			$test_case['line_number']=__LINE__;
+			$ar_tc[]=$test_case;
+			// TODO: sqlite3 is not yet supported, because
+			// the sqlite3 access requires the loading of
+			// some dynamic libraries and the standard set
+			// of Ubuntu libraries seem to have some
+			// incompatibility flaw that prevents the sqlite3
+			// library from being loaded.
+			//
+			// $arht_in=array('aa'=>'t','bb'=>True);
+			// $b_x=sirel_ix::arht_has_keys($arht_in,'aa');
+			// if($b_x!=True) {
+			// $test_case['msg']='test 1, $b_x=='.$b_x;
+			// $test_case['line_number']=__LINE__;
+			// $ar_tc[]=$test_case;
+			// } // if
+			//------
 			//----tests-cases-end------------------------
 			$test_result['test_cases']=$ar_tc;
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+				__CLASS__.'->'.__FUNCTION__.': '.
+				"\nGUID=='b4003421-a404-4adc-b3c5-814121015dd7'");
 		} // catch
-	} // selftest_test1
+	} // test_db_connect
+
+//-------------------------------------------------------------------------
+
 
 //-------------------------------------------------------------------------
 	public static function selftest() {
 		try {
 			$ar_test_results=array();
-			$ar_test_results[]=sirel_test_sirel_GUID::selftest_test1();
-
+			$ar_test_results[]=sirel_test_db_sqlite3::test_db_connect();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble(__FILE__,__LINE__,$err_exception,
@@ -87,7 +116,6 @@ class sirel_test_sirel_GUID {
 	} // selftest
 
 //-------------------------------------------------------------------------
-} // class sirel_test_sirel_GUID
-//-------------------------------------------------------------------------
-
+} // class sirel_test_db_sqlite3
+//=========================================================================
 ?>
