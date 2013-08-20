@@ -168,4 +168,4 @@ function s_concat_array_of_strings(&$ar_strings) {
 } // s_concat_array_of_strings
 
 //=========================================================================
-?>
+

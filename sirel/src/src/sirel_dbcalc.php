@@ -37,17 +37,17 @@ require_once('sirel_lang.php');
 class sirelDBcalc {
 
 	public function calc_and_add_or_update_cache_fields(&$arht_row,
-			$s_key, $s_cache_field_name_core, $s_interpretation) {
+		$s_key, $s_cache_field_name_core, $s_interpretation) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_array',$arht_row);
+					__FUNCTION__,'sirelTD_is_array',$arht_row);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_key);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_key);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_cache_field_name_core);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_cache_field_name_core);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_interpretation);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_interpretation);
 			} // if
 			$x_interpr=NULL;
 			$b_interpr_failure=True;
@@ -65,22 +65,22 @@ class sirelDBcalc {
 				default:
 					throw new Exception(
 					__CLASS__.'->'.__FUNCTION__.
-							': There\'s no branch for '.
-							'$s_interpretation=='.$s_interpretation.'.');
+						': There\'s no branch for '.
+						'$s_interpretation=='.$s_interpretation.'.');
 					break;
 			} // switch
 			$s_cache_field_name='dbf_cache_'.$s_interpretation.'_'.
-					$s_cache_field_name_core;
+				$s_cache_field_name_core;
 			$s_cache_field_name_sb='dbf_cache_sb_'.$s_interpretation.'_'.
-					$s_cache_field_name_core.'_set';
+				$s_cache_field_name_core.'_set';
 			if($b_interpr_failure) {
 				$arht_row[$s_cache_field_name_sb]='f';
 			} else {
 				$arht_row[$s_cache_field_name_sb]='t';
 			} // else
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='de816812-e8e9-4270-8221-612021318dd7'");
 		} // catch
 	} // calc_and_add_or_update_cache_fields
 
@@ -92,11 +92,10 @@ class sirelDBcalc {
 			//$ar_test_results[]=sirelDBcalc::selftest_awsome();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='964f5e18-dbe7-4f3e-b121-612021318dd7'");
 		} // catch
 	} // selftest
 
 } // class sirelDBcalc
 
-?>

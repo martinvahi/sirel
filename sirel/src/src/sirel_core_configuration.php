@@ -9,22 +9,32 @@
 //=========================================================================
 // This file is for configuration data that is common for  
 // development tools in sirel and the application that uses the sirel.
+//
 // The development tools themselves are not necessarily part of the 
 // release version of the application. For example, at least some of 
 // the tools, for example, the PHP shell, must be turned off in the 
 // relase version of the application.
 //-------------------------------------------------------------------------
 
-sirelSiteConfig::$debug_PHP=True;
-sirelSiteConfig::$debug_JavaScript=True;
+sirelSiteConfig::$debug_PHP=TRUE;
+//sirelSiteConfig::$debug_PHP=FALSE;
+sirelSiteConfig::$debug_JavaScript=TRUE;
+//sirelSiteConfig::$debug_JavaScript=FALSE;
 
-sirelSiteConfig::$i_raudrohi_version=25;
-sirelSiteConfig::$various['confighook_raudrohi_port']='YUI_3_0';
-//sirelSiteConfig::$various['confighook_raudrohi_port']='YUI_3_3_0';
-sirelSiteConfig::$use_content_delivery_networks_for_JavaScript_dependency_libs=True;
-$s_path_lib_sirel=constant('s_path_lib_sirel');
-sirelSiteConfig::$file_path_2_kibuvits_home_folder=$s_path_lib_sirel.
-	'/src/lib/kibuvits_ruby_library/src';
+//sirelSiteConfig::$b_use_content_delivery_networks_for_JavaScript_dependency_libs=TRUE;
+sirelSiteConfig::$b_use_content_delivery_networks_for_JavaScript_dependency_libs=FALSE;
+
+sirelSiteConfig::$site_titleprefix=''; 
+sirelSiteConfig::$site_URL=NULL; 
+
+
+sirelSiteConfig::$s_root_username='444'; // a string
+sirelSiteConfig::$s_root_configfile_password='424243'; // a string
+sirelSiteConfig::$b_root_configfile_password_overrides_root_password_in_database=TRUE;//boolean
+
+// Those are just the "simplest", "most commonly edited", settings.
+// The rest of the Sirel PHP Library settings
+// are determined at the sirel_core_base.php .
 
 //=========================================================================
-?>
+

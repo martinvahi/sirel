@@ -52,7 +52,7 @@ class sirel_test_sirel_security_utilities {
 			if($i_x!=$i_expected) {
 				$test_case['msg']='$i_x=='.$i_x.
 					' $i_expected=='.$i_expected.
-					"\n GUID='2cb9ab58-c023-4fa7-83bb-b14121015dd7'";
+					"\n GUID='5212611c-d089-4741-83ec-526131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -63,7 +63,7 @@ class sirel_test_sirel_security_utilities {
 			if($i_x!=$i_expected) {
 				$test_case['msg']='$i_x=='.$i_x.
 					' $i_expected=='.$i_expected.
-					"\n GUID='f534231a-6ea8-4a72-b1bb-b14121015dd7'";
+					"\n GUID='c5b0cc48-f72b-4854-a4ec-526131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -74,7 +74,7 @@ class sirel_test_sirel_security_utilities {
 			if($i_x!=$i_expected) {
 				$test_case['msg']='$i_x=='.$i_x.
 					' $i_expected=='.$i_expected.
-					"\n GUID='a2220af6-aa92-427d-95ab-b14121015dd7'";
+					"\n GUID='6b083b23-04f5-4883-91ec-526131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -85,7 +85,7 @@ class sirel_test_sirel_security_utilities {
 			if($i_x!=$i_expected) {
 				$test_case['msg']='$i_x=='.$i_x.
 					' $i_expected=='.$i_expected.
-					"\n GUID='821bfc6f-f4ea-44a1-a3ab-b14121015dd7'";
+					"\n GUID='15d65d52-4709-48e3-a4ec-526131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -95,8 +95,8 @@ class sirel_test_sirel_security_utilities {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='80cbec3a-7754-45d2-a2ec-526131318dd7'");
 		} // catch
 	} // test_1
 
@@ -107,8 +107,8 @@ class sirel_test_sirel_security_utilities {
 			$ar_test_results[]=sirel_test_sirel_security_utilities::test_1();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='97a7bc5a-51af-45b0-92ec-526131318dd7'");
 		} // catch
 	} // selftest
 

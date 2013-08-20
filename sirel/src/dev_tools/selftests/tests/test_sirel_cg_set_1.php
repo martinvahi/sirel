@@ -51,7 +51,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=sirel_cg_set_1::s_img_fp_2_armoured_img_tag($s_fp);
 			if(mb_strlen($s_x)<300) {
 				$test_case['msg']='test 1, $s_x=='.$s_x.
-					"\n GUID='f8012027-8ab4-4849-a380-a21150b06dd7'";
+					"\n GUID='2c2aee34-9d20-422d-a1f3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -60,8 +60,8 @@ class sirel_test_sirel_cg_set_1 {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='d4a6e459-1b71-4682-b1f3-026131318dd7'");
 		} // catch
 	} // test_s_img_fp_2_armoured_img_tag
 
@@ -79,7 +79,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre>&amp;</pre>') {
 				$test_case['msg']='test 1, $s_x=='.$s_x.
-					"\n GUID='13cd5059-bd56-450b-8180-a21150b06dd7'";
+					"\n GUID='d2ca5cd2-80cb-45e2-8cf3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -89,7 +89,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre>&amp;&semi;</pre>') {
 				$test_case['msg']='test 2, $s_x=='.$s_x.
-					"\n GUID='4021d3d5-5a18-4304-b580-a21150b06dd7'";
+					"\n GUID='89ac3d50-22ae-460b-91f3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -99,7 +99,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre>&semi;</pre>') {
 				$test_case['msg']='test 3, $s_x=='.$s_x.
-					"\n GUID='5fcb1e95-018e-4120-8480-a21150b06dd7'";
+					"\n GUID='32574116-948b-4d5c-a4e3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -109,7 +109,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre></pre>') {
 				$test_case['msg']='test 4, $s_x=='.$s_x.
-					"\n GUID='5fa2c9a0-93be-42c7-9180-a21150b06dd7'";
+					"\n GUID='53b7a735-bb5b-409f-85e3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -119,7 +119,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre>&lt;</pre>') {
 				$test_case['msg']='test 5, $s_x=='.$s_x.
-					"\n GUID='5397e662-4e48-47da-a180-a21150b06dd7'";
+					"\n GUID='6210ed74-3fe3-4fcd-a1e3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -129,7 +129,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre>&gt;</pre>') {
 				$test_case['msg']='test 6, $s_x=='.$s_x.
-					"\n GUID='5ca17529-a264-4182-9570-a21150b06dd7'";
+					"\n GUID='f9fca950-60e2-4db4-92e3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -139,7 +139,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre>&lt;&gt;</pre>') {
 				$test_case['msg']='test 7, $s_x=='.$s_x.
-					"\n GUID='2006e948-c3ff-4818-8470-a21150b06dd7'";
+					"\n GUID='59334c74-df21-477f-8ae3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -149,7 +149,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=mb_ereg_replace($s_rgx,$s_lc_emptystring,$s_x);
 			if($s_x!='<pre>&quot;</pre>') {
 				$test_case['msg']='test 8, $s_x=='.$s_x.
-					"\n GUID='3132628f-1d0c-49b2-8470-a21150b06dd7'";
+					"\n GUID='19b26502-201d-4671-85e3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -159,8 +159,8 @@ class sirel_test_sirel_cg_set_1 {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='c36a020b-ecbe-41c8-b4e3-026131318dd7'");
 		} // catch
 	} // test_s_txt_2_verbatim_html
 
@@ -179,7 +179,7 @@ class sirel_test_sirel_cg_set_1 {
 			$s_x=sirel_cg_set_1::s_js_fp_2_embedded_js_script_tag($s_fp);
 			if(mb_strlen($s_x)<10) {
 				$test_case['msg']='test 1, $s_x=='.$s_x.
-					"\n GUID='9712fb40-677a-4289-8370-a21150b06dd7'";
+					"\n GUID='4e0541cd-fb64-4d3c-a5e3-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -188,8 +188,8 @@ class sirel_test_sirel_cg_set_1 {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='a2a2fc2a-424c-4daf-85e3-026131318dd7'");
 		} // catch
 	} // test_s_js_fp_2_embedded_js_script_tag
 
@@ -203,9 +203,8 @@ class sirel_test_sirel_cg_set_1 {
 			$ar_test_results[]=sirel_test_sirel_cg_set_1::test_s_js_fp_2_embedded_js_script_tag();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='7679ac65-e8ca-46b2-b370-a21150b06dd7'");
+			sirelBubble_t2($err_exception,
+				" GUID='ab54851e-66d1-4b99-92e3-026131318dd7'");
 		} // catch
 	} // selftest
 

@@ -56,7 +56,7 @@ class sirel_operators {
 
 //--------------------------------------------------------------------
 	public static function s_signature(&$s_operator_name,
-			&$ar_operargsamples) {
+		&$ar_operargsamples) {
 		try {
 			$s_separ=&sirel_operators::$s_separ;
 			$s_signature=''.$s_operator_name.$s_separ;
@@ -70,8 +70,8 @@ class sirel_operators {
 			} // for
 			return $s_signature;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='c1f4e243-a961-4546-a4dd-812021318dd7'");
 		} // catch
 	} // s_signature
 
@@ -82,13 +82,13 @@ class sirel_operators {
 	// operator. This means that the number of actual operands can be
 	// greater than the number of operand types declared here.
 	public static function declare_operator($func_id_est_callback,
-			$s_operator_name,$x_first_operand_example) {
+		$s_operator_name,$x_first_operand_example) {
 		try {
 			$ar_args=func_get_args();
 			$i_n_of_args=count($ar_args);
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
 				if($i_n_of_args<3) {
 					// The requirement that an operator has to
 					// take at least one operand is mainly to increase the
@@ -96,16 +96,16 @@ class sirel_operators {
 					// It can be refactored out later without the need to
 					// change the client code.
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The operator is expected to take at least one '.
-							'argument. $i_n_of_args=='.$i_n_of_args);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The operator is expected to take at least one '.
+						'argument. $i_n_of_args=='.$i_n_of_args);
 				} // if
 				if(function_exists($func_id_est_callback)==False) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The function that is declared to implement the '.
-							'operator does not exist. $func_id_est_callback=='.
-							$func_id_est_callback);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The function that is declared to implement the '.
+						'operator does not exist. $func_id_est_callback=='.
+						$func_id_est_callback);
 				} // if
 			} // if
 			$ar_operargsamples=array();
@@ -115,40 +115,40 @@ class sirel_operators {
 				array_push($ar_operargsamples, $x_elem);
 			} // for
 			$s_signature=sirel_operators::s_signature($s_operator_name,
-					$ar_operargsamples);
+				$ar_operargsamples);
 			sirel_operators::$arht_operators[$s_signature]=$func_id_est_callback;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='cd9da85a-0594-48f8-83dd-812021318dd7'");
 		} // catch
 	} // declare_operator
 
 //--------------------------------------------------------------------
 	public static function declare_binary_operator_for_numbers($func_id_est_callback,
-			$s_operator_name) {
+		$s_operator_name) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
 				if(function_exists($func_id_est_callback)==False) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The function that is declared to implement the '.
-							'operator does not exist. $func_id_est_callback=='.
-							$func_id_est_callback);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The function that is declared to implement the '.
+						'operator does not exist. $func_id_est_callback=='.
+						$func_id_est_callback);
 				} // if
 			} // if
 			sirel_operators::declare_operator($func_id_est_callback,
-					$s_operator_name,42,42);
+				$s_operator_name,42,42);
 			sirel_operators::declare_operator($func_id_est_callback,
-					$s_operator_name,42.0,42.0);
+				$s_operator_name,42.0,42.0);
 			sirel_operators::declare_operator($func_id_est_callback,
-					$s_operator_name,42.0,42);
+				$s_operator_name,42.0,42);
 			sirel_operators::declare_operator($func_id_est_callback,
-					$s_operator_name,42,42.0);
+				$s_operator_name,42,42.0);
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='910f8127-20d5-46d7-a5dd-812021318dd7'");
 		} // catch
 	} // declare_binary_operator_for_numbers
 
@@ -164,18 +164,18 @@ class sirel_operators {
 	// provide exactly as many optional arguments as was provided
 	// during the declaration of the operator.
 	public static function b_operator_defined($s_operator_name,
-			$x_first_operand_example) {
+		$x_first_operand_example) {
 		try {
 			$ar_args=func_get_args();
 			$i_n_of_args=count($ar_args);
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
 				if($i_n_of_args<2) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The operator is expected to take at least one '.
-							'argument. $i_n_of_args=='.$i_n_of_args);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The operator is expected to take at least one '.
+						'argument. $i_n_of_args=='.$i_n_of_args);
 				} // if
 			} // if
 			$ar_operargsamples=array();
@@ -185,13 +185,13 @@ class sirel_operators {
 				array_push($ar_operargsamples, $x_elem);
 			} // for
 			$s_signature=sirel_operators::s_signature($s_operator_name,
-					$ar_operargsamples);
+				$ar_operargsamples);
 			$b_is_defined=array_key_exists($s_signature,
-					sirel_operators::$arht_operators);
+				sirel_operators::$arht_operators);
 			return $b_is_defined;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3b4a8487-aedf-45d9-8bdd-812021318dd7'");
 		} // catch
 	} // b_operator_defined
 
@@ -199,30 +199,30 @@ class sirel_operators {
 	// it takes an array of operand examples in stead of the operand
 	// examples themselves.
 	public static function b_operator_defined_ar($s_operator_name,
-			&$ar_operand_examples) {
+		&$ar_operand_examples) {
 		try {
 			$i_n_of_operand_examples=count($ar_operand_examples);
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_array',$ar_operand_examples);
+					__FUNCTION__,'sirelTD_is_array',$ar_operand_examples);
 				if($i_n_of_operand_examples<1) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The operator is expected to take at least one '.
-							'argument. $i_n_of_operand_examples=='.
-							$i_n_of_operand_examples);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The operator is expected to take at least one '.
+						'argument. $i_n_of_operand_examples=='.
+						$i_n_of_operand_examples);
 				} // if
 			} // if
 			$s_signature=sirel_operators::s_signature($s_operator_name,
-					$ar_operand_examples);
+				$ar_operand_examples);
 			$b_is_defined=array_key_exists($s_signature,
-					sirel_operators::$arht_operators);
+				sirel_operators::$arht_operators);
 			return $b_is_defined;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='2b783cb1-0307-4549-84dd-812021318dd7'");
 		} // catch
 	} // b_operator_defined_ar
 
@@ -237,7 +237,7 @@ class sirel_operators {
 	// is not able to handle functions that have been delcared to
 	// take their arguments as references.
 	private static function exec_PHP_bug_workarounds(&$func,
-			&$ar_operargsamples,&$op_tmp) {
+		&$ar_operargsamples,&$op_tmp) {
 		try {
 			$x_out=NULL;
 			if($func=='func_sirel_operators_set_1_sirelOP_round_with_sb_failure_handling_t1') {
@@ -260,8 +260,8 @@ class sirel_operators {
 			} // if
 			$op_tmp->sb_failure=False;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='41681848-f57e-408a-83dd-812021318dd7'");
 		} // catch
 	} // exec_PHP_bug_workarounds
 
@@ -271,7 +271,7 @@ class sirel_operators {
 			$op_tmp=new sirelOP();
 			$x_out=NULL;
 			sirel_operators::exec_PHP_bug_workarounds($func,
-					$ar_operargsamples,$op_tmp);
+				$ar_operargsamples,$op_tmp);
 			if($op_tmp->sb_failure) {
 				$x_out=&$op_tmp->value;
 			} else {
@@ -279,8 +279,8 @@ class sirel_operators {
 			} // else
 			return $x_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='598fd51d-f657-4659-94dd-812021318dd7'");
 		} // catch
 	} // exec_common
 
@@ -290,12 +290,12 @@ class sirel_operators {
 			$i_n_of_args=count($ar_args);
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
 				if($i_n_of_args<2) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The operator is expected to take at least one '.
-							'argument. $i_n_of_args=='.$i_n_of_args);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The operator is expected to take at least one '.
+						'argument. $i_n_of_args=='.$i_n_of_args);
 				} // if
 			} // if
 			$ar_operargsamples=array();
@@ -305,29 +305,29 @@ class sirel_operators {
 				array_push($ar_operargsamples, $x_elem);
 			} // for
 			$s_signature=sirel_operators::s_signature($s_operator_name,
-					$ar_operargsamples);
+				$ar_operargsamples);
 			if(sirelSiteConfig::$debug_PHP) {
 				$b_is_defined=array_key_exists($s_signature,
-						sirel_operators::$arht_operators);
+					sirel_operators::$arht_operators);
 				if($b_is_defined==FALSE) {
 					$s_msg='Operator not found for signature '.$s_signature.
-							"\n".' <br/>';
+						"\n".' <br/>';
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.$s_msg);
+						__CLASS__.'->'.__FUNCTION__.': '.$s_msg);
 				} // if
 				$func=sirel_operators::$arht_operators[$s_signature];
 				if(is_callable($func)==False) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The function is not callable. $func=='.$func);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The function is not callable. $func=='.$func);
 				} // if
 			} // if
 			$x_out=sirel_operators::exec_common($s_signature,
-					$ar_operargsamples);
+				$ar_operargsamples);
 			return $x_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='6a41ea49-3a52-4d2f-a2cd-812021318dd7'");
 		} // catch
 	} //exec
 
@@ -337,39 +337,39 @@ class sirel_operators {
 			if(sirelSiteConfig::$debug_PHP) {
 				if($i_n_of_operator_operands<1) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The operator is expected to take at least one '.
-							'argument. $i_n_of_operator_operands=='.
-							$i_n_of_operator_operands);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The operator is expected to take at least one '.
+						'argument. $i_n_of_operator_operands=='.
+						$i_n_of_operator_operands);
 				} // if
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_array',$ar_operator_operands);
+					__FUNCTION__,'sirelTD_is_array',$ar_operator_operands);
 			} // if
 			$s_signature=sirel_operators::s_signature($s_operator_name,
-					$ar_operator_operands);
+				$ar_operator_operands);
 			if(sirelSiteConfig::$debug_PHP) {
 				$b_is_defined=array_key_exists($s_signature,
-						sirel_operators::$arht_operators);
+					sirel_operators::$arht_operators);
 				if($b_is_defined==False) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'Operator not found for signature '.$s_signature);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'Operator not found for signature '.$s_signature);
 				} // if
 				$func=sirel_operators::$arht_operators[$s_signature];
 				if(is_callable($func)==False) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The function is not callable. $func=='.$func);
+						__CLASS__.'->'.__FUNCTION__.': '.
+						'The function is not callable. $func=='.$func);
 				} // if
 			} // if
 			$x_out=sirel_operators::exec_common($s_signature,
-					$ar_operator_operands);
+				$ar_operator_operands);
 			return $x_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4387efa2-75d9-4c51-b2cd-812021318dd7'");
 		} // catch
 	} // exec_ar
 
@@ -382,8 +382,8 @@ function func_sirel_operators_plus_num_implicitcastless($x_a,$x_b) {
 		$x_out=$x_a+$x_b;
 		return $x_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='3f6709d3-f83b-44ff-93cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_plus_num_implicitcastless
 
@@ -392,28 +392,28 @@ function func_sirel_operators_plus_num_cast2float($x_a,$x_b) {
 		$fd_out=(1.0*$x_a)+(1.0*$x_b);
 		return $fd_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='f5185515-f116-4d8e-b4cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_plus_num_cast2float
 
 sirel_operators::declare_operator('func_sirel_operators_plus_num_implicitcastless',
-		'+',42,42);
+	'+',42,42);
 sirel_operators::declare_operator('func_sirel_operators_plus_num_implicitcastless',
-		'+',42.0,42.0);
+	'+',42.0,42.0);
 
 sirel_operators::declare_operator('func_sirel_operators_plus_num_cast2float',
-		'+',42.0,42);
+	'+',42.0,42);
 sirel_operators::declare_operator('func_sirel_operators_plus_num_cast2float',
-		'+',42,42.0);
+	'+',42,42.0);
 //--------------------------------------------------------------------
 function func_sirel_operators_minus_num_implicitcastless($x_a,$x_b) {
 	try {
 		$x_out=$x_a-$x_b;
 		return $x_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='02288b37-af2a-4139-a1cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_minus_num_implicitcastless
 
@@ -422,20 +422,20 @@ function func_sirel_operators_minus_num_cast2float($x_a,$x_b) {
 		$fd_out=(1.0*$x_a)-(1.0*$x_b);
 		return $fd_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='fc412c5e-1353-4d2c-a4cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_minus_num_cast2float
 
 sirel_operators::declare_operator('func_sirel_operators_minus_num_implicitcastless',
-		'-',42,42);
+	'-',42,42);
 sirel_operators::declare_operator('func_sirel_operators_minus_num_implicitcastless',
-		'-',42.0,42.0);
+	'-',42.0,42.0);
 
 sirel_operators::declare_operator('func_sirel_operators_minus_num_cast2float',
-		'-',42.0,42);
+	'-',42.0,42);
 sirel_operators::declare_operator('func_sirel_operators_minus_num_cast2float',
-		'-',42,42.0);
+	'-',42,42.0);
 
 //--------------------------------------------------------------------
 function func_sirel_operators_multiply_num_implicitcastless($x_a,$x_b) {
@@ -443,8 +443,8 @@ function func_sirel_operators_multiply_num_implicitcastless($x_a,$x_b) {
 		$x_out=$x_a*$x_b;
 		return $x_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='903f8c42-0f2c-45f2-a1cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_multiply_num_implicitcastless
 
@@ -453,20 +453,20 @@ function func_sirel_operators_multiply_num_cast2float($x_a,$x_b) {
 		$fd_out=(1.0*$x_a)*(1.0*$x_b);
 		return $fd_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='f5b9ea3c-e4d5-43c3-83cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_multiply_num_cast2float
 
 sirel_operators::declare_operator('func_sirel_operators_multiply_num_implicitcastless',
-		'*',42,42);
+	'*',42,42);
 sirel_operators::declare_operator('func_sirel_operators_multiply_num_implicitcastless',
-		'*',42.0,42.0);
+	'*',42.0,42.0);
 
 sirel_operators::declare_operator('func_sirel_operators_multiply_num_cast2float',
-		'*',42.0,42);
+	'*',42.0,42);
 sirel_operators::declare_operator('func_sirel_operators_multiply_num_cast2float',
-		'*',42,42.0);
+	'*',42,42.0);
 
 //--------------------------------------------------------------------
 function func_sirel_operators_divide_num_implicitcastless($x_a,$x_b) {
@@ -474,8 +474,8 @@ function func_sirel_operators_divide_num_implicitcastless($x_a,$x_b) {
 		$x_out=$x_a/$x_b;
 		return $x_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='b2b11754-ddb9-426d-b3cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_divide_num_implicitcastless
 
@@ -484,20 +484,20 @@ function func_sirel_operators_divide_num_cast2float($x_a,$x_b) {
 		$fd_out=(1.0*$x_a)/(1.0*$x_b);
 		return $fd_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='40803ad3-f356-4d94-b3cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_divide_num_cast2float
 
 sirel_operators::declare_operator('func_sirel_operators_divide_num_implicitcastless',
-		'/',42,42); // According to selftests, there's no truncation, i.e. 7/2==3.5
+	'/',42,42); // According to selftests, there's no truncation, i.e. 7/2==3.5
 sirel_operators::declare_operator('func_sirel_operators_divide_num_implicitcastless',
-		'/',42.0,42.0);
+	'/',42.0,42.0);
 
 sirel_operators::declare_operator('func_sirel_operators_divide_num_cast2float',
-		'/',42.0,42);
+	'/',42.0,42);
 sirel_operators::declare_operator('func_sirel_operators_divide_num_cast2float',
-		'/',42,42.0);
+	'/',42,42.0);
 
 //--------------------------------------------------------------------
 
@@ -506,17 +506,17 @@ function func_sirel_operators_to_s_int_and_float_and_s($x_a) {
 		$s_out=''.$x_a;
 		return $s_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='43d7c534-57ac-416c-a3cd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_to_s_int_and_float_and_s
 
 sirel_operators::declare_operator('func_sirel_operators_to_s_int_and_float_and_s',
-		'to_s',42);
+	'to_s',42);
 sirel_operators::declare_operator('func_sirel_operators_to_s_int_and_float_and_s',
-		'to_s',42.2);
+	'to_s',42.2);
 sirel_operators::declare_operator('func_sirel_operators_to_s_int_and_float_and_s',
-		'to_s','42');
+	'to_s','42');
 
 // ------------------------------------------------------------------------
 
@@ -527,13 +527,13 @@ function func_sirel_operators_set_1_to_fd_fd($x_a) {
 		$fd1=$x_a;
 		return $fd1;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='acc30822-c073-44c9-b4bd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_to_fd_fd
 
 sirel_operators::declare_operator('func_sirel_operators_set_1_to_fd_fd',
-		'to_fd',42.0);
+	'to_fd',42.0);
 
 // Exists for speed only, because the
 // sirel_type_normalizations::to_fd is a bit expensive.
@@ -542,26 +542,26 @@ function func_sirel_operators_set_1_to_fd_int($x_a) {
 		$fd1=$x_a*1.0;
 		return $fd1;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='1fb8c33d-0d6c-49ae-92bd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_to_fd_int
 
 sirel_operators::declare_operator('func_sirel_operators_set_1_to_fd_int',
-		'to_fd',42);
+	'to_fd',42);
 
 function func_sirel_operators_set_1_to_fd_s($x_a) {
 	try {
 		$fd1=sirel_type_normalizations::to_fd($x_a); // a bit heavy
 		return $fd1;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='7d452e3b-8efc-41f7-a1bd-812021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_to_fd_s
 
 sirel_operators::declare_operator('func_sirel_operators_set_1_to_fd_s',
-		'to_fd','42');
+	'to_fd','42');
 
 //--------------------------------------------------------------------
 
@@ -570,7 +570,7 @@ sirel_operators::declare_operator('func_sirel_operators_set_1_to_fd_s',
 class sirel_map_impl {
 
 	private static function ar_b_is_array_create(&$ar_funcargs,
-			&$i_n_of_funcargs) {
+		&$i_n_of_funcargs) {
 		try {
 			$ar_b_is_array=array();
 			$x_elem=NULL;
@@ -587,13 +587,13 @@ class sirel_map_impl {
 			} // for
 			return $ar_b_is_array;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='654d8ff3-5185-42f5-a8bd-812021318dd7'");
 		} // catch
 	} // ar_b_is_array_create
 
 	private static function ar_of_arht_operands_create(&$ar_funcargs,
-			&$i_n_of_funcargs) {
+		&$i_n_of_funcargs) {
 		try {
 			$ar_of_ar_operands=array();
 			$x_elem=NULL;
@@ -603,13 +603,13 @@ class sirel_map_impl {
 			} // for
 			return $ar_of_ar_operands;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4a92eb13-32ea-4a12-81bd-812021318dd7'");
 		} // catch
 	} // ar_of_arht_operands_create
 
 	private static function arht_of_ix_2_operands_arht_key_create(&$ar_of_arht_operands,
-			&$ar_b_is_array,&$i_n_of_operands) {
+		&$ar_b_is_array,&$i_n_of_operands) {
 		try {
 			$arht_of_ix_2_operands_arht_key=array();
 			$b_is_array=NULL;
@@ -643,7 +643,7 @@ class sirel_map_impl {
 						foreach ($ar_keys as $x_key) {
 							if(array_key_exists($x_key, $arht_operands_arht_key_2_ix)!=True) {
 								throw new Exception('$i=='.$i.'  '.
-										'$x_key=='.$x_key.'  line=='.__LINE__);
+									'$x_key=='.$x_key.'  line=='.__LINE__);
 							} // if
 						} // foreach
 					} // if
@@ -651,13 +651,13 @@ class sirel_map_impl {
 			} // if
 			return $arht_of_ix_2_operands_arht_key;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4ed85f84-6fdf-4dae-84bd-812021318dd7'");
 		} // catch
 	} // arht_of_ix_2_operands_arht_key_create
 
 	private static function ar_of_ar_operands_create(&$ar_of_arht_operands,
-			&$ar_b_is_array,&$arht_operands_arht_key_2_ix,&$i_n_of_operands) {
+		&$ar_b_is_array,&$arht_operands_arht_key_2_ix,&$i_n_of_operands) {
 		try {
 			$ar_of_ar_operands=array();
 			$b_is_array=NULL;
@@ -680,13 +680,13 @@ class sirel_map_impl {
 			} // for
 			return $ar_of_ar_operands;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4b1137a3-e874-40d9-9dbd-812021318dd7'");
 		} // catch
 	} // ar_of_ar_operands_create
 
 	private static function arht_ar_out_ix_2_arht_out(&$ar_out_ix,
-			&$arht_of_ix_2_operands_arht_key) {
+		&$arht_of_ix_2_operands_arht_key) {
 		try {
 			$arht_out=array();
 			$ar_ixes=array_keys($ar_out_ix);
@@ -695,15 +695,15 @@ class sirel_map_impl {
 			} // foreach
 			return $arht_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4813f950-5576-4342-93bd-812021318dd7'");
 		} // catch
 	} // arht_ar_out_ix_2_arht_out
 
 
 	private static function ar_operands_create(&$ar_of_ar_operands,
-			&$ar_b_is_array,&$i_operator_call_number_minu_one,
-			&$i_n_of_operands) {
+		&$ar_b_is_array,&$i_operator_call_number_minu_one,
+		&$i_n_of_operands) {
 		try {
 			$ar_operands=array();
 			$x_elem=NULL;
@@ -721,8 +721,8 @@ class sirel_map_impl {
 			} // for
 			return $ar_operands;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='494023a3-42de-4c2f-8dbd-812021318dd7'");
 		} // catch
 	} // ar_operands_create
 
@@ -735,7 +735,7 @@ class sirel_map_impl {
 				$s_operator_name_or_func=$ar_funcargs[0];
 				// At least in PHP 5.2 the functions do not differ from strings.
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name_or_func);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name_or_func);
 				// The rest of the funcargs can not be that simply checked
 				// for types, because they are allowed to be literally
 				// of any type, unless the function or operator
@@ -743,21 +743,21 @@ class sirel_map_impl {
 			} // if
 			$s_operator_name_or_func=$ar_funcargs[0]; // can't put it before verification
 			$ar_b_is_array=sirel_map_impl::ar_b_is_array_create($ar_funcargs,
-					$i_n_of_funcargs);
+				$i_n_of_funcargs);
 			$i_n_of_operands=count($ar_b_is_array);
 			$ar_of_arht_operands=sirel_map_impl::ar_of_arht_operands_create($ar_funcargs,
-					$i_n_of_funcargs);
+				$i_n_of_funcargs);
 
 			$arht_of_ix_2_operands_arht_key=sirel_map_impl::arht_of_ix_2_operands_arht_key_create($ar_of_arht_operands,
-					$ar_b_is_array,$i_n_of_operands);
+				$ar_b_is_array,$i_n_of_operands);
 			$arht_operands_arht_key_2_ix=sirel_ix::arht_swap_keys_and_values($arht_of_ix_2_operands_arht_key);
 			$ar_of_ar_operands=sirel_map_impl::ar_of_ar_operands_create($ar_of_arht_operands,
-					$ar_b_is_array,$arht_operands_arht_key_2_ix,$i_n_of_operands);
+				$ar_b_is_array,$arht_operands_arht_key_2_ix,$i_n_of_operands);
 
 			if(sirelSiteConfig::$debug_PHP) {
 				$i_2=count($ar_of_ar_operands);
 				sirelLang::assert_range($i_n_of_operands, '<=', $i_2, '<=', $i_n_of_operands,
-						'$i_n_of_operands==$i_2');
+					'$i_n_of_operands==$i_2');
 				$i_2=(-1);
 				$i_3=NULL;
 				$x_elem=NULL;
@@ -773,9 +773,9 @@ class sirel_map_impl {
 						} else {
 							if($i_3!=$i_2) {
 								throw new Exception('$i_2=='.$i_2.
-										'  $i_3=='.$i_3.'  $i=='.$i.
-										' $s_operator_name_or_func=='.
-										$s_operator_name_or_func);
+									'  $i_3=='.$i_3.'  $i=='.$i.
+									' $s_operator_name_or_func=='.
+									$s_operator_name_or_func);
 							} // if
 						} // else
 					} // if
@@ -803,37 +803,37 @@ class sirel_map_impl {
 			for($i=0;$i<$i_n_of_operator_calls;$i++) {
 				$i_operator_call_number=$i;
 				$ar_of_operands=sirel_map_impl::ar_operands_create($ar_of_ar_operands,
-						$ar_b_is_array,$i,$i_n_of_operands);
+					$ar_b_is_array,$i,$i_n_of_operands);
 				$b_operator_is_defined=sirel_operators::b_operator_defined_ar($s_operator_name_or_func,
-						$ar_of_operands);
+					$ar_of_operands);
 				if($b_operator_is_defined) {
 					$x_1=sirel_operators::exec_ar($s_operator_name_or_func,
-							$ar_of_operands);
+						$ar_of_operands);
 				} else {
 					if(sirelSiteConfig::$debug_PHP) {
 						if(is_callable($s_operator_name_or_func)==False) {
 							$s_signature=sirel_operators::s_signature($s_operator_name_or_func,
-									$ar_of_operands) ;
+								$ar_of_operands) ;
 							sirelThrowLogicException(__FILE__, __LINE__,
-									__CLASS__.'->'.__FUNCTION__.': '.
-									'The function '.$s_operator_name_or_func.
-									'is not callable and an operator with a '.
-									'signature of '.$s_signature.' has not '.
-									'been defined.');
+								__CLASS__.'->'.__FUNCTION__.': '.
+								'The function '.$s_operator_name_or_func.
+								'is not callable and an operator with a '.
+								'signature of '.$s_signature.' has not '.
+								'been defined.');
 						} // if
 					} // if
 					$x_1=call_user_func_array($s_operator_name_or_func,
-							$ar_of_operands);
+						$ar_of_operands);
 				} // else
 				array_push($ar_out_ix, $x_1);
 			} // for
 			$arht_out=sirel_map_impl::arht_ar_out_ix_2_arht_out($ar_out_ix,
-					$arht_of_ix_2_operands_arht_key);
+				$arht_of_ix_2_operands_arht_key);
 			return $arht_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': '.
-					'$i_operator_call_number=='.$i_operator_call_number);
+			sirelBubble_t2($err_exception,
+				'$i_operator_call_number=='.$i_operator_call_number.
+				"\n GUID='633e7f13-b03c-45b2-b1ad-812021318dd7'");
 		} // catch
 	} // map
 
@@ -890,8 +890,8 @@ function func_sirel_map($s_operator_name_or_func) {
 		$ar_out=sirel_map_impl::map($ar_funcargs);
 		return $ar_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='5a59ce03-9e53-4e54-83ad-812021318dd7'");
 	} // catch
 } // func_sirel_map
 
@@ -904,9 +904,9 @@ function func_sirel_map_ar($s_operator_name_or_func,&$ar_the_rest) {
 	try {
 		if(sirelSiteConfig::$debug_PHP) {
 			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name_or_func);
+				__FUNCTION__,'sirelTD_is_mbstring',$s_operator_name_or_func);
 			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__,'sirelTD_is_array',$ar_the_rest);
+				__FUNCTION__,'sirelTD_is_array',$ar_the_rest);
 			$i=count($ar_the_rest);
 			sirelLang::assert_range(1, '<=', $i, '*', 42,'$i');
 		} // if
@@ -915,13 +915,11 @@ function func_sirel_map_ar($s_operator_name_or_func,&$ar_the_rest) {
 		$ar_out=sirel_map_impl::map($ar_funcargs);
 		return $ar_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='accd0fef-143f-42d2-a7dc-812021318dd7'");
 	} // catch
 } // func_sirel_map_ar
 
 
 //--------------------------------------------------------------------
-
-?>
 

@@ -37,17 +37,6 @@
 // used only by using "require_once('sirel_core.php')".
 //------------------------------------------------------------------------
 
-// As the web server might host multiple web applications that
-// might have different requrements, it is not possible to
-// rely on the mbstring.internal_encoding setting in the php.ini file.
-mb_internal_encoding('UTF-8');
-
-mb_regex_encoding('UTF-8');
-mb_http_output('UTF-8');
-mb_http_input('UTF-8');
-mb_language('uni');
-ob_start('mb_output_handler');
-
 class sirelPair {
 	public $a_;
 	public $b_;
@@ -73,17 +62,21 @@ function sirelOPInit(&$op) {
 		} else {
 			throw new Exception('File '.__FILE__.' line '.
 				__LINE__.': op was of type '.get_class($op).
-				', but only sirelOP (and sirelOP) is (are) accepted.');
+				', but only sirelOP (and sirelOP) is (are) accepted.'.
+				"\n GUID='25f2b71e-a051-4150-b3c2-929041318dd7'");
 		} // else
 	} catch (Exception $err_exception) {
 		throw new Exception('sirelOPInit in file '.
 			__FILE__.' received some weird instance of '.
 			'class '.get_class($op)." <br/>".
-			'Exception message: '.$err_exception->getMessage());
+			'Exception message: '.$err_exception->getMessage().
+			"\n GUID='c717552c-f987-4aa0-b1c2-929041318dd7'");
 	} // catch
 } // sirelOPInit
 
 
+// The default field values are overridden at
+// the sirel_core_configuration.php .
 class sirelSiteConfig {
 	// The initiations of those fields is expected to
 	// take place in a separate, site specific, config file.
@@ -94,9 +87,11 @@ class sirelSiteConfig {
 	public static $site_URL=NULL; // a string
 
 	// The $debug_PHP is overridden in the sirel_engine_configureation.php
-	public static $debug_PHP=True;
+	public static $debug_PHP=TRUE;
+	//public static $debug_PHP=FALSE;
 
-	public static $debug_JavaScript=True;
+	public static $debug_JavaScript=TRUE;
+	//public static $debug_JavaScript=FALSE;
 
 	public static $i_application_javascript_side_version=NULL;
 
@@ -107,7 +102,7 @@ class sirelSiteConfig {
 	// value of the i_raudrohi_version is
 	public static $i_raudrohi_version=NULL;
 
-	public static $s_sirel_version='1.6.0';
+	public static $s_sirel_version='1.7.0';
 
 	public static $language; // a string
 
@@ -122,9 +117,9 @@ class sirelSiteConfig {
 	// attackers delight) all data stored to Memchaced cache by this web
 	// application is dismissed when any part of it is found to be corrupted.
 	public static $sitewide_checksum_seed='whatever'; // Not in use yet.
-	public static $root_username; // a string
-	public static $root_configfile_password; // a string
-	public static $root_configfile_password_overrides_root_password_in_database;//boolean
+	public static $s_root_username='none'; // a string
+	public static $s_root_configfile_password='guess what'; // a string
+	public static $b_root_configfile_password_overrides_root_password_in_database=TRUE;//boolean
 
 	// If the client does not communicate with the server for the
 	// given number of seconds in a row, the server considers the client
@@ -143,12 +138,13 @@ class sirelSiteConfig {
 	// read and, in some cases, tampered with by any application that
 	// has access to the Memcached instance.
 	//
-	public static $memcached_in_use=False; // a boolean
+	//public static $memcached_in_use=TRUE; // a boolean
+	public static $memcached_in_use=FALSE; // a boolean
 	public static $memcached_host; // a string
 	public static $memcached_port; // an integer
 
 	public static $javascript_side_ajax_timeout_=1800; // an integer, seconds
-	public static $use_content_delivery_networks_for_JavaScript_dependency_libs=False;
+	public static $b_use_content_delivery_networks_for_JavaScript_dependency_libs=FALSE;
 
 	// One has to make sure that duering a log-on the data
 	// that the client sends to the server, can be used only
@@ -181,24 +177,18 @@ class sirelSiteConfig {
 	public static $log_folder=null;
 	public static $tmp_folder=null;
 	public static $ui_messages_folder=null; // a string
-	public static $s_fp_application_root=''; // a string
+	public static $s_fp_angervaks_entry_parent_dir=''; // a string
 	public static $s_table_name_application_specific_prefix=''; // a string
 
 	public static function partialreset2defaults($s_path_lib_sirel) {
 		if (!defined('s_path_lib_sirel')) {
 			throw(new Exception("\nPHP constant s_path_lib_sirel ".
 				"has not been defined. \n".
-				'GUID="024facd9-c65a-4523-ba9f-a3a26101ccd7"'."\n"));
+				'GUID="3c4d24d3-6088-4520-85c2-929041318dd7"'."\n"));
 		} // if
 		$s_path_lib_sirel=constant('s_path_lib_sirel');
-		if (array_key_exists('application_root', sirelSiteConfig::$various)) {
-			sirelSiteConfig::$log_folder=sirelSiteConfig::$s_fp_application_root.
-				'/var/log';
-		} else {
-			sirelSiteConfig::$log_folder=$s_path_lib_sirel.
-				'/src/src/var_default/log';
-		} // else
-
+		sirelSiteConfig::$log_folder=$s_path_lib_sirel.
+			'/src/src/var_default/log';
 		// In the case of failed login attempts there's a random delay.
 		// It's between login_delay_min seconds
 		// and login_delay_max seconds. The delay is meant to make brute
@@ -208,8 +198,8 @@ class sirelSiteConfig {
 		// makes sense to protect them. The reason, why a random delay
 		// length is preferential is that unlike a constant delay length
 		// it somewhat distorts the outside view of the system load.
-		sirelSiteConfig::$various['login_delay_min']=0.001;//0.5;
-		sirelSiteConfig::$various['login_delay_max']=0.1;//2.5;
+		sirelSiteConfig::$various['login_delay_min']=0.5;
+		sirelSiteConfig::$various['login_delay_max']=2.5;
 	} // partialreset2defaults
 
 
@@ -243,7 +233,8 @@ class sirelSiteConfig {
 				throw new Exception(
 				__CLASS__.'->'.__FUNCTION__.
 					': There\'s no branch for '.
-					'$s1=='.$s1.'.');
+					'$s1=='.$s1.'.'.
+					"\n GUID='2a565b05-c178-4e77-b2c2-929041318dd7'");
 				break;
 		} // switch
 		return $s_out;
@@ -263,7 +254,8 @@ if(defined('s_path_lib_sirel')!=True) {
 	// require_once(<path to file>) is faulty and does not work
 	// with relative paths, if A includes B, which
 	// includes C and C "requires once" by using relative paths.
-	throw new Exception($s_msg);
+	throw new Exception($s_msg.
+		"\n GUID='0dbd001e-75c1-467e-82b2-929041318dd7'");
 } // if
 
 // TODO: improve the path verification of the constant s_path_lib_sirel.
@@ -278,7 +270,8 @@ if($sirel_impl_s_path_lib_sirel_candidate=='') {
 		'in turn contains the sirel.php .';
 	// sirel components that reside in subfolders, for example, the
 	// ./bonnet, rely on the sirelSiteConfig::$various['s_path_lib_sirel'].
-	throw new Exception($s_msg);
+	throw new Exception($s_msg.
+		"\n GUID='406cb4b3-4dfb-49ed-a4b2-929041318dd7'");
 } // if
 sirelSiteConfig::$log_folder=$sirel_impl_s_path_lib_sirel_candidate.
 	'/src/src/var_default/log';
@@ -341,4 +334,3 @@ function sirelFlush() {
 	ob_end_flush();
 } // function sirelFlush()
 
-?>

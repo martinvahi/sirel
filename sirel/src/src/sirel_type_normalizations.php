@@ -75,9 +75,9 @@ class sirel_type_normalizations {
 			} // else
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				'$i_or_s_or_fd=='.$i_or_s_or_fd);
+			sirelBubble_t2($err_exception,
+				'$i_or_s_or_fd=='.$i_or_s_or_fd.
+				"\n GUID='332d6804-ca59-42e1-aa35-322021318dd7'");
 		} // catch
 	} // to_i
 
@@ -116,9 +116,9 @@ class sirel_type_normalizations {
 				': There\'s no branch for type $s_type=='.$s_type.
 				'  $i_or_s_or_fd=='.$i_or_s_or_fd.'.');
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				'$i_or_s_or_fd=='.$i_or_s_or_fd);
+			sirelBubble_t2($err_exception,
+				'$i_or_s_or_fd=='.$i_or_s_or_fd.
+				" GUID='c237f902-2fc4-450b-9055-322021318dd7'");
 		} // catch
 	} // to_fd
 
@@ -153,9 +153,9 @@ class sirel_type_normalizations {
 			} // else
 			return $b_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				'$i_or_s_or_fd=='.$b_or_sb);
+			sirelBubble_t2($err_exception,
+				'$i_or_s_or_fd=='.$b_or_sb.
+				"\n GUID='36c21a51-dd20-49b0-af15-322021318dd7'");
 		} // catch
 	} // to_b
 
@@ -164,4 +164,3 @@ class sirel_type_normalizations {
 
 // ---------------------------------------------------------
 
-?>

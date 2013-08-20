@@ -48,8 +48,8 @@ class sirelDBcomm {
 		try {
 			$this->db_=sirelDBgate_pool::get_db($database_descriptor);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='813d9dc2-1b14-4bd3-a2f6-f12021318dd7'");
 		} // catch
 	} // constructor
 
@@ -67,8 +67,9 @@ class sirelDBcomm {
 			} // else
 			return $arht_column_type_names;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': $table_name=='.$table_name);
+			sirelBubble_t2($err_exception,
+				' $table_name=='.$table_name.
+				"\n GUID='511ba5f7-c429-4bbf-b3f6-f12021318dd7'");
 		} // catch
 	} // get_column_types
 
@@ -86,8 +87,9 @@ class sirelDBcomm {
 			} // else
 			return $ar_column_names;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': $table_name=='.$table_name);
+			sirelBubble_t2($err_exception,
+				'$table_name=='.$table_name.
+				"\n GUID='40e609d4-9b0f-41d4-b4f6-f12021318dd7'");
 		} // catch
 	} // get_column_names
 
@@ -103,15 +105,15 @@ class sirelDBcomm {
 	//
 	// It returns a casted copy of the $arht_values.
 	private function cast_values_2_db_column_types(&$table_name,
-			&$arht_values,$b_allow_keys_that_are_not_column_names=False) {
+		&$arht_values,$b_allow_keys_that_are_not_column_names=False) {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
+					__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht_values);
+					__FUNCTION__, 'sirelTD_is_array', $arht_values);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_bool', $b_allow_keys_that_are_not_column_names);
+					__FUNCTION__, 'sirelTD_is_bool', $b_allow_keys_that_are_not_column_names);
 			} // if
 			$ar_keys=array_keys($arht_values);
 			$ar_column_names=$this->get_column_names($table_name);
@@ -121,7 +123,7 @@ class sirelDBcomm {
 				// exists only for speed, because the set intersection
 				// search has a kind of exponential complexity.
 				$ar_keys_that_match_with_column_names=sirelLang::set_intersection_ar_of_mbstrings($ar_keys,
-						$ar_column_names);
+					$ar_column_names);
 			} else {
 				$ar_keys_that_match_with_column_names=&$ar_keys;
 			} // else
@@ -132,13 +134,14 @@ class sirelDBcomm {
 			foreach ($ar_keys_that_match_with_column_names as $s_column_name) {
 				$s_column_type=$arht_column_type_names[$s_column_name];
 				$new_value=$this->db_->cast_2_PHP_type(
-						$s_column_type, $arht_values[$s_column_name]);
+					$s_column_type, $arht_values[$s_column_name]);
 				$arht_values_casted[$s_column_name]=$new_value;
 			} // foreach
 			return $arht_values_casted;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': $table_name=='.$table_name);
+			sirelBubble_t2($err_exception,
+				' $table_name=='.$table_name.
+				"\n GUID='2698f293-bddb-45d9-bcf6-f12021318dd7'");
 		} // catch
 	} // cast_values_2_db_column_types
 
@@ -159,9 +162,9 @@ class sirelDBcomm {
 				$column_names_length=count($column_names);
 				if (count($rows[0]) != $column_names_length) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': '.count($rows[0]) .
-							'==$rows[0]) != count($column_names)=='
-							. $column_names_length.'  $table_name=='.$table_name);
+						__CLASS__.'->'.__FUNCTION__.': '.count($rows[0]) .
+						'==$rows[0]) != count($column_names)=='
+						. $column_names_length.'  $table_name=='.$table_name);
 				} // if
 			} // if
 			$arht_rows=array();
@@ -178,8 +181,8 @@ class sirelDBcomm {
 			} // foreach
 			return $arht_rows;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='240ef0d4-592e-4eef-9cf6-f12021318dd7'");
 		} // catch
 	} // rows_2_array_of_hashtables
 
@@ -188,28 +191,28 @@ class sirelDBcomm {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
 				$tbn=sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
-						__LINE__, __CLASS__, __FUNCTION__, $table_name);
+					__LINE__, __CLASS__, __FUNCTION__, $table_name);
 				if (!sirelLang::str1EqualsStr2($tbn, $table_name)) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': Trimming had an effect. ' .
-							'$tbn=="'.$tbn.'" $table_name=="'.$table_name.'".');
+						__CLASS__.'->'.__FUNCTION__.': Trimming had an effect. ' .
+						'$tbn=="'.$tbn.'" $table_name=="'.$table_name.'".');
 				} // if
 			} // if
 			$tbn=sirelCodeInjectionFilter::SQL($table_name);
 			if (!sirelLang::str1EqualsStr2($tbn, $table_name)) {
 				sirelThrowIOException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.': SQL injection suspected. ' .
-						'$tbn=="'.$tbn.'" $table_name=="'.$table_name.'".');
+					__CLASS__.'->'.__FUNCTION__.': SQL injection suspected. ' .
+					'$tbn=="'.$tbn.'" $table_name=="'.$table_name.'".');
 			} // if
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='9824e543-300f-49c6-83f6-f12021318dd7'");
 		} // catch
 	} // verify_table_name_for_security
 
 //-------------------------------------------------------------------------
 	private function verify_ht_selector_column_names(&$table_name,
-			&$arht_selector) {
+		&$arht_selector) {
 		try {
 			$ar_column_names=$this->get_column_names($table_name);
 			$arht_column_names=array();
@@ -217,7 +220,7 @@ class sirelDBcomm {
 				$arht_column_names[$cl_name]=42;
 			} // foreach
 			$arht_difference=sirelLang::set_difference($arht_selector,
-					$arht_column_names); //==$arht_selector-$arht_column_names
+				$arht_column_names); //==$arht_selector-$arht_column_names
 			if (0 < count($arht_difference)) {
 				$s_diff='';
 				$s_cl_names='';
@@ -228,16 +231,17 @@ class sirelDBcomm {
 					$s_cl_names=$s_cl_names.', '.$key;
 				} // foreach
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.': '.
-						'The following column names within the '.
-						'$arht_selector were not present in table '.
-						$table_name.':'.$s_diff." \n".
-						'The '.$table_name.' had the columns with the '.
-						'following names: '.$s_cl_names);
+					__CLASS__.'->'.__FUNCTION__.': '.
+					'The following column names within the '.
+					'$arht_selector were not present in table '.
+					$table_name.':'.$s_diff." \n".
+					'The '.$table_name.' had the columns with the '.
+					'following names: '.$s_cl_names);
 			} // if
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': $table_name=='.$table_name);
+			sirelBubble_t2($err_exception,
+				' $table_name=='.$table_name.
+				"\n GUID='d97f5818-91b2-4ae8-a2f6-f12021318dd7'");
 		} // catch
 	} // verify_ht_selector_column_names
 
@@ -245,13 +249,13 @@ class sirelDBcomm {
 	// Makes sure that for every column name in the table there's
 	// a key that matches with the column name in the $arht_compartments.
 	private function verify_completeness_of_the_ht_compartments($table_name,
-			$arht_compartments) {
+		$arht_compartments) {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
+					__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht_compartments);
+					__FUNCTION__, 'sirelTD_is_array', $arht_compartments);
 			} // if
 			$b_err=False;
 			$s_cln=NULL;
@@ -265,13 +269,13 @@ class sirelDBcomm {
 			} // foreach
 			if($b_err) {
 				throw new Exception('The table named "'.$table_name.
-						'" contains a column named "'.$s_cln.
-						'", but the $arht_compartments does not '.
-						'contain such a key.');
+					'" contains a column named "'.$s_cln.
+					'", but the $arht_compartments does not '.
+					'contain such a key.');
 			} // if
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='ee314a73-2061-460e-93e6-f12021318dd7'");
 		} // catch
 	} // verify_completeness_of_the_ht_compartments
 
@@ -293,7 +297,7 @@ class sirelDBcomm {
 				$this->prepare_params_t1_c_=0;
 			} // if
 			$s_pref_x='x'.$this->prepare_params_t1_c_.'_' .
-					mt_rand(0, 1000000000).'_'.mt_rand(0, 1000000000).'_';
+				mt_rand(0, 1000000000).'_'.mt_rand(0, 1000000000).'_';
 			$params=array();
 			$keys=array_keys($arht_selector);
 			$b=False;
@@ -306,8 +310,8 @@ class sirelDBcomm {
 				$x=sirelCodeInjectionFilter::SQL($a_key);
 				if (!sirelLang::str1EqualsStr2($x, $a_key)) {
 					sirelThrowIOException(__FILE__, __LINE__, __CLASS__ .
-							'->'.__FUNCTION__.' SQL injection suspected. ' .
-							'$a_key=="'.$a_key.'" $x=="'.$x.'".');
+						'->'.__FUNCTION__.' SQL injection suspected. ' .
+						'$a_key=="'.$a_key.'" $x=="'.$x.'".');
 				} // if
 				if ($b) {
 					$s=$s.' '.$delimiter.' ';
@@ -323,24 +327,24 @@ class sirelDBcomm {
 			$arhtt['s']=$s;
 			return $arhtt;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='47b90965-925e-4d8c-84e6-f12021318dd7'");
 		} // catch
 	} // prepare_params_t1
 
 //-------------------------------------------------------------------------
 	public function ar_fix_raw_SQL_selection_output_rows(&$s_table_name,
-			&$rows_buggy) {
+		&$rows_buggy) {
 		try {
 			$rows=array();
 			$n=count($this->get_column_names($s_table_name));
 			$n_rb=count($rows_buggy[0]);
 			if (($n_rb != (2 * $n)) && (0 < $n_rb)) {
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.': Amazing. The PHP ' .
-						'interpreter is just amazingly buggy. now the ' .
-						'count($rows_buggy[0])=='.count($rows_buggy) .
-						' $stm=='.$stm);
+					__CLASS__.'->'.__FUNCTION__.': Amazing. The PHP ' .
+					'interpreter is just amazingly buggy. now the ' .
+					'count($rows_buggy[0])=='.count($rows_buggy) .
+					' $stm=='.$stm);
 			} // if
 			foreach($rows_buggy as $row_buggy) {
 				$a_row=array();
@@ -353,13 +357,13 @@ class sirelDBcomm {
 			} // foreach
 			return $rows;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='88d99c45-84ac-4f1c-a5e6-f12021318dd7'");
 		} // catch
 	} // ar_fix_raw_SQL_selection_output_rows
 //-------------------------------------------------------------------------
 	private function ar_SQL_selectfunc_common(&$table_name,
-			&$arht_selector,&$SQL_suffix,&$s_mode) {
+		&$arht_selector,&$SQL_suffix,&$s_mode) {
 		try {
 			$s_star='*';
 			switch ($s_mode) {
@@ -372,8 +376,8 @@ class sirelDBcomm {
 				default:
 					throw new Exception(
 					__CLASS__.'->'.__FUNCTION__ .
-							': There\'s no branch for ' .
-							'$s_mode=='.$s_mode.'.');
+						': There\'s no branch for ' .
+						'$s_mode=='.$s_mode.'.');
 					break;
 			} // switch
 			$this->verify_table_name_for_security($table_name);
@@ -383,7 +387,7 @@ class sirelDBcomm {
 			if (0 < count($arht_selector)) {
 				$stm=$stm.' AND ';
 				$arht_selector_casted=$this->cast_values_2_db_column_types(
-						$table_name, $arht_selector);
+					$table_name, $arht_selector);
 				$arhtt=$this->prepare_params_t1($arht_selector_casted, 'AND');
 			} else {
 				$arhtt=array();
@@ -399,7 +403,7 @@ class sirelDBcomm {
 			$rows=array();
 			if($s_mode=='plain_select') {
 				$rows=$this->ar_fix_raw_SQL_selection_output_rows($table_name,
-						$rows_buggy);
+					$rows_buggy);
 				// The original implementation:
 				// $n=count($this->get_column_names($table_name));
 				// $n_rb=count($rows_buggy[0]);
@@ -424,13 +428,13 @@ class sirelDBcomm {
 			} else {
 				throw new Exception(
 				__CLASS__.'->'.__FUNCTION__ .
-						': There\'s no branch for ' .
-						'$s_mode=='.$s_mode.'.');
+					': There\'s no branch for ' .
+					'$s_mode=='.$s_mode.'.');
 			} // else
 			return $rows;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='f4d6a310-d8a1-4453-a3e6-f12021318dd7'");
 		} // catch
 	} // ar_SQL_selectfunc_common
 
@@ -446,12 +450,12 @@ class sirelDBcomm {
 		try {
 			$s_mode='plain_select';
 			$rows=$this->ar_SQL_selectfunc_common($table_name,
-					$arht_selector,$SQL_suffix,$s_mode);
+				$arht_selector,$SQL_suffix,$s_mode);
 			$arht_rows=$this->rows_2_array_of_hashtables($rows, $table_name);
 			return $arht_rows;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='31714902-043b-4f71-a6e6-f12021318dd7'");
 		} // catch
 	} // ar_SQL_select
 
@@ -476,15 +480,15 @@ class sirelDBcomm {
 		try {
 			$s_mode='count';
 			$rows=$this->ar_SQL_selectfunc_common($table_name,
-					$arht_selector,$SQL_suffix,$s_mode);
+				$arht_selector,$SQL_suffix,$s_mode);
 			$i_rowcount=0;
 			if(0<count($rows)) {
 				if(sirelSiteConfig::$debug_PHP) {
 					if(count($rows)!=1) {
 						sirelThrowLogicException(__FILE__, __LINE__,
-								__CLASS__.'->'.__FUNCTION__.': '.
-								'Something is wrong. count($rows)=='.
-								count($rows).' != 1');
+							__CLASS__.'->'.__FUNCTION__.': '.
+							'Something is wrong. count($rows)=='.
+							count($rows).' != 1');
 					} // if
 				} // if
 				// The type casting is for making sure that this method
@@ -495,8 +499,8 @@ class sirelDBcomm {
 			} // if
 			return $i_rowcount;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='bb885b18-9052-47e3-95e6-f12021318dd7'");
 		} // catch
 	} // i_SQL_rowcount
 
@@ -508,9 +512,9 @@ class sirelDBcomm {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht);
+					__FUNCTION__, 'sirelTD_is_array', $arht);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
+					__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
 			} // if
 			$ar_column_names=$this->get_column_names($table_name);
 			$arht_out=array();
@@ -522,8 +526,8 @@ class sirelDBcomm {
 			} // foreach
 			return $arht_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='6d9fb384-1e8a-429c-b5e6-f12021318dd7'");
 		} // catch
 	} // trim_arht_by_table
 
@@ -538,28 +542,28 @@ class sirelDBcomm {
 	//
 	// This method doesn't return anything.
 	public function add_table_row($table_name, &$arht_compartments,
-			$b_allow_keys_that_are_not_column_names=False,$b_dbg=False) {
+		$b_allow_keys_that_are_not_column_names=False,$b_dbg=False) {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
+					__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht_compartments);
+					__FUNCTION__, 'sirelTD_is_array', $arht_compartments);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_bool',
-						$b_allow_keys_that_are_not_column_names);
+					__FUNCTION__, 'sirelTD_is_bool',
+					$b_allow_keys_that_are_not_column_names);
 			} // if
 			$this->verify_table_name_for_security($table_name);
 			$arht_normalized_compartments=NULL;
 			if($b_allow_keys_that_are_not_column_names) {
 				$arht_normalized_compartments=$this->trim_arht_by_table($arht_compartments,
-						$table_name);
+					$table_name);
 			}else {
 				$arht_normalized_compartments=$arht_compartments;
 			} // else
 			$arht_chf_casted=$this->cast_values_2_db_column_types($table_name,
-					$arht_normalized_compartments,
-					$b_allow_keys_that_are_not_column_names);
+				$arht_normalized_compartments,
+				$b_allow_keys_that_are_not_column_names);
 			$stm='INSERT INTO '.$table_name.' ( ';
 			$s_params='';
 			$params=array();
@@ -569,10 +573,10 @@ class sirelDBcomm {
 			foreach($column_names as $a_column_name) {
 				if (!array_key_exists($a_column_name, $arht_chf_casted)) {
 					sirelThrowLogicException(__FILE__, __LINE__,
-							__CLASS__.'->'.__FUNCTION__.': The database table ' .
-							'has a column named "'.$a_column_name.'", but ' .
-							'the hashtable of writable values does not contain ' .
-							'such a key. ');
+						__CLASS__.'->'.__FUNCTION__.': The database table ' .
+						'has a column named "'.$a_column_name.'", but ' .
+						'the hashtable of writable values does not contain ' .
+						'such a key. ');
 				} // if
 				if ($b) {
 					$stm=$stm.',';
@@ -588,8 +592,8 @@ class sirelDBcomm {
 			$stm=$stm.') values ('.$s_params.');';
 			$rows=$this->db_->exec_transaction($stm, $params);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='8184b0e4-c3be-4e10-b4e6-f12021318dd7'");
 		} // catch
 	} // add_table_row
 
@@ -597,14 +601,14 @@ class sirelDBcomm {
 	// $arht_selector['x']=='y' and $arht_selector['z']='w'
 	// is interpreted as ... WHERE x='y' AND z='w'
 	public function delete_selection_of_rows($table_name, &$arht_selector,
-			$SQL_suffix) {
+		$SQL_suffix) {
 		try {
 			$this->verify_table_name_for_security($table_name);
 			$stm='DELETE FROM '.$table_name.' WHERE 42=42 ';
 			if (0 < count($arht_selector)) {
 				$stm=$stm.' AND ';
 				$arht_selector_casted=$this->cast_values_2_db_column_types(
-						$table_name, $arht_selector);
+					$table_name, $arht_selector);
 				$arhtt=$this->prepare_params_t1($arht_selector_casted, 'AND');
 			} else {
 				$arhtt=array();
@@ -614,8 +618,8 @@ class sirelDBcomm {
 			$stm=$stm.$arhtt['s'].' '.$SQL_suffix.' ;';
 			$rows=$this->db_->exec_transaction($stm, $arhtt['params']);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='137b2e45-9722-4387-97e6-f12021318dd7'");
 		} // catch
 	} // delete_selection_of_rows
 
@@ -634,23 +638,23 @@ class sirelDBcomm {
 	// columns than there are in the <$table_name>, regardless
 	// of the value of the $b_allow_keys_that_are_not_column_names.
 	public function change_selection_of_rows($table_name,
-			&$arht_changeable_fields, &$arht_selector, $SQL_suffix,
-			$b_allow_keys_that_are_not_column_names=False) {
+		&$arht_changeable_fields, &$arht_selector, $SQL_suffix,
+		$b_allow_keys_that_are_not_column_names=False) {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
+					__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht_changeable_fields);
+					__FUNCTION__, 'sirelTD_is_array', $arht_changeable_fields);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht_selector);
+					__FUNCTION__, 'sirelTD_is_array', $arht_selector);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $SQL_suffix);
+					__FUNCTION__, 'sirelTD_is_mbstring', $SQL_suffix);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_bool', $b_allow_keys_that_are_not_column_names);
+					__FUNCTION__, 'sirelTD_is_bool', $b_allow_keys_that_are_not_column_names);
 				$this->verify_table_name_for_security($table_name);
 				$this->verify_ht_selector_column_names($table_name,
-						$arht_selector);
+					$arht_selector);
 			} // if
 			if (count($arht_changeable_fields) == 0) {
 				return;
@@ -658,13 +662,13 @@ class sirelDBcomm {
 			$arht_normalized_compartments=NULL;
 			if($b_allow_keys_that_are_not_column_names) {
 				$arht_normalized_compartments=$this->trim_arht_by_table($arht_changeable_fields,
-						$table_name);
+					$table_name);
 			}else {
 				$arht_normalized_compartments=$arht_changeable_fields;
 			} // else
 			$arht_chf_casted=$this->cast_values_2_db_column_types($table_name,
-					$arht_normalized_compartments,
-					$b_allow_keys_that_are_not_column_names);
+				$arht_normalized_compartments,
+				$b_allow_keys_that_are_not_column_names);
 			$arhtt_chf=$this->prepare_params_t1($arht_chf_casted, ',');
 			$stm='UPDATE '.$table_name.' SET ';
 			$stm=$stm.$arhtt_chf['s'].' WHERE 42=42 ';
@@ -672,9 +676,9 @@ class sirelDBcomm {
 			if (0 < count($arht_selector)) {
 				$stm=$stm.' AND ';
 				$arht_selector_casted=$this->cast_values_2_db_column_types(
-						$table_name, $arht_selector);
+					$table_name, $arht_selector);
 				$arhtt_sel=$this->prepare_params_t1($arht_selector_casted,
-						'AND');
+					'AND');
 			} else {
 				$arhtt_sel=array();
 				$arhtt_sel['params']=array();
@@ -684,8 +688,8 @@ class sirelDBcomm {
 			$params=array_merge($arhtt_chf['params'], $arhtt_sel['params']);
 			$rows=$this->db_->exec_transaction($stm, $params);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='bbf6af33-d329-4b4a-85d6-f12021318dd7'");
 		} // catch
 	} // change_selection_of_rows
 
@@ -703,7 +707,7 @@ class sirelDBcomm {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht_q);
+					__FUNCTION__, 'sirelTD_is_array', $arht_q);
 			} // if
 			$table_name=$arht_q['table_name'];
 			$arht_selector=$arht_q['ht_selector'];
@@ -711,13 +715,13 @@ class sirelDBcomm {
 			$command=$arht_q['command'];
 			if (sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
+					__FUNCTION__, 'sirelTD_is_mbstring', $table_name);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_array', $arht_selector);
+					__FUNCTION__, 'sirelTD_is_array', $arht_selector);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $sql_suffix);
+					__FUNCTION__, 'sirelTD_is_mbstring', $sql_suffix);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $command);
+					__FUNCTION__, 'sirelTD_is_mbstring', $command);
 			} // if
 			$op=new sirelOP();
 			$arht_rows;
@@ -725,13 +729,13 @@ class sirelDBcomm {
 				switch ($command) {
 					case 'select':
 						$arht_rows=$this->ar_SQL_select($table_name,
-								$arht_selector, $sql_suffix);
+							$arht_selector, $sql_suffix);
 						break;
 					default:
 						throw new Exception(
 						__CLASS__.'->'.__FUNCTION__ .
-								': There\'s no branch for ' .
-								'$command=='.$command.'.');
+							': There\'s no branch for ' .
+							'$command=='.$command.'.');
 						break;
 				} // switch
 				$op->sb_failure='f';
@@ -739,16 +743,16 @@ class sirelDBcomm {
 			}
 			catch (Exception $err0) {
 				if(sirelSiteConfig::$debug_PHP) {
-					sirelBubble(__FILE__, __LINE__, $err0,
-							__CLASS__.'->'.__FUNCTION__.': '.
-							'The SQL must have failed. $table_name=='.$table_name.
-							'   $sql_suffix=='.$sql_suffix);
+					sirelBubble_t2($err_exception,
+						'The SQL must have failed. $table_name=='.$table_name.
+						'   $sql_suffix=='.$sql_suffix.
+						"\n GUID='afc3a024-1082-423a-94d6-f12021318dd7'");
 				} // if
 			} // catch
 			return $op;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='031acfca-1756-4c09-82d6-f12021318dd7'");
 		} // catch
 	} // exec_query
 
@@ -767,9 +771,9 @@ class sirelDBcomm_pool {
 	public static function get_dbc(&$database_descriptor) {
 		try {
 			$hash_string=''.$database_descriptor->hostname_.'|||99999992' .
-					$database_descriptor->port_.'|||;' .
-					$database_descriptor->username_.';|||;' .
-					$database_descriptor->db_name_;
+				$database_descriptor->port_.'|||;' .
+				$database_descriptor->username_.';|||;' .
+				$database_descriptor->db_name_;
 			if (array_key_exists($hash_string, sirelDBcomm_pool::$dbs_)) {
 				return sirelDBcomm_pool::$dbs_[$hash_string];
 			} else {
@@ -779,8 +783,8 @@ class sirelDBcomm_pool {
 			} // else
 		}
 		catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='724bf902-25e2-45cb-96d6-f12021318dd7'");
 		} // catch
 	} // get_dbc
 } // class sirelDBcomm_pool
@@ -798,12 +802,12 @@ class sirelDBcomm_ops { // "ops" stands for "operations".
 			$arht_q['ht_selector']=$arht_selector;
 			return $arht_q;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='3750b345-b340-4adf-93d6-f12021318dd7'");
 		} // catch
 	} // get_dbc
 } // class sirelDBcomm_ops
 
 
 // ---------------------------------------------------------
-?>
+

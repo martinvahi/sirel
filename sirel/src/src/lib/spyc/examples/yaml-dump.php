@@ -34,4 +34,3 @@ echo '<pre>A PHP array run through YAMLDump():<br/>';
 print_r($yaml);
 echo '</pre>';
 
-?>

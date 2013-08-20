@@ -166,22 +166,22 @@ class sirelFormscriptSupport {
 			$ar=&sirelLang::bisectStr($a_string, $s_1);
 			if(is_null($ar)) {
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.':: '.
-						'$ar==NULL, GUID==8afc4df4-3d12-4576-b99a-5062c32302cb');
+					__CLASS__.'->'.__FUNCTION__.':: '.
+					'$ar==NULL, GUID==8afc4df4-3d12-4576-b99a-5062c32302cb');
 			} // if
 			if(count($ar)!=3) {
 				usleep(sirelSecurityArch_1::calculate_delay_in_microseconds());
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.':: '.
-						'count($ar)!=3, GUID==2b0fb4bb-6943-45ab-9ca3-9d7e076adf1c');
+					__CLASS__.'->'.__FUNCTION__.':: '.
+					'count($ar)!=3, GUID==2b0fb4bb-6943-45ab-9ca3-9d7e076adf1c');
 			} // if
 			$pair=new sirelPair();
 			$pair->a_=&$ar[1];
 			$pair->b_=&$ar[2];
 			return $pair;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='5d4aff26-a759-4806-b585-712021318dd7'");
 		} // catch
 	} // bisect
 
@@ -195,10 +195,10 @@ class sirelFormscriptSupport {
 			$arht=&sirelLang::ProgFTE2ht($a_pair->b_);
 			if(count($arht)!=4) {
 				sirelThrowLogicException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.':: '.
-						'count($ar)=='.count($arht).' !=4, '.
-						'$a_string='.$a_string."  \n".
-						'GUID==b8dbd149-8ae8-438a-9331-6d223066c51b');
+					__CLASS__.'->'.__FUNCTION__.':: '.
+					'count($ar)=='.count($arht).' !=4, '.
+					'$a_string='.$a_string."  \n".
+					'GUID==b8dbd149-8ae8-438a-9331-6d223066c51b');
 			} // if
 			$data_packet->session_id_=&$arht['session_id'];
 			$data_packet->ticket_=&$arht['ticket'];
@@ -206,8 +206,8 @@ class sirelFormscriptSupport {
 			$data_packet->data_=&$arht['data'];
 			return $data_packet;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3eea7cc3-3614-4252-8685-712021318dd7'");
 		} // catch
 	} // deserialize
 
@@ -219,9 +219,9 @@ class sirelFormscriptSupport {
 	// javascript folder tells more about the format.
 	public static function AJAXformat(&$phone_number,&$response_as_a_string) {
 		$rp=&sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
-				__LINE__,__CLASS__,__FUNCTION__, $response_as_a_string);
+			__LINE__,__CLASS__,__FUNCTION__, $response_as_a_string);
 		$phn=&sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
-				__LINE__,__CLASS__,__FUNCTION__, $phone_number);
+			__LINE__,__CLASS__,__FUNCTION__, $phone_number);
 		try {
 			//  sirelLogger::log(__FILE__, __LINE__,
 			//   '$response_as_a_string==('.$response_as_a_string.')', 'debug');
@@ -240,8 +240,8 @@ class sirelFormscriptSupport {
 			} // else
 			return $answer.$phn.'|||'.$rp;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4d9a5717-d49c-4b1b-9585-712021318dd7'");
 		} // catch
 	} // AJAXformat
 
@@ -256,8 +256,8 @@ class sirelFormscriptSupport {
 			$arht_data_in=&raudrohi_support::unpack_microsession_package($dpckg);
 			return $arht_data_in;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='249d9429-fd3b-4a48-9585-712021318dd7'");
 		} // catch
 	} // unpack_data_by_protocol_t1
 
@@ -273,12 +273,12 @@ class sirelFormscriptSupport {
 			} // else
 			$dpckg=&sirelFormscriptSupport::$protocol_1_cache_dpckg_;
 			$s_out=&sirelFormscriptSupport::AJAXformat($dpckg->phone_number_,
-					$s);
+				$s);
 			sirelFormscriptSupport::$protocol_1_cache_dpckg_=NULL;
 			return $s_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='e2f5624c-60ed-438e-9285-712021318dd7'");
 		} // catch
 	} // pack_data_by_protocol_t1
 
@@ -288,14 +288,14 @@ class sirelFormscriptSupport {
 		try {
 			$dpckg=&sirelFormscriptSupport::$protocol_1_cache_dpckg_;
 			$b_out=$auth->packet_authentication_succeeds($dpckg,
-					sirelFormscriptSupport::$protocol_1_cache_s_answer_);
+				sirelFormscriptSupport::$protocol_1_cache_s_answer_);
 			if($b_out===False) {
 				sirelFormscriptSupport::$protocol_1_b_authentication_failed_=True;
 			} // if
 			return $b_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='38b51124-75ab-4b0a-a185-712021318dd7'");
 		} // catch
 	} // pack_data_by_protocol_t1
 
@@ -303,4 +303,3 @@ class sirelFormscriptSupport {
 
 } // class sirelFormscriptSupport
 
-?>

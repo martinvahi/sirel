@@ -37,29 +37,25 @@ class sirel_test_db_postgresql {
 
 	private static function ob_get_db_descriptor() {
 		try {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
+			sirelBubble_t2($err_exception,
 				'Not yet implemented.'.
-				"\nGUID=='17a45755-1b76-4ec6-a3b8-814121015dd7'");
+				"\n GUID='2b9acd05-dd8c-47d3-bb16-126131318dd7'");
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID=='5352470e-6407-416b-a4b8-814121015dd7'");
+			sirelBubble_t2($err_exception,
+				" GUID='5e5f35a5-fb64-40f5-ae16-126131318dd7'");
 		} // catch
 	} // ob_get_db_descriptor
 
 	private static function b_db_is_accessible() {
 		try {
 			//$ob_db_descriptor=sirel_test_db_postgresql::ob_get_db_descriptor();
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
+			sirelBubble_t2($err_exception,
 				'Not yet implemented.'.
-				"\nGUID=='43981311-0388-43ad-94b8-814121015dd7'");
+				"\n GUID='d5044995-538a-4d67-8316-126131318dd7'");
 			return false;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID=='17d246a4-f1bd-454d-a1b8-814121015dd7'");
+			sirelBubble_t2($err_exception,
+				" GUID='85f109dd-7742-4246-b0f6-126131318dd7'");
 		} // catch
 	} // b_db_is_accessible
 
@@ -72,7 +68,7 @@ class sirel_test_db_postgresql {
 			//----tests-cases-start----------------------
 			$test_case['msg']='The class sirel_test_db_postgresql '.
 				'is inclomplete and it should not be part of selftestss.'.
-				"\nGUID=='3721db57-cd55-41e1-a1b8-814121015dd7'";
+				"\nGUID=='19ee0965-5b6b-4dcc-a535-126131318dd7'";
 			$test_case['line_number']=__LINE__;
 			$ar_tc[]=$test_case;
 			//$ob_db_descriptor=sirel_test_db_postgresql::ob_get_db_descriptor();
@@ -90,8 +86,8 @@ class sirel_test_db_postgresql {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3108f381-9415-4c35-bb55-126131318dd7'");
 		} // catch
 	} // test_db_connect
 
@@ -109,7 +105,7 @@ class sirel_test_db_postgresql {
 			//----tests-cases-start----------------------
 			$test_case['msg']='The class sirel_test_db_postgresql '.
 				'is inclomplete and it should not be part of selftestss.'.
-				"\nGUID=='c0229840-703c-4baf-81b8-814121015dd7'";
+				"\nGUID=='4043f433-cca0-4db6-9845-126131318dd7'";
 			$test_case['line_number']=__LINE__;
 			$ar_tc[]=$test_case;
 			//$ob_db_descriptor=sirel_test_db_postgresql::ob_get_db_descriptor();
@@ -127,8 +123,8 @@ class sirel_test_db_postgresql {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='5454b1b2-736d-426d-b045-126131318dd7'");
 		} // catch
 	} // test_init_filicle
 
@@ -141,8 +137,8 @@ class sirel_test_db_postgresql {
 			$ar_test_results[]=sirel_test_db_postgresql::test_init_filicle();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='d63d9d15-77c7-48c1-8d45-126131318dd7'");
 		} // catch
 	} // selftest
 

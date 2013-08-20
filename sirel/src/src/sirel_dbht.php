@@ -76,11 +76,11 @@ class sirelDBht1 {
 			if(sirelDBht1::$b_inited==True) return;
 			require_once('sirel_dbhashtable.php');
 			sirelDBht1::$dbht_instance=sirelDBhashtable_pool::get_element(sirelDBht1::$s_tablename,
-					sirelDBht_config::$database_descriptor);
+				sirelDBht_config::$database_descriptor);
 			sirelDBht1::$b_inited=True;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='cf399234-bcff-4ba9-9537-712021318dd7'");
 		} // catch
 	} // init
 
@@ -112,8 +112,8 @@ class sirelDBht1 {
 			$b_out=sirelDBht1::$db_->table_exists(sirelDBht1::$s_tablename);
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='535a2be8-cd8a-4a44-b337-712021318dd7'");
 		} // catch
 	} // exists_in_db
 
@@ -129,8 +129,8 @@ class sirelDBht1 {
 			} // else
 			return $x_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='2804f742-e396-4c48-9437-712021318dd7'");
 		} // catch
 	} // get
 
@@ -140,8 +140,8 @@ class sirelDBht1 {
 			$b_out=sirelDBht1::$dbht_instance->has_key($s_key);
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='23ab4443-4e02-4fe7-ad37-712021318dd7'");
 		} // catch
 	} // has_key
 
@@ -152,8 +152,8 @@ class sirelDBht1 {
 			sirelDBht1::$arht_cache[$s_key]=$x_value; // not always strings
 			sirelDBht1::$dbht_instance->put($s_key,$x_value);
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='cb74a363-defe-4e36-b137-712021318dd7'");
 		} // catch
 	} // put
 
@@ -194,11 +194,11 @@ class sirelDBht2 {
 			if(sirelDBht2::$b_inited==True) return;
 			require_once('sirel_dbhashtable.php');
 			sirelDBht2::$dbht_instance=sirelDBhashtable_pool::get_element(sirelDBht2::$s_tablename,
-					sirelDBht_config::$database_descriptor);
+				sirelDBht_config::$database_descriptor);
 			sirelDBht2::$b_inited=True;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='d8005643-e8ce-462d-9137-712021318dd7'");
 		} // catch
 	} // init
 
@@ -230,8 +230,8 @@ class sirelDBht2 {
 			$b_out=sirelDBht2::$db_->table_exists(sirelDBht2::$s_tablename);
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4e0a0d36-a2a4-4c34-8337-712021318dd7'");
 		} // catch
 	} // exists_in_db
 
@@ -247,8 +247,8 @@ class sirelDBht2 {
 			} // else
 			return $x_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='57e8fa14-6b17-499d-a137-712021318dd7'");
 		} // catch
 	} // get
 
@@ -258,8 +258,8 @@ class sirelDBht2 {
 			$b_out=sirelDBht2::$dbht_instance->has_key($s_key);
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='c3475e06-13fd-4c39-ae37-712021318dd7'");
 		} // catch
 	} // has_key
 
@@ -270,8 +270,8 @@ class sirelDBht2 {
 			sirelDBht2::$arht_cache[$s_key]=$x_value; // not always strings
 			sirelDBht2::$dbht_instance->put($s_key,$x_value);
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='60edcd2b-4a7e-412f-a437-712021318dd7'");
 		} // catch
 	} // put
 
@@ -299,11 +299,11 @@ class sirelDBht3 {
 			if(sirelDBht3::$b_inited==True) return;
 			require_once('sirel_dbhashtable.php');
 			sirelDBht3::$dbht_instance=sirelDBhashtable_pool::get_element(sirelDBht3::$s_tablename,
-					sirelDBht_config::$database_descriptor);
+				sirelDBht_config::$database_descriptor);
 			sirelDBht3::$b_inited=True;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='2f4e4e1e-4977-4728-8137-712021318dd7'");
 		} // catch
 	} // init
 
@@ -335,8 +335,8 @@ class sirelDBht3 {
 			$b_out=sirelDBht3::$db_->table_exists(sirelDBht3::$s_tablename);
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='8fa69a27-8813-4ab0-b437-712021318dd7'");
 		} // catch
 	} // exists_in_db
 
@@ -352,8 +352,8 @@ class sirelDBht3 {
 			} // else
 			return $x_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='531eff98-d6e6-426b-b627-712021318dd7'");
 		} // catch
 	} // get
 
@@ -363,8 +363,8 @@ class sirelDBht3 {
 			$b_out=sirelDBht3::$dbht_instance->has_key($s_key);
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='39b4083d-3954-4836-8127-712021318dd7'");
 		} // catch
 	} // has_key
 
@@ -375,8 +375,8 @@ class sirelDBht3 {
 			sirelDBht3::$arht_cache[$s_key]=$x_value; // not always strings
 			sirelDBht3::$dbht_instance->put($s_key,$x_value);
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='cc9e7a3c-671a-4abf-9127-712021318dd7'");
 		} // catch
 	} // put
 
@@ -392,4 +392,3 @@ class sirelDBht3 {
 
 // ---------------------------------------------------------
 
-?>

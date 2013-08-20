@@ -50,18 +50,18 @@ class sirel_cg_set_1 {
 				sirelLang::assert_type(__FILE__, __LINE__,
 					__CLASS__,__FUNCTION__,
 					'sirelTD_is_mbstring',$s_fp,
-					"\n GUID='1899e05b-bf85-4862-a49c-3260b0d06dd7'");
+					"\n GUID='ff6f8b5d-7091-4d57-b5d0-612021318dd7'");
 			} // if
 			if(file_exists($s_fp)!==true) {
 				sirelThrowLogicException(__FILE__, __LINE__,
 					__CLASS__.'->'.__FUNCTION__.': '.
 					"File with the path of \n".$s_fp.
 					"\ndoes not exist.".
-					"\nGUID='6ebbcd32-d9f1-422b-b49c-3260b0d06dd7'");
+					"\nGUID='2b3edb94-8747-46c8-b3d0-612021318dd7'");
 			} // if
 			$arht_s_out=array();
 			array_push($arht_s_out,'<img src="data:');
-			$s_mimetype=sirelFS::s_file_MIME_type($s_fp);
+			$s_mimetype=sirelLang::s_mime_type($s_fp);
 			array_push($arht_s_out, $s_mimetype);
 			array_push($arht_s_out,';base64,');
 			$x=file_get_contents($s_fp);
@@ -71,9 +71,8 @@ class sirel_cg_set_1 {
 			$s_html=s_concat_array_of_strings($arht_s_out);
 			return $s_html;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				'GUID="15283045-4268-47e6-819c-3260b0d06dd7"');
+			sirelBubble_t2($err_exception,
+				" GUID='99453422-43d3-411a-81d0-612021318dd7'");
 		} // catch
 	} // s_img_fp_2_armoured_img_tag
 
@@ -85,7 +84,7 @@ class sirel_cg_set_1 {
 				sirelLang::assert_type(__FILE__, __LINE__,
 					__CLASS__,__FUNCTION__,
 					'sirelTD_is_mbstring',$s_in,
-					"\n GUID='2cfa63e5-8039-4fc5-a99c-3260b0d06dd7'");
+					"\n GUID='fc327c50-12e3-4068-81d0-612021318dd7'");
 			} // if
 			// http://php.net/manual/en/function.htmlentities.php
 			$i_flags=ENT_QUOTES|ENT_HTML5;
@@ -94,9 +93,8 @@ class sirel_cg_set_1 {
 			$s_html="<pre>\n".$s_0."\n</pre>\n";
 			return $s_html;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				'GUID="4862fc42-f623-4024-839c-3260b0d06dd7"');
+			sirelBubble_t2($err_exception,
+				" GUID='25b7712a-cd12-4430-a9c0-612021318dd7'");
 		} // catch
 	} // s_txt_2_verbatim_html
 
@@ -108,14 +106,14 @@ class sirel_cg_set_1 {
 				sirelLang::assert_type(__FILE__, __LINE__,
 					__CLASS__,__FUNCTION__,
 					'sirelTD_is_mbstring',$s_fp,
-					"\n GUID='59f67953-6287-429a-a22c-3260b0d06dd7'");
+					"\n GUID='f2e69f10-86e3-4fdc-82c0-612021318dd7'");
 			} // if
 			if(file_exists($s_fp)!==true) {
 				sirelThrowLogicException(__FILE__, __LINE__,
 					__CLASS__.'->'.__FUNCTION__.': '.
 					"File with the path of \n".$s_fp.
 					"\ndoes not exist.".
-					"\nGUID='4f976ebd-7f5f-4fd0-b41c-3260b0d06dd7'");
+					"\nGUID='c8089620-be1d-4156-a2c0-612021318dd7'");
 			} // if
 			$arht_s_out=array();
 			array_push($arht_s_out,
@@ -126,14 +124,11 @@ class sirel_cg_set_1 {
 			$s_html=s_concat_array_of_strings($arht_s_out);
 			return $s_html;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				'GUID="7abc7d12-a618-4e57-b29c-3260b0d06dd7"');
+			sirelBubble_t2($err_exception,
+				" GUID='35852248-197d-49e9-92c0-612021318dd7'");
 		} // catch
 	} // s_js_fp_2_embedded_js_script_tag
 
 //-------------------------------------------------------------------------
 } // sirel_cg_set_1
-
-?>
 

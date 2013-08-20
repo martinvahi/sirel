@@ -75,8 +75,8 @@ class sirel_htmlcg_table_t1 {
 		try {
 			$this->s_html_id_prefix_=$this->db_->generate_ID();
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='8f2f7d18-cdb4-4cbd-9396-122021318dd7'");
 		} // catch
 	} // generate_new_html_id_prefix
 
@@ -84,25 +84,25 @@ class sirel_htmlcg_table_t1 {
 	// The $db_descriptor is expected to be of class sirelDatabaseDescriptor
 	// The database connection is for generating unique HTML id prefixes.
 	public function __construct($i_number_of_columns, $i_number_of_rows,
-			&$db_descriptor) {
+		&$db_descriptor) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_int', $i_number_of_columns);
+					__FUNCTION__,'sirelTD_is_int', $i_number_of_columns);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_int', $i_number_of_rows);
+					__FUNCTION__,'sirelTD_is_int', $i_number_of_rows);
 				sirelLang::assert_range(1,'<=',$i_number_of_columns,'*',
-						42,'$i_number_of_columns');
+					42,'$i_number_of_columns');
 				sirelLang::assert_range(1,'<=',$i_number_of_rows,'*',
-						42,'$i_number_of_rows');
+					42,'$i_number_of_rows');
 			} // if
 			$this->i_x_max_=$i_number_of_columns-1;
 			$this->i_y_max_=$i_number_of_rows-1;
 			$this->db_=sirelDBgate_pool::get_db($db_descriptor);
 			$this->generate_new_html_id_prefix();
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='fc38e13d-88a8-481b-a196-122021318dd7'");
 		} // catch
 	} // constructor
 
@@ -113,14 +113,14 @@ class sirel_htmlcg_table_t1 {
 			// but coordinates have to be ints, not floats.
 			// That explanes the typechecks here.
 			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__,'sirelTD_is_int', $i_x);
+				__FUNCTION__,'sirelTD_is_int', $i_x);
 			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__,'sirelTD_is_int', $i_y);
+				__FUNCTION__,'sirelTD_is_int', $i_y);
 			sirelLang::assert_range(0,'<=',$i_x,'<=',$this->i_x_max_,'$i_x');
 			sirelLang::assert_range(0,'<=',$i_y,'<=',$this->i_y_max_,'$i_y');
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='03464611-5bb5-414e-9296-122021318dd7'");
 		} // catch
 	} // verify_coordinates
 
@@ -130,12 +130,12 @@ class sirel_htmlcg_table_t1 {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_style);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_style);
 			} // if
 			$this->s_compartments_common_style_=$s_style;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3cd83ec1-80c9-4fa7-b196-122021318dd7'");
 		} // catch
 	} // set_compartments_common_style
 
@@ -146,8 +146,8 @@ class sirel_htmlcg_table_t1 {
 			$s_out=''.$this->s_compartments_common_style_;
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='10cd9054-4c6b-4eba-b186-122021318dd7'");
 		} // catch
 	} // get_compartments_common_style
 
@@ -158,12 +158,12 @@ class sirel_htmlcg_table_t1 {
 			if(sirelSiteConfig::$debug_PHP) {
 				$this->verify_coordinates($i_x,$i_y);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_style);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_style);
 			} // if
 			$this->arht_compartment_style_[''.$i_x.'_'.$i_y]=$s_style;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3f48bfea-1348-4ae7-b286-122021318dd7'");
 		} // catch
 	} // set_compartment_style
 
@@ -173,12 +173,12 @@ class sirel_htmlcg_table_t1 {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_classes);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_classes);
 			} // if
 			$this->s_compartments_common_classes_=$s_classes;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='a9bec351-20fa-41e6-9186-122021318dd7'");
 		} // catch
 	} // set_compartments_common_classes
 
@@ -189,8 +189,8 @@ class sirel_htmlcg_table_t1 {
 			$s_out=''.$this->s_compartments_common_classes_;
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1a6783a1-0e5e-4970-8186-122021318dd7'");
 		} // catch
 	} // get_compartments_common_classes
 
@@ -200,12 +200,12 @@ class sirel_htmlcg_table_t1 {
 			if(sirelSiteConfig::$debug_PHP) {
 				$this->verify_coordinates($i_x,$i_y);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_class);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_class);
 			} // if
 			$this->arht_compartment_classes_[''.$i_x.'_'.$i_y]=$s_class;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='408a4be4-dda0-4367-8286-122021318dd7'");
 		} // catch
 	} // set_compartment_classes
 
@@ -214,12 +214,12 @@ class sirel_htmlcg_table_t1 {
 			if(sirelSiteConfig::$debug_PHP) {
 				$this->verify_coordinates($i_x,$i_y);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_html);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_html);
 			} // if
 			$this->arht_compartment_HTML_[''.$i_x.'_'.$i_y]=$s_html;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='196a9245-7ac2-4a18-b486-122021318dd7'");
 		} // catch
 	} // set_compartment_HTML
 
@@ -233,8 +233,8 @@ class sirel_htmlcg_table_t1 {
 			$s_out=$s_html_id_prefix_.'_'.$i_x.'_'.$i_y;
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='03c78713-0f09-46ef-8486-122021318dd7'");
 		} // catch
 	} // get_compartment_HTML_id
 
@@ -243,8 +243,8 @@ class sirel_htmlcg_table_t1 {
 			$s_out=$s_html_id_prefix_.'_table';
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4cd51749-7467-4164-a386-122021318dd7'");
 		} // catch
 	} // get_table_HTML_id
 
@@ -254,12 +254,12 @@ class sirel_htmlcg_table_t1 {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_style);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_style);
 			} // if
 			$this->s_table_style_=&$s_style;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3770c282-5ea3-4236-b586-122021318dd7'");
 		} // catch
 	} // set_table_style
 
@@ -269,12 +269,12 @@ class sirel_htmlcg_table_t1 {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring', $s_class);
+					__FUNCTION__,'sirelTD_is_mbstring', $s_class);
 			} // if
 			$this->s_table_class_=&$s_class;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='792ee81e-f643-4400-9186-122021318dd7'");
 		} // catch
 	} // set_table_class
 
@@ -322,16 +322,16 @@ class sirel_htmlcg_table_t1 {
 					} // if
 
 					$s_row=$s_row.$s_td_s1.$s_html_id.
-							$s_td_s2.$s_classes.$s_td_s3.$s_style.$s_td_s4.
-							$this->arht_compartment_HTML_[$s_key].$s_td_end;
+						$s_td_s2.$s_classes.$s_td_s3.$s_style.$s_td_s4.
+						$this->arht_compartment_HTML_[$s_key].$s_td_end;
 				} // for
 				$s_row=$s_row.$s_row_end;
 				$s_table_rows=$s_table_rows.$s_row;
 			} // for
 			return $s_table_rows;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='49ed3164-061c-4c11-9d86-122021318dd7'");
 		} // catch
 	} // to_s_rows
 
@@ -339,17 +339,17 @@ class sirel_htmlcg_table_t1 {
 	public function to_s() {
 		try {
 			$s_table_start="\n".'<table class="'.$this->s_table_class_.
-					'" style="'.$this->s_table_style_.'" id="'.
-					$this->get_table_HTML_id().'">'."\n".
-					'<tbody>'."\n";
+				'" style="'.$this->s_table_style_.'" id="'.
+				$this->get_table_HTML_id().'">'."\n".
+				'<tbody>'."\n";
 			$s_table_rows=$this->to_s_rows();
 			$s_table_end=$s1.'</tbody>'."\n".
-					'</table>'."\n";
+				'</table>'."\n";
 			$s_out=$s_table_start.$s_table_rows.$s_table_end;
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='575ac5e2-9f08-431f-9576-122021318dd7'");
 		} // catch
 	} // to_s
 
@@ -357,8 +357,8 @@ class sirel_htmlcg_table_t1 {
 		try {
 			$this->arht_compartment_style_=array();
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='d9646715-b245-4df1-a276-122021318dd7'");
 		} // catch
 	} // clear_compartments_style
 
@@ -366,8 +366,8 @@ class sirel_htmlcg_table_t1 {
 		try {
 			$this->arht_compartment_classes_=array();
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='68ace622-13fe-474c-a476-122021318dd7'");
 		} // catch
 	} // clear_compartments_class
 
@@ -381,8 +381,8 @@ class sirel_htmlcg_table_t1 {
 		try {
 			$this->arht_compartment_HTML_=array();
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='5f95721f-6135-4751-b376-122021318dd7'");
 		} // catch
 	} // clear_compartments_HTML
 
@@ -391,4 +391,3 @@ class sirel_htmlcg_table_t1 {
 
 // ---------------------------------------------------------
 
-?>

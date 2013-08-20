@@ -50,7 +50,7 @@ class sirelTXTnorm {
 			// " When you receive a domain name or
 			//   label, you should preserve its case.
 			//   The rationale for this choice is
-            //   that we may someday need to add full binary
+			//   that we may someday need to add full binary
 			//   domain names for new services; existing services
 			//   would not be changed. "
 			//
@@ -59,12 +59,12 @@ class sirelTXTnorm {
 			$arht_out=array();
 			$arht['failure']=True;
 			$arht['msg']='$an_email_address_candidate=="'.
-					$an_email_address_candidate.'" ';
+				$an_email_address_candidate.'" ';
 			$arht['normalized']='';
 			$arht['failure_code']=0;
 			$s0=sirelLang::mb_trim($an_email_address_candidate);
 			//$arht0=sirelInternetVerifications::emailaddress($s0);
-			if($arht0['failure']){
+			if($arht0['failure']) {
 				$arht['failure_code']=$arht0['failure_code'];
 				$arht['msg']=$arht['msg'].' '.$arht0['msg'];
 				return $arht;
@@ -74,8 +74,8 @@ class sirelTXTnorm {
 			$arht['msg']='';
 			return $arht;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='118d9c2e-7dd6-414d-99b3-912021318dd7'");
 		} // catch
 	} // emailaddress
 
@@ -121,7 +121,7 @@ class sirelTXTnorm {
 			} // if
 			if(!sirelLang::str1EqualsStr2($arht['normalized'],$eac)) {
 				$test_case['msg']='Malnormalization. $arht[\'normalized\']=='.
-						$arht['normalized'];
+					$arht['normalized'];
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -130,8 +130,8 @@ class sirelTXTnorm {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='e10a4483-53d9-42da-bcb5-912021318dd7'");
 		} // catch
 	} // selftest_emailaddress
 
@@ -142,11 +142,10 @@ class sirelTXTnorm {
 			$ar_test_results[]=sirelTXTnorm::selftest_emailaddress();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='e23ebf56-011d-41b8-9985-912021318dd7'");
 		} // catch
 	} // selftest
 
 } // class sirelTXTnorm
 
-?>

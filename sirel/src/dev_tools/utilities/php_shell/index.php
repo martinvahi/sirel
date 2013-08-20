@@ -41,11 +41,11 @@ if (defined('sb_sirel_php_shell_action')==True) {
 		define('s_path_lib_sirel',$s_path_lib_sirel);
 	} // if
 	require_once($s_path_lib_sirel.'/src/src/sirel.php');
-	require_once($s_path_lib_sirel.'/src/src/etc/sirel_engine_configuration.php');
+	require_once($s_path_lib_sirel.'/src/src/sirel_core_configuration.php');
 } // else
 
 $s_html_txarea_2='<textarea '.
-		'name="textarea_2" id="textarea_2" rows="1" cols="75">'."\n".
+		'name="textarea_2" id="textarea_2" rows="1" cols="75" autocomplete="on">'."\n".
 		'</textarea>';
 $arht_html_out=array();
 $s_0=<<<HEREDOC

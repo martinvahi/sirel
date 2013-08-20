@@ -51,19 +51,19 @@ class sirelJavaScript {
 	// the $commaseparated_list_of_text_numbers.
 	// The Message numbers are encoded into HTML-element ID-s.
 	public function add_texts_2_page(&$sirelHTMLPage_instance,
-			$commaseparated_list_of_text_numbers,$language=NULL) {
+		$commaseparated_list_of_text_numbers,$language=NULL) {
 		$s_csl=sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
-				__LINE__,__CLASS__,__FUNCTION__,
-				$commaseparated_list_of_text_numbers);
+			__LINE__,__CLASS__,__FUNCTION__,
+			$commaseparated_list_of_text_numbers);
 		try {
 			if(is_null($language)) {
 				$language=sirelSiteConfig::$language;
 			} else {
 				$language=sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
-						__LINE__,__CLASS__,__FUNCTION__,$language);
+					__LINE__,__CLASS__,__FUNCTION__,$language);
 			} // else
 			$s_fp=sirelSiteConfig::$ui_messages_folder.
-					'/ui_messages_configuration.php';
+				'/ui_messages_configuration.php';
 			require_once($s_fp);
 			$ar_text_numbers=sirelLang::commaseparated_list_2_array($s_csl);
 			$answer='';
@@ -75,12 +75,11 @@ class sirelJavaScript {
 				$ob_html->add_2_arht_data_section($arhtmlid_suffix,$data);
 			} // foreach
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='da445558-ef1d-407a-9123-b12021318dd7'");
 		} // catch
 	} // add_texts_2_page
 
 } // class sirelJavaScript
 
 
-?>

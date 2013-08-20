@@ -49,8 +49,8 @@ function s2link($s_in) {
 		} // if
 		return($s_out);
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__, $err_exception,
-			__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='e0b1212e-e01f-4802-9465-b26121318dd7'");
 	} // catch
 } // s2link
 

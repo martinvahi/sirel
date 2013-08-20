@@ -55,12 +55,12 @@ class sirel_unix_time {
 			} // else
 			if($b_ok==False) {
 				throw new Exception('$s_language=="'.$s_language.'", '.
-						'but the only supported values are:"estonian",'.
-						'"english_uk"');
+					'but the only supported values are:"estonian",'.
+					'"english_uk"');
 			} // if
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='276c57f4-665d-41cc-9eb9-222021318dd7'");
 		} // catch
 	} // verify_language
 
@@ -70,7 +70,7 @@ class sirel_unix_time {
 			$ob_i18n=sirel_unix_time::$arht_i18n_[$s_language];
 			if(is_null($ob_i18n)) {
 				require_once('bonnet/i18n/unix_time/sirel_unix_time_i18n_'.
-								$s_language.'.php');
+						$s_language.'.php');
 				if(sirelLang::str1EqualsStr2($s_language,'estonian')==True) {
 					$ob_i18n=new sirel_unix_time_18n_estonian();
 					sirel_unix_time::$arht_i18n_[$s_language]=$ob_i18n;
@@ -82,8 +82,8 @@ class sirel_unix_time {
 			} // if
 			return $ob_i18n;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='32d1bd45-47d1-4aaa-b4b9-222021318dd7'");
 		} // catch
 	} // get_i18n_instance
 
@@ -96,8 +96,8 @@ class sirel_unix_time {
 			$i_out=(int)(date('Y',$i_unix_time));
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4d06974a-bf67-4a7c-91b9-222021318dd7'");
 		} // catch
 	} // i_year
 
@@ -118,8 +118,8 @@ class sirel_unix_time {
 			} // if
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='426b9eb4-a427-4048-94b9-222021318dd7'");
 		} // catch
 	} // i_month
 
@@ -140,8 +140,8 @@ class sirel_unix_time {
 			} // if
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='6e1bae3b-24fa-4707-84b9-222021318dd7'");
 		} // catch
 	} // i_date
 
@@ -163,8 +163,8 @@ class sirel_unix_time {
 			} // if
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='a0443b58-82a1-4213-a4a9-222021318dd7'");
 		} // catch
 	} // i_day_name
 
@@ -178,8 +178,8 @@ class sirel_unix_time {
 			$i_out=(int)(date('G',$i_unix_time));
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3c65b74a-bebe-4ed6-b4a9-222021318dd7'");
 		} // catch
 	} // i_hour
 
@@ -192,8 +192,8 @@ class sirel_unix_time {
 			$i_out=(int)(date('i',$i_unix_time));
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='23cacb43-86dc-43ca-a3a9-222021318dd7'");
 		} // catch
 	} // i_minute
 
@@ -206,8 +206,8 @@ class sirel_unix_time {
 			$i_out=(int)(date('s',$i_unix_time));
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='05d130fe-121d-4a48-85a9-222021318dd7'");
 		} // catch
 	} // i_second
 
@@ -216,7 +216,7 @@ class sirel_unix_time {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,_FUNCTION__,
-						'sirelTD_is_mbstring', $s_language);
+					'sirelTD_is_mbstring', $s_language);
 			} // if
 			$i_unix_time=sirel_type_normalizations::to_i($i_or_s_unix_time);
 			$i_month=sirel_unix_time::i_month($i_unix_time);
@@ -224,8 +224,8 @@ class sirel_unix_time {
 			$s_out=$ob_i18n->arht_month_names_[''.$i_month];
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='89fa8812-35ce-4b09-b4a9-222021318dd7'");
 		} // catch
 	} // s_month_name
 
@@ -233,7 +233,7 @@ class sirel_unix_time {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,_FUNCTION__,
-						'sirelTD_is_mbstring', $s_language);
+					'sirelTD_is_mbstring', $s_language);
 			} // if
 			$i_unix_time=sirel_type_normalizations::to_i($i_or_s_unix_time);
 			$i_day_name=sirel_unix_time::i_day_name($i_unix_time);
@@ -241,8 +241,8 @@ class sirel_unix_time {
 			$s_out=$ob_i18n->arht_day_names_[''.$i_day_name];
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='c393c841-1569-44eb-9aa9-222021318dd7'");
 		} // catch
 	} // s_day_name
 
@@ -255,20 +255,20 @@ class sirel_unix_time {
 			$s_out='';
 			if(sirelLang::str1EqualsStr2($s_language,'estonian')==True) {
 				$s_out=''.sirel_unix_time::i_date($i_unix_time).' '.
-						sirel_unix_time::s_month_name($s_language,
-						$i_unix_time).' '.
-						sirel_unix_time::i_year($i_unix_time);
+					sirel_unix_time::s_month_name($s_language,
+					$i_unix_time).' '.
+					sirel_unix_time::i_year($i_unix_time);
 			} // if
 			if(sirelLang::str1EqualsStr2($s_language,'english_uk')==True) {
 				$s_out=''.sirel_unix_time::i_date($i_unix_time).'th '.
-						sirel_unix_time::s_month_name($s_language,
-						$i_unix_time).' '.
-						sirel_unix_time::i_year($i_unix_time);
+					sirel_unix_time::s_month_name($s_language,
+					$i_unix_time).' '.
+					sirel_unix_time::i_year($i_unix_time);
 			} // if
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='6d33534a-ecf1-46c3-82a9-222021318dd7'");
 		} // catch
 	} // to_date_str_t1
 
@@ -289,11 +289,11 @@ class sirel_unix_time {
 			$i_year=sirel_unix_time::i_year($i_unix_time);
 
 			$i_out=mktime($i_hour,$i_minute,$i_second,
-					$i_month,$i_date,$i_year);
+				$i_month,$i_date,$i_year);
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='999e4b38-3001-4c04-a5a9-222021318dd7'");
 		} // catch
 	} // i_floor_2_day
 
@@ -308,11 +308,11 @@ class sirel_unix_time {
 			$i_year=sirel_unix_time::i_year($i_unix_time);
 
 			$i_out=mktime($i_hour,$i_minute,$i_second,
-					$i_month,$i_date,$i_year);
+				$i_month,$i_date,$i_year);
 			return $i_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='a094ac2f-b365-4d12-b5a9-222021318dd7'");
 		} // catch
 	} // i_ceil_2_day
 
@@ -321,4 +321,3 @@ class sirel_unix_time {
 
 // ---------------------------------------------------------
 
-?>

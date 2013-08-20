@@ -38,7 +38,7 @@ if(defined('s_path_lib_sirel')!=True) {
 	define('s_path_lib_sirel',$s_path_lib_sirel);
 } // if
 require_once($s_path_lib_sirel.'/src/src/sirel.php');
-require_once($s_path_lib_sirel.'/src/src/etc/sirel_engine_configuration.php');
+require_once($s_path_lib_sirel.'/src/src/sirel_core_configuration.php');
 //=========================================================================
 
 //-------------------------------------------------------------------------
@@ -112,7 +112,7 @@ if(sirelSiteConfig::$debug_PHP==False) {
 			'if the sirelSiteConfig::\$debug_PHP==False, then '.
 			'the php_shell_config::\$b_activated:= False; <br/>'."\n".
 			'The sirelSiteConfig::\$debug_PHP can be edited from '.
-			'\$SIREL_HOME/src/etc/sirel_engine_configuration.php<br/>'.
+			'\$SIREL_HOME/src/sirel_core_configuration.php<br/>'.
 			'';
 } // if
 $s_security_mode=php_shell_config::$s_security_mode;
@@ -125,6 +125,7 @@ if(php_shell_config::$b_activated==True) {
 		if (sirelLang::str1EqualsStr2($s_password, php_shell_config::$s_password)==True) {
 			$b_exec_php=True;
 		} else {
+                        sleep(10);
 			$s_php_exec_output="\n".'<br/>Wrong password.<br/>'."\n";
 		} // else
 	} else {

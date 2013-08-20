@@ -48,25 +48,25 @@ class sirel_ix {
 			$i_n_of_args=count($arht_funcargs);
 			$s_key=NULL;
 			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__,'sirelTD_is_array',$arht_in);
+				__FUNCTION__,'sirelTD_is_array',$arht_in);
 			if($i_n_of_args<2) {
 				throw new Exception(' '.__CLASS__.'->'.__FUNCTION__.
-						': This function takes at least '.
-						'2 arguments, of the first one is '.
-						'a hashtable and the rest are strings that '.
-						'belong to the set of keys of the '.
-						'hashtable. func_num_args()=='.$i_n_of_args);
+					': This function takes at least '.
+					'2 arguments, of the first one is '.
+					'a hashtable and the rest are strings that '.
+					'belong to the set of keys of the '.
+					'hashtable. func_num_args()=='.$i_n_of_args);
 			} // if
 			// The $arht_funcargs[0]==$arht_in, hence
 			// the $i=1; in stead of the $i=0;
 			for($i=1;$i<$i_n_of_args;$i++) {
 				$s_key=$arht_funcargs[$i];
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_key);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_key);
 			} // for
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='c5d0d517-1f90-4637-91ee-e12021318dd7'");
 		} // catch
 	} // verifications_1
 
@@ -94,8 +94,8 @@ class sirel_ix {
 			} // for
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='31f81653-988b-4e88-b5ee-e12021318dd7'");
 		} // catch
 	} // arht_has_keys
 
@@ -119,12 +119,12 @@ class sirel_ix {
 				$s_key=$arht_funcargs[$i];
 				if(!array_key_exists($s_key, $arht_in)) {
 					throw new Exception('The key "'.$s_key.'" is '.
-							'missing from the $arht_in.');
+						'missing from the $arht_in.');
 				} // if
 			} // for
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='9f341e4c-7a61-41c2-84ee-e12021318dd7'");
 		} // catch
 	} // assert_arht_keys
 
@@ -137,7 +137,7 @@ class sirel_ix {
 			if(sirelSiteConfig::$debug_PHP) {
 				foreach ($arht_in as $x_elem) {
 					sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-							__FUNCTION__,'sirelTD_is_array',$x_elem);
+						__FUNCTION__,'sirelTD_is_array',$x_elem);
 				} // foreach
 			} // if
 			$arht_out=array();
@@ -150,8 +150,8 @@ class sirel_ix {
 			} // for
 			return $arht_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='d7fdbc51-f137-457d-85de-e12021318dd7'");
 		} // catch
 	} // arht_of_arht_2_arht_of_elemcounts
 
@@ -166,7 +166,7 @@ class sirel_ix {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_array',$arht_in);
+					__FUNCTION__,'sirelTD_is_array',$arht_in);
 			} // if
 			$arht_out=array();
 			$ar_keys_in=array_keys($arht_in);
@@ -177,8 +177,8 @@ class sirel_ix {
 			} // foreach
 			return $arht_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='70e80c48-0c89-4ced-b3de-e12021318dd7'");
 		} // catch
 	} // arht_swap_keys_and_values
 
@@ -202,8 +202,8 @@ class sirel_ix {
 			} // for
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='535be46b-f8f2-4e6e-a5de-e12021318dd7'");
 		} // catch
 	} // arht_to_s_mode_debug_1
 
@@ -217,9 +217,9 @@ class sirel_ix {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_array',$arht_in);
+					__FUNCTION__,'sirelTD_is_array',$arht_in);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_output_format);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_output_format);
 			} // if
 			$s_out='';
 			switch ($s_output_format) {
@@ -230,14 +230,14 @@ class sirel_ix {
 				default:
 					throw new Exception(
 					__CLASS__.'->'.__FUNCTION__.
-							': There\'s no branch for '.
-							'$s_output_format=='.$s_output_format.'.');
+						': There\'s no branch for '.
+						'$s_output_format=='.$s_output_format.'.');
 					break;
 			} // switch
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='ef257144-5d0d-4f4c-a2de-e12021318dd7'");
 		} // catch
 	} // arht_to_s
 
@@ -248,7 +248,7 @@ class sirel_ix {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_array',$ar_of_arht_in);
+					__FUNCTION__,'sirelTD_is_array',$ar_of_arht_in);
 			} // if
 			$arht_out=array();
 			$i_len=count($ar_of_arht_in);
@@ -261,14 +261,12 @@ class sirel_ix {
 			} // for
 			return $arht_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='bbdabd5e-7411-4e1b-94de-e12021318dd7'");
 		} // catch
 	} // ar_of_arht_2_arht_of_progftes
 
 //-------------------------------------------------------------------------
 } // sirel_ix
 
-
-?>
 

@@ -101,9 +101,8 @@ class sireProgFTE_v0 {
 			$s_out=s_concat_array_of_strings($arht_s_out);
 			return $s_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='4daacff4-8a91-4123-8590-f1b241e14dd7'\n");
+			sirelBubble_t2($err_exception,
+				" GUID='7fcf02e4-27af-4469-a2f7-c12021318dd7'");
 		} // catch
 	} // ht2ProgFTE_impl_part_2
 
@@ -127,9 +126,8 @@ class sireProgFTE_v0 {
 			$s_progte=sireProgFTE_v0::ht2ProgFTE_impl_part_2($arht_in,$s_trpsubsts);
 			return $s_progte;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='3dc2db50-0f28-4b52-a390-f1b241e14dd7'\n");
+			sirelBubble_t2($err_exception,
+				" GUID='9687fe1f-00b3-4408-a4f7-c12021318dd7'");
 		} // catch
 	} // ht2ProgFTE
 
@@ -162,15 +160,13 @@ class sireProgFTE_v0 {
 			} // while
 			return $ar;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.
-				': $a_string=='.$a_string.
-				"  \nGUID='f1d27f13-d5c2-4ece-9190-f1b241e14dd7'\n");
+			sirelBubble_t2($err_exception,
+				' $a_string=='.$a_string.
+				"\n GUID='1eab0851-871a-470f-82f7-c12021318dd7'");
 		} // catch
 	} // ProgFTE2ht
 
 } //class sireProgFTE_v0
 
 //=========================================================================
-?>
 

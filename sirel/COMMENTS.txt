@@ -7,6 +7,10 @@ A word "sirel" stands for "lilac" in Estonian.
 The Sirel PHP library is a general mixture of various PHP components
 that one might find useful, when building server side software.
 
+The Sirel PHP library depends on bash and many standard 
+Linux/BSD tools, i.e. it might run under CygWin,
+but it is practically never tested on Windows.
+
 ---------------------------------------------------------------------------
                             W A R N I N G ! ! !
 ---------------------------------------------------------------------------

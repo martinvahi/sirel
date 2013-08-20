@@ -19,5 +19,3 @@ echo '<pre><a href="spyc.yaml">spyc.yaml</a> loaded into PHP:<br/>';
 print_r($array);
 echo '</pre>';
 
-
-?>

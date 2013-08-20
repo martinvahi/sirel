@@ -58,9 +58,9 @@ class sirelDBhashtable {
 			$ar_column_names=$this->dbc_->get_column_names($s_table_name);
 			if (count($ar_column_names)!=6) {
 				throw(new Exception('A db table that is used as a '.
-						'hashtable, is specified to have exactly 6 columns. '.
-						'count($ar_column_names)=='.
-						count($ar_column_names).'.'));
+					'hashtable, is specified to have exactly 6 columns. '.
+					'count($ar_column_names)=='.
+					count($ar_column_names).'.'));
 			} // if
 			$s=$ar_column_names[0];
 			if ($s!='s_key') {
@@ -114,8 +114,8 @@ class sirelDBhashtable {
 			} // if
 
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='388ed9d1-617a-4835-ab5a-c12021318dd7'");
 		} // catch
 	} // verify_table_structure
 
@@ -128,19 +128,19 @@ class sirelDBhashtable {
 			$this->dbc_=sirelDBcomm_pool::get_dbc($database_descriptor);
 			$this->s_table_name_=$s_table_name;
 			$this->db_->ensure_table_existence($this->s_table_name_,
-					's_key scty_txt, '.
-					's_value_type scty_txt, '.
-					$this->s_value_field_name_prefix_.'_i scty_int, '.
-					$this->s_value_field_name_prefix_.'_s scty_txt, '.
-					$this->s_value_field_name_prefix_.'_fd scty_double, '.
-					$this->s_value_field_name_prefix_.'_sb scty_bool '.
-					'');
+				's_key scty_txt, '.
+				's_value_type scty_txt, '.
+				$this->s_value_field_name_prefix_.'_i scty_int, '.
+				$this->s_value_field_name_prefix_.'_s scty_txt, '.
+				$this->s_value_field_name_prefix_.'_fd scty_double, '.
+				$this->s_value_field_name_prefix_.'_sb scty_bool '.
+				'');
 			if (sirelSiteConfig::$debug_PHP) {
 				$this->verify_table_structure();
 			} // if
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='2653e7b3-121f-4891-ad5a-c12021318dd7'");
 		} // catch
 	} // constructor
 
@@ -163,15 +163,15 @@ class sirelDBhashtable {
 				default:
 					throw new Exception(
 					__CLASS__.'->'.__FUNCTION__.
-							': There\'s no branch for '.
-							'$s_normalized_type=='.$s_normalized_type.'.');
+						': There\'s no branch for '.
+						'$s_normalized_type=='.$s_normalized_type.'.');
 					break;
 			} // switch
 			$x_out=$ar_row[$s_column_name];
 			return $x_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='5212acd0-2044-457f-9bea-c12021318dd7'");
 		} // catch
 	} // get_value_from_row
 
@@ -186,15 +186,15 @@ class sirelDBhashtable {
 				// table after the constructor of this instance ran.
 				if (!($this->db_->table_exists($this->s_table_name_))) {
 					throw(new Exception('The db table of a persistent '.
-							'hashtable has been deleted prior to its '.
-							'end of use.'));
+						'hashtable has been deleted prior to its '.
+						'end of use.'));
 				} // if
 			} // if
 			$x_out=NULL;
 			$arht_selector=array();
 			$arht_selector['s_key']=&$s_key;
 			$ar_rows=$this->dbc_->ar_SQL_select($this->s_table_name_,
-					$arht_selector,'');
+				$arht_selector,'');
 			$i=count($ar_rows);
 			if ($i==1) {
 				$ar_row=$ar_rows[0];
@@ -204,13 +204,14 @@ class sirelDBhashtable {
 			if ($i==0) {
 				return $x_out;
 			} // if
-			sirelBubble(_FILE__,__LINE__,'A database table that is '.
-					'expected to be a presistent hashtable, has '.
-					'a key stored in it more than once. i=='.i,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				'A database table that is '.
+				'expected to be a presistent hashtable, has '.
+				'a key stored in it more than once. i=='.i.
+				"\n GUID='178bc351-0cdb-4545-aa3a-c12021318dd7'");
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='52544d33-94d3-4ca7-a219-c12021318dd7'");
 		} // catch
 	} // get
 
@@ -224,8 +225,8 @@ class sirelDBhashtable {
 			} // if
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1e85ada5-d0a6-4912-b659-c12021318dd7'");
 		} // catch
 	} // has_key
 
@@ -255,14 +256,14 @@ class sirelDBhashtable {
 				default:
 					throw new Exception(
 					__CLASS__.'->'.__FUNCTION__.
-							': There\'s no branch for '.
-							'$s_value_type=='.$s_value_type.'.');
+						': There\'s no branch for '.
+						'$s_value_type=='.$s_value_type.'.');
 					break;
 			} // switch
 			return $ar_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1a5e4cb5-49e8-4c92-b949-c12021318dd7'");
 		} // catch
 	} // create_row
 
@@ -275,15 +276,15 @@ class sirelDBhashtable {
 				$arht_selector=array();
 				$arht_selector['s_key']=$s_key;
 				$this->dbc_->change_selection_of_rows($this->s_table_name_,
-						$arht_changeable_fields, $arht_selector,'');
+					$arht_changeable_fields, $arht_selector,'');
 			} else {
 				$arht_compartments=&$ar_row;
 				$this->dbc_->add_table_row($this->s_table_name_,
-						$arht_compartments);
+					$arht_compartments);
 			} // else
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='443db664-b5b5-4fd5-8349-c12021318dd7'");
 		} // catch
 	} // put
 
@@ -298,9 +299,9 @@ class sirelDBhashtable_pool {
 	public static function get_element($s_table_name,&$database_descriptor) {
 		try {
 			$s_hash=''.$database_descriptor->hostname_.'|||99939992'.
-					$database_descriptor->port_.'|||;'.
-					$database_descriptor->username_.';|||;'.
-					$database_descriptor->db_name_.';|||;'.$s_table_name;
+				$database_descriptor->port_.'|||;'.
+				$database_descriptor->username_.';|||;'.
+				$database_descriptor->db_name_.';|||;'.$s_table_name;
 			$dbht=NULL;
 			if (array_key_exists($s_hash, sirelDBhashtable_pool::$dbhts_)) {
 				$dbht=sirelDBhashtable_pool::$dbhts_[$s_hash];
@@ -310,8 +311,8 @@ class sirelDBhashtable_pool {
 			} // else
 			return $dbht;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__, __LINE__, $err_exception,
-					__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='4393e111-5b0c-4852-8b29-c12021318dd7'");
 		} // catch
 	} // get_element
 
@@ -319,4 +320,3 @@ class sirelDBhashtable_pool {
 
 // ---------------------------------------------------------
 
-?>

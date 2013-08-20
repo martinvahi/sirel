@@ -5,8 +5,8 @@
 // This file is in public domain.
 //=========================================================================
 // The next line is compulsory:
-$s_fp_application_root=realpath('./');
-$s_path_lib_sirel=realpath($s_fp_application_root.'/../../../');
+$s_fp_angervaks_entry_parent_dir=realpath('./');
+$s_path_lib_sirel=realpath($s_fp_angervaks_entry_parent_dir.'/../../../');
 
 define('s_path_lib_sirel',$s_path_lib_sirel);  // A compulsory step.
 
@@ -16,7 +16,7 @@ define('s_path_lib_sirel',$s_path_lib_sirel);  // A compulsory step.
 require_once($s_path_lib_sirel.'/src/src/sirel.php');
 
 // The next line is compulsory:
-sirelSiteConfig::$s_fp_application_root=$s_fp_application_root;
+sirelSiteConfig::$s_fp_angervaks_entry_parent_dir=$s_fp_angervaks_entry_parent_dir;
 
 
 sirelSiteConfig::$site_titleprefix='Sirel Example 1';

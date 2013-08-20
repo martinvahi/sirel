@@ -17,7 +17,7 @@ try {
 		sirelThrowLogicException(__FILE__, __LINE__,
 			__CLASS__.'->'.__FUNCTION__.': '.
 			'The glob function could not comlete without complications.'.
-			"\nGUID='533478e3-be34-4887-b25e-e25310115dd7'");
+			"\nGUID='28be3534-cd2d-412c-9302-636131318dd7'");
 	} // if
 	$i_len=count($arht_fp_tests);
 	$s_fp=NULL;
@@ -46,6 +46,8 @@ try {
 			$ar_test_results=array_merge($ar_test_results,
 				sirel_test_sirel_ix::selftest());
 			$ar_test_results=array_merge($ar_test_results,
+				sirel_test_sirel_fs::selftest());
+			$ar_test_results=array_merge($ar_test_results,
 				sirel_test_sirel_operators::selftest());
 			$ar_test_results=array_merge($ar_test_results,
 				sirel_test_sirel_operators_set_1::selftest());
@@ -73,40 +75,11 @@ try {
 			//		sirelTXTnorm::selftest());
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='19a81943-8ed4-4961-af5e-e25310115dd7'\n");
+			sirelBubble_t2($err_exception,
+				" GUID='277be041-e1cc-469e-8302-636131318dd7'");
 		} // catch
 	} // exec_tests
 
-	function dump_err_2_GUID_trace_GUID_stack_txt($b_all_tests_passed,
-		$s_err) {
-		try {
-			$s_fp_info=sirel_dev_tools_settings::$s_fp_mmmv_devel_tools_info_bash;
-			if(file_exists($s_fp_info)!=True) {
-				return;
-			} // if
-			$s_cmd=$s_fp_info.' get_config '.
-				's_GUID_trace_errorstack_file_path ;';
-			$s_fp_candidate=''.shell_exec($s_cmd);
-			if(mb_strlen($s_fp_candidate)<2) {
-				return;
-			} // if
-			$s_fp=mb_ereg_replace("\n",'',
-				mb_ereg_replace(' ','',$s_fp_candidate));
-			$ob_file= fopen($s_fp, 'w');
-			if($b_all_tests_passed==True) {
-				fwrite($ob_file, '');
-			} else {
-				fwrite($ob_file, $s_err);
-			} // else
-			fclose($ob_file);
-		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='d70d193b-d30c-4f8b-835e-e25310115dd7'");
-		} // catch
-	} // dump_err_2_GUID_trace_GUID_stack_txt
 
 	function test_results_2_s(&$ar_test_results) {
 		try {
@@ -142,16 +115,15 @@ try {
 				} // foreach
 			} // foreach
 			$s_out=$s_out.'</tbody></table>';
-			if($b_all_tests_passed) {
+			if($b_all_tests_passed==TRUE) {
 				$s_out='All tests passed successfully.';
-			} // if
-			dump_err_2_GUID_trace_GUID_stack_txt($b_all_tests_passed,
-				$s_out);
+			} else {
+				sirel_core_exc_bonnet_dump_err_2_GUID_trace_GUID_stack_txt_t1($s_out);
+			} // else
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='155ab63c-aca2-48bc-b55e-e25310115dd7'\n");
+			sirelBubble_t2($err_exception,
+				" GUID='9a5fc827-1276-4189-a202-636131318dd7'");
 		} // catch
 	} // test_results_2_s
 
@@ -162,6 +134,6 @@ try {
 	$ob_html->add_2_ar_body($s);
 	echo $ob_html->to_s();
 } catch (Exception $err_exception) {
-	sirelDisplayException(__FILE__,__LINE__,$err_exception);
+	sirelDisplayException_t2($err_exception);
 } // catch
 ?>

@@ -46,14 +46,14 @@ class sirel_math_boolean {
 			$i_n_of_args=count($arht_funcargs);
 			$s_key=NULL;
 			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__,'sirelTD_is_array',$arht_in);
+				__FUNCTION__,'sirelTD_is_array',$arht_in);
 			if($i_n_of_args<2) {
 				throw new Exception(' '.__CLASS__.'->'.__FUNCTION__.
-						': This function takes at least '.
-						'2 arguments, of the first one is '.
-						'a hashtable and the rest are strings that '.
-						'belong to the set of keys of the '.
-						'hashtable. func_num_args()=='.$i_n_of_args);
+					': This function takes at least '.
+					'2 arguments, of the first one is '.
+					'a hashtable and the rest are strings that '.
+					'belong to the set of keys of the '.
+					'hashtable. func_num_args()=='.$i_n_of_args);
 			} // if
 			// The $arht_funcargs[0]==$arht_in, hence
 			// the $i=1; in stead of the $i=0;
@@ -61,13 +61,13 @@ class sirel_math_boolean {
 				$s_key=$arht_funcargs[$i];
 				if(!array_key_exists($s_key, $arht_in)) {
 					throw new Exception(' '.__CLASS__.'->'.__FUNCTION__.
-							'The input array does not contain a '.
-							'key that equals with "'.$s_key.'".');
+						'The input array does not contain a '.
+						'key that equals with "'.$s_key.'".');
 				} // if
 			} // for
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1b00a7c4-2544-4ee7-b246-022021318dd7'");
 		} // catch
 	} // verifications_1
 
@@ -96,8 +96,8 @@ class sirel_math_boolean {
 			} // for
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='52fe1924-8b6a-4498-8246-022021318dd7'");
 		} // catch
 	} // conjunction_arht
 
@@ -126,14 +126,12 @@ class sirel_math_boolean {
 			} // for
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4f6a0a71-b4e8-49ec-8046-022021318dd7'");
 		} // catch
 	} // disjunction_arht
 
 //--------------------------------------------------------------------
 } // sirel_math_boolean
 
-
-?>
 

@@ -617,12 +617,12 @@ class sirelFS_mimetypes {
 			$arht_out['zsh']='text/x-script.zsh';
 			return($arht_out);
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='2fbd9a75-f6f9-43b0-a851-912021318dd7'");
 		} // catch
 	} // arht_mimetypes_stage_2
 
 } // class sirelFS_mimetypes
 
 //=========================================================================
-?>
+

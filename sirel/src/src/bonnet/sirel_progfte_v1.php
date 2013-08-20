@@ -103,9 +103,8 @@ class sireProgFTE_v1 {
 			$s_progte=s_concat_array_of_strings($arht_s_all);
 			return $s_progte;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='95d1261e-f2a9-4e43-91dd-c1b241e14dd7'\n");
+			sirelBubble_t2($err_exception,
+				" GUID='ccb52c40-0de3-473e-a307-c12021318dd7'");
 		} // catch
 	} // ht2ProgFTE
 
@@ -125,7 +124,7 @@ class sireProgFTE_v1 {
 					'the ProgFTE_v1 format specriication. '.
 					"\n".' $s_progfte_candidate=='.
 					$s_progfte_candidate.
-					"\n GUID='38448d30-d025-49f6-83cd-c1b241e14dd7'");
+					"\n GUID='17e24113-e967-4ee1-8507-c12021318dd7'");
 			} // if
 			$s_1=sirelLang::s_sar_rubystyle($s_0, 1, (-1));
 			if (sirelLang::str1EqualsStr2($s_1, '1')!=True) {
@@ -135,7 +134,7 @@ class sireProgFTE_v1 {
 					'the ProgFTE_v1 format specriication. '.
 					"\n".' $s_progfte_candidate=='.
 					$s_progfte_candidate.
-					"\n GUID='3d2828e0-13c9-4d29-b3cd-c1b241e14dd7'");
+					"\n GUID='38dc4463-2846-4d31-a707-c12021318dd7'");
 			} // if
 			//v1|<mode>|<number of key-value pairs>|<metadata key-value pair>|<the rest of the key-value pairs>
 			$ar_1=sirelLang::bisectStr($ar_0[2],$s_singlepillar);
@@ -177,15 +176,14 @@ class sireProgFTE_v1 {
 			} // for
 			return $arht_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
+			sirelBubble_t2($err_exception,
 				's_progfte_candidate=='.$s_progfte_candidate.
-				" \nGUID='b108c03b-9790-42be-84cd-c1b241e14dd7'\n");
+				"\n GUID='27b82b93-8f02-490e-9107-c12021318dd7'");
 		} // catch
 	} // ProgFTE2ht
 
 } //class sireProgFTE_v1
 
 //=========================================================================
-?>
+
 

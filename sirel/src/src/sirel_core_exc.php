@@ -37,6 +37,17 @@
 // used only by using "require_once('sirel_core.php')".
 //------------------------------------------------------------------------
 
+require_once('sirel_core_log.php');
+
+// The essence of the existence of the class sirelResourceException
+// is visible at the function sirelDisplayException(...).
+class sirelResourceException extends Exception {
+} // class sirelResourceException
+class sirelIOException extends Exception {
+} // class sirelIOException
+
+require_once('bonnet/deprecated/sirel_core_exc_deprecated.php');
+require_once('bonnet/sirel_core_exc_bonnet.php');
 
 function sirelServerSideErrorPageDisplayingPassphraseAtTheClientSide() {
 	return '
@@ -46,50 +57,36 @@ function sirelServerSideErrorPageDisplayingPassphraseAtTheClientSide() {
         it should display this HTML page-->';
 } // sirelServerSideErrorPageDisplayingPassphraseAtTheClientSide
 
-// The essence of the existence of the class sirelResourceException
-// is visible at the function sirelDisplayException(...).
-class sirelResourceException extends Exception {
-} // class sirelResourceException
-class sirelIOException extends Exception {
-} // class sirelIOException
-
+//-------------------------------------------------------------------------
 
 // It is meant to be called like that:
 // sirelThrowResourceException(__FILE__,__LINE__,'greetings!');
-function sirelThrowResourceException($file,$line,$message) {
-	throw new sirelResourceException( "".
-		"\n<p>-------------------------------\n".
-		'File '.$file."\n line: ".$line." Message:\n".$message);
+function sirelThrowResourceException_t2($message) {
+	throw new sirelResourceException("\n\n-------------------------------\n".
+		" Message:\n".$message);
 } // sirelThrowResourceException
 
 // It is meant to be called like that:
 // sirelThrowLogicException(__FILE__,__LINE__,'greetings!');
-function sirelThrowLogicException($file,$line,$message) {
-	throw new Exception( "\n<p>-------------------------------\n".
-		'File '.$file."\n line: ".$line." Message:\n".$message);
+function sirelThrowLogicException_t2($message) {
+	throw new Exception("\n\n-------------------------------\n".
+		" Message:\n".$message);
 } // sirelThrowLogicException
 
-function sirelThrowIOException($file,$line,$message) {
-	throw new sirelIOException( "".
-		"\n<p>-------------------------------\n".
-		'File '.$file."\n line: ".$line." Message:\n".$message);
+function sirelThrowIOException_t2($message) {
+	throw new Exception("\n\n-------------------------------\n".
+		" Message:\n".$message);
 } // sirelThrowIOException
 
+//-------------------------------------------------------------------------
 
-// The sirelBubble(...) is meant to be used in the
-// following context:
-//
-// require_once("$sirel_path/sirel_core.php");
-// try{
-//   CODE THAT USES THE sirelBubble(...)
-// } catch (Exception $err_exception) {
-//     sirelBubble(__FILE__,__LINE__,$err_exception);
-// } // catch
-function sirelBubble($file_path,$line,$exception,$message='') {
-	$msg="\n<p>-------------------------------</p>\n".
-		'File: '.$file_path."\nline: ".$line.' '.
-		'Message: '.$message."\n".
-		$exception->getMessage()."\n</p>";
+function sirelBubble_t2($exception,$message) {
+	$s_lc_linebreak="\n";
+	$msg="\n\n-------------------------------\n".
+		'$message=='.$s_lc_linebreak.
+		$message.$s_lc_linebreak.$s_lc_linebreak.
+		'$exception->getMessage()=='.$s_lc_linebreak.
+		$exception->getMessage();
 	$err_exception_type=get_class($exception);
 	switch ($err_exception_type) {
 		case 'sirelResourceException':
@@ -102,67 +99,56 @@ function sirelBubble($file_path,$line,$exception,$message='') {
 			throw new Exception($msg);
 			break;
 	} // switch
-} // sirelBubble
+} // sirelBubble_t2
 
-// The sirelDisplayException is meant to display the
-// stack of exception messages that was gathered by
-// using the sirelBubble. It is meant to be used in
-// the following context:
-//
-// require_once("$sirel_path/sirel_core.php");
-// try{
-//   CODE THAT USES THE sirelBubble(...).
-// } catch (Exception $err_exception) {
-//     sirelDisplayException(__FILE__,__LINE__,$err_exception);
-// }
-// The __FILE__, __LINE__, etc. are necessary to
-// indicate, where the bubbling stops.
-function sirelDisplayException($file_path,$line,$exception,$message='') {
-	$msg="\n<p>---------------Bubble-Display--Start-------------\n".
-		$message;
-	if($message!='') {
-		$msg=$msg."\n";
-	} // if
-	$err_exception_type=get_class($exception);
-	$msg=$msg.'Exception type: '.$err_exception_type."\n".
-		$exception->getMessage()."\n".
-		"---------------Bubble-Display--End----------------\n";
-	if(sirelSiteConfig::$debug_PHP) {
-		$msg=mb_ereg_replace("[\\n]",'<br/>', $msg);
-		$msg='<br/><br/>'.$msg.'<br/><br/>';
-		echo $msg;
-	} else {
+//-------------------------------------------------------------------------
+
+function sirelDisplayException_t2($ob_exception, $s_message='') {
+	if(sirelSiteConfig::$debug_PHP!=TRUE) {
 		$logstack='default';
-		// The sirelLogger::log(plapla) are here with the |||
+		// The sirelLogger::log_t2(plapla) are here with the |||
 		// to avoid log flooding, no matter how many threads
 		// stumble upon the same errorous condition. The side effect
 		// is that if there are multiple different errors that trigger an
 		// exception, then only one of them will be logged, but that's OK,
 		// because absolutely all of them have to be fixed anyway and
 		// after the logged one gets fixed, the rest have their turn to be logged.
+		//
 		// If the number of errors is so huge that the current strategy becomes
 		// unfeasible, then the software is crap anyway.
+		$s_logmessage='';
+		$s_path_lib_sirel=constant('s_path_lib_sirel');
+		$s_fp_html=$s_path_lib_sirel.'/src/src';
+		$s_lc_f1='Function sirelDisplayException(...)->';
 		switch ($err_exception_type) {
 			case 'sirelResourceException':
-				sirelLogger::log($file_path,$line,
-					'Function sirelDisplayException(...)->'.
-					'sirelResourceException |||'.$msg, $logstack);
-				require_once('sirel_resource_error.html');
+				$s_logmessage=$s_lc_f1.
+					'sirelResourceException |||'.$msg;
+				$s_fp_html=$s_fp_html.'/sirel_resource_error.html';
 				break;
 			case 'sirelIOException':
-				sirelLogger::log($file_path,$line,
-					'Function sirelDisplayException(...)->'.
-					'sirelIOException |||'.$msg, $logstack);
-				require_once('sirel_io_error.html');
+				$s_logmessage=$s_lc_f1.
+					'sirelIOException |||'.$msg;
+				$s_fp_html=$s_fp_html.'/sirel_io_error.html';
 				break;
 			default: // logic_error
-				sirelLogger::log($file_path,$line,
-					'Function sirelDisplayException(...)->'.
-					'logic_error |||'.$msg, $logstack);
-				require_once('sirel_logic_error.html');
+				$s_logmessage=$s_lc_f1.
+					'logic_error |||'.$msg;
+				$s_fp_html=$s_fp_html.'/sirel_logic_error.html';
 				break;
 		} // switch
+		sirelLogger::log_t2($s_logmessage, $logstack);
+		require_once($s_fp_html);
+		return;
 	} // if
-} // sirelDisplayException
+	$msg="\n<p>---------------Bubble-Display--Start-------------\n".
+		$s_message."\n".
+		$ob_exception->getMessage().
+		"\n---------------Bubble-Display--End----------------\n</p>\n";
+	$msg=mb_ereg_replace("[\\n]",'<br/>', $msg);
+	sirel_core_exc_bonnet_dump_err_2_GUID_trace_GUID_stack_txt_t1($msg);
+	echo $msg;
+} // sirelDisplayException_t2
 
-?>
+//-------------------------------------------------------------------------
+

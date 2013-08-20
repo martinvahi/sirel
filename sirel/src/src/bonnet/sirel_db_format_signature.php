@@ -96,8 +96,8 @@ class sirel_db_format_signature {
 			$s_out=s_concat_array_of_strings($ar_strings);
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='7127c935-5d72-4e75-a44a-d12021318dd7'");
 		} // catch
 	} // s_get_s_table_signature
 
@@ -132,8 +132,8 @@ class sirel_db_format_signature {
 			$s_out=s_concat_array_of_strings($ar_strings);
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='035f8a49-e7d7-4d86-944a-d12021318dd7'");
 		} // catch
 	} // s_get
 
@@ -141,4 +141,3 @@ class sirel_db_format_signature {
 
 //=========================================================================
 
-?>

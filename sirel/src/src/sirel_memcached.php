@@ -82,8 +82,8 @@ class sirelMemcached {
 			//
 			//
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='5b3281a1-3052-4ba6-8450-812021318dd7'");
 		} // catch
 	} // get_memcached
 
@@ -175,4 +175,3 @@ class sirelMemcached {
 } // class sirelMemcached
 //-------------------------------------------------------------------------
 
-?>

@@ -50,14 +50,14 @@ class sirel_eval {
 				unlink($s_fp_tmp_file);
 			}catch (Exception $err_exception) {
 				unlink($s_fp_tmp_file);
-				sirelBubble(__FILE__,__LINE__,$err_exception,
-						__CLASS__.'->'.__FUNCTION__.': ');
+				sirelBubble_t2($err_exception,
+					" GUID='fa1a6051-d4d1-45a8-94dc-322021318dd7'");
 			} // catch
 			$s_stdout=utf8_encode($s_stdout);
 			return $s_stdout;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1bb9b615-9170-4476-a1cc-322021318dd7'");
 		} // catch
 	} // eval_t1
 
@@ -72,8 +72,8 @@ class sirel_eval {
 			$s_stdout=sirel_eval::eval_t1($s_cmd_prefix, $s_src);
 			return $s_stdout;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='01855430-f703-4e2f-a2cc-322021318dd7'");
 		} // catch
 	} // s_php
 
@@ -85,12 +85,12 @@ class sirel_eval {
 			$s_stdout=sirel_eval::eval_t1($s_cmd_prefix, $s_src);
 			return $s_stdout;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='0ca5d03f-30b9-423c-85cc-322021318dd7'");
 		} // catch
 	} // s_ruby
 
 	//---------------------------------------------------------------------
 } // class sirel_eval
 //=========================================================================
-?>
+

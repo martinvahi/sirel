@@ -102,37 +102,40 @@ class sirel_units {
 //
 // As a result, the meaning of a a unit support is a bit vague
 // and quite specific to this class.
-	protected static function b_unit_not_supported(&$s_unit) {
+	protected static function b_unit_not_supported($s_unit) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_unit);
 			} // if
+			// The $s_0 is for getting rid of a warning that
+			// is covered by the above assertion.
+			$s_0=''.$s_unit;
 			$b_out=True;
-			if(array_key_exists($s_unit, sirel_units::$arht_supported_Si_units)) {
+			if(array_key_exists($s_0, sirel_units::$arht_supported_Si_units)) {
 				$b_out=False;
 				return $b_out;
 			} //if
-			if(array_key_exists($s_unit, sirel_units::$arht_supported_nonSi_units)) {
+			if(array_key_exists($s_0, sirel_units::$arht_supported_nonSi_units)) {
 				$b_out=False;
 			} //if
 			return $b_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='a45067e6-c176-4975-9923-712021318dd7'");
 		} // catch
 	} // b_unit_not_supported
 
 //------------------------------------------------------------------
-	private static function assert_unit_supported(&$s_unit) {
+	private static function assert_unit_supported($s_unit) {
 		try {
 			if(sirel_units::b_unit_not_supported($s_unit)) {
 				throw new Exception('Unit "'.$s_unit.'" is not yet '.
-						'supported by this class.');
+					'supported by this class.');
 			} // if
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='5103c713-4b5f-4e4c-bc53-712021318dd7'");
 		} // catch
 	} // assert_unit_supported
 
@@ -141,23 +144,23 @@ class sirel_units {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',
-						$s_conversion_constant);
+					__FUNCTION__,'sirelTD_is_mbstring',
+					$s_conversion_constant);
 			} // if
 			$func_out=create_function('$fd_value_in_origin_units',
-					'$fd_out=(1.0*$fd_value_in_origin_units)*'.
-					$s_conversion_constant.';'.
-					'return $fd_out;');
+				'$fd_out=(1.0*$fd_value_in_origin_units)*'.
+				$s_conversion_constant.';'.
+				'return $fd_out;');
 			return $func_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='553cd8c4-f1ea-4300-a622-712021318dd7'");
 		} // catch
 	} // create_func_1
 
 //------------------------------------------------------------------
 	private static function create_conversion_function_orig_density(&$s_destination_unit,
-			&$s_origin_unit,&$s_exc_destination_unit_not_found) {
+		&$s_origin_unit,&$s_exc_destination_unit_not_found) {
 		try {
 			$func_out=NULL;
 			if(sirelLang::str1EqualsStr2($s_origin_unit, 't/(m^3)')) {
@@ -296,14 +299,14 @@ class sirel_units {
 
 			return $func_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='2ff35e35-02dd-47a5-9132-712021318dd7'");
 		} // catch
 	} // create_conversion_function_orig_density
 
 //------------------------------------------------------------------
 	private static function create_conversion_function_orig_length(&$s_destination_unit,
-			&$s_origin_unit,&$s_exc_destination_unit_not_found) {
+		&$s_origin_unit,&$s_exc_destination_unit_not_found) {
 		try {
 			$func_out=NULL;
 			if(sirelLang::str1EqualsStr2($s_origin_unit, 'km')) {
@@ -360,14 +363,14 @@ class sirel_units {
 			} // if
 			return $func_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='e155ce44-3753-47fd-b122-712021318dd7'");
 		} // catch
 	} // create_conversion_function_orig_length
 
 //------------------------------------------------------------------
 	private static function create_conversion_function_orig_volume(&$s_destination_unit,
-			&$s_origin_unit,&$s_exc_destination_unit_not_found) {
+		&$s_origin_unit,&$s_exc_destination_unit_not_found) {
 		try {
 			$func_out=NULL;
 			if(sirelLang::str1EqualsStr2($s_origin_unit, 'm^3')) {
@@ -405,14 +408,14 @@ class sirel_units {
 			} // if
 			return $func_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='31b2198a-524c-43fb-b5e2-712021318dd7'");
 		} // catch
 	} // create_conversion_function_orig_volume
 
 //------------------------------------------------------------------
 	private static function create_conversion_function_orig_mass(&$s_destination_unit,
-			&$s_origin_unit,&$s_exc_destination_unit_not_found) {
+		&$s_origin_unit,&$s_exc_destination_unit_not_found) {
 		try {
 			$func_out=NULL;
 			if(sirelLang::str1EqualsStr2($s_origin_unit, 'kg')) {
@@ -472,29 +475,29 @@ class sirel_units {
 				return $func_out;
 			} // if
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='379bb064-5283-40c5-bf32-712021318dd7'");
 		} // catch
 	} // create_conversion_function_orig_mass
 
 //------------------------------------------------------------------
 	private static function create_conversion_function(&$s_destination_unit,
-			&$s_origin_unit) {
+		&$s_origin_unit) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_destination_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_destination_unit);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_origin_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_origin_unit);
 				sirel_units::assert_unit_supported($s_destination_unit);
 				sirel_units::assert_unit_supported($s_origin_unit);
 			} // if
 			$s_exc_destination_unit_not_found='There is a flaw. The creation of '.
-					'conversion function from unit '.$s_origin_unit.
-					' to unit '.$s_destination_unit.' failed. The origin unit '.
-					' exists in the conversion graph but there is no '.
-					' directed edge from the origin unit to the '.
-					' destination unit. ';
+				'conversion function from unit '.$s_origin_unit.
+				' to unit '.$s_destination_unit.' failed. The origin unit '.
+				' exists in the conversion graph but there is no '.
+				' directed edge from the origin unit to the '.
+				' destination unit. ';
 			$func_out=NULL;
 // List of supported units for vim based semiautomated text editing:
 //  't'
@@ -508,41 +511,41 @@ class sirel_units {
 //  'g/l'
 			if(is_null($func_out)) {
 				$func_out=sirel_units::create_conversion_function_orig_mass($s_destination_unit,
-						$s_origin_unit,$s_exc_destination_unit_not_found);
+					$s_origin_unit,$s_exc_destination_unit_not_found);
 			} // if
 			if(is_null($func_out)) {
 				$func_out=sirel_units::create_conversion_function_orig_volume($s_destination_unit,
-						$s_origin_unit,$s_exc_destination_unit_not_found);
+					$s_origin_unit,$s_exc_destination_unit_not_found);
 			} // if
 			if(is_null($func_out)) {
 				$func_out=sirel_units::create_conversion_function_orig_density($s_destination_unit,
-						$s_origin_unit,$s_exc_destination_unit_not_found);
+					$s_origin_unit,$s_exc_destination_unit_not_found);
 			} // if
 			if(is_null($func_out)) {
 				$func_out=sirel_units::create_conversion_function_orig_length($s_destination_unit,
-						$s_origin_unit,$s_exc_destination_unit_not_found);
+					$s_origin_unit,$s_exc_destination_unit_not_found);
 			} // if
 			if(is_null($func_out)) {
 				throw new Exception('There is a flaw. The creation of '.
-						'conversion function from unit '.$s_origin_unit.
-						' to unit '.$s_destination_unit.' failed.');
+					'conversion function from unit '.$s_origin_unit.
+					' to unit '.$s_destination_unit.' failed.');
 			} // if
 			return $func_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='866a4c28-827c-41a0-80e2-712021318dd7'");
 		} // catch
 	} // create_conversion_function
 
 //------------------------------------------------------------------
 	private static function get_conversion_function(&$s_destination_unit,
-			&$s_origin_unit) {
+		&$s_origin_unit) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_destination_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_destination_unit);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_origin_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_origin_unit);
 				sirel_units::assert_unit_supported($s_destination_unit);
 				sirel_units::assert_unit_supported($s_origin_unit);
 			} // if
@@ -552,13 +555,13 @@ class sirel_units {
 				$func_out=sirel_units::$arht_conversion_functions[$s_key];
 			} else {
 				$func_out=sirel_units::create_conversion_function($s_destination_unit,
-						$s_origin_unit);
+					$s_origin_unit);
 				sirel_units::$arht_conversion_functions[$s_key]=$func_out;
 			} // if
 			return $func_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4fbcbb53-f268-4615-9742-712021318dd7'");
 		} // catch
 	} // get_conversion_function
 
@@ -576,14 +579,14 @@ class sirel_units {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_unit);
 			} // if
 			sirel_units::assert_unit_supported($s_unit);
 			$s_Si_unit=''.sirel_units::$arht_unit_2_Si[$s_unit];
 			return $s_Si_unit;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1cd60381-f2ef-4507-8c22-712021318dd7'");
 		} // catch
 	} // s_unit_2_Si
 
@@ -593,18 +596,18 @@ class sirel_units {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_unit);
 			} // if
 			sirel_units::assert_unit_supported($s_unit);
 			$s_Si_unit=sirel_units::$arht_unit_2_Si[$s_unit];
 			$func_converter=sirel_units::get_conversion_function($s_Si_unit,
-					$s_unit);
+				$s_unit);
 			$fd_in=sirel_type_normalizations::to_fd($i_or_s_or_fd);
 			$fd_out=$func_converter($fd_in);
 			return $fd_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='98b55b4e-a539-4d64-8cf2-712021318dd7'");
 		} // catch
 	} // fd_2_Si
 
@@ -612,24 +615,24 @@ class sirel_units {
 // Converts the value from one system to anohter. Probably some
 // rounding will take place due to the use of floats.
 	public static function fd_convert($s_destination_unit,
-			$i_or_s_or_fd,$s_origin_unit) {
+		$i_or_s_or_fd,$s_origin_unit) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_destination_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_destination_unit);
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_mbstring',$s_origin_unit);
+					__FUNCTION__,'sirelTD_is_mbstring',$s_origin_unit);
 			} // if
 			sirel_units::assert_unit_supported($s_destination_unit);
 			sirel_units::assert_unit_supported($s_origin_unit);
 			$func_converter=sirel_units::get_conversion_function($s_destination_unit,
-					$s_origin_unit);
+				$s_origin_unit);
 			$fd_in=sirel_type_normalizations::to_fd($i_or_s_or_fd);
 			$fd_out=$func_converter($fd_in);
 			return $fd_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4d780403-22ad-49f4-a232-712021318dd7'");
 		} // catch
 	} // fd_convert
 
@@ -680,8 +683,8 @@ class sirel_units {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='b48e9de8-2a66-454a-9a21-712021318dd7'");
 		} // catch
 	} // test_sirel_units_b_unit_not_supported
 
@@ -696,8 +699,8 @@ class sirel_units {
 			$ar_test_results[]=sirel_units::test_sirel_units_b_unit_not_supported();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='f3633901-81f6-4295-b021-712021318dd7'");
 		} // catch
 	} // selftest
 
@@ -706,4 +709,3 @@ class sirel_units {
 
 // ---------------------------------------------------------
 
-?>

@@ -80,8 +80,8 @@ function func_sirel_operators_set_baseconversion_ar_int2baseX($i_in,
 		array_push($arht_out, $i_pile);
 		return $arht_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='38307a91-0ca7-41e6-a343-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_set_baseconversion_ar_int2baseX
 
@@ -207,8 +207,8 @@ class sirel_BigInt_t1 {
 			} // for
 			$this->b_array_representation_is_up_to_date=True;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='50d4c859-562c-4d4f-a343-f12021318dd7'");
 		} // catch
 	} // set_array_mode_value_by_string
 
@@ -265,8 +265,8 @@ class sirel_BigInt_t1 {
 				$this->ob_GNU_MP_int=gmp_neg($ibignu_1);
 			} // else
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='d46ddb40-a5a8-4d8b-9443-f12021318dd7'");
 		} // catch
 	} // set_ob_gnump_value_by_string
 
@@ -283,8 +283,8 @@ class sirel_BigInt_t1 {
 			} // else
 			$this->set_array_mode_value_by_string($s_value, $s_sign);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='82044995-f4ef-41f9-8543-f12021318dd7'");
 		} // catch
 	} // update_array_mode
 
@@ -359,8 +359,8 @@ class sirel_BigInt_t1 {
 				} // else
 			} // else
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='34876d58-12dd-4b29-a243-f12021318dd7'");
 		} // catch
 	} // set_value
 
@@ -394,8 +394,8 @@ class sirel_BigInt_t1 {
 			} // else
 			$this->s_sign=$s_sign;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='dd242446-11b6-4b75-b243-f12021318dd7'");
 		} // catch
 	} // set_sign
 
@@ -406,8 +406,8 @@ class sirel_BigInt_t1 {
 		try {
 			$this->set_value($s_or_i_or_BigInt,$s_sign);
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='0bab512f-3958-4a10-9443-f12021318dd7'");
 		} // catch
 	} // constructor
 
@@ -430,8 +430,8 @@ class sirel_BigInt_t1 {
 			} // for
 			return $s_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='51a0b1d5-7481-4161-b143-f12021318dd7'");
 		} // catch
 	} // s_get_absolute_value_in_base_2_from_array_representation
 
@@ -450,8 +450,8 @@ class sirel_BigInt_t1 {
 			} // else
 			return $s_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='7caf7521-4eac-4233-8533-f12021318dd7'");
 		} // catch
 	} // s_get_absolute_value_in_base_2
 
@@ -467,8 +467,8 @@ class sirel_BigInt_t1 {
 			} // else
 			return $s_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='156c51a1-e815-4332-a833-f12021318dd7'");
 		} // catch
 	} // s_get_sign
 
@@ -492,8 +492,8 @@ class sirel_BigInt_t1 {
 			$ibi_this_gnu=&$this->ob_GNU_MP_int;
 			$this->ob_GNU_MP_int=gmp_add($x_in,$ibi_this_gnu);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='5ed30895-ac2f-4364-a133-f12021318dd7'");
 		} // catch
 	} //add
 
@@ -517,8 +517,8 @@ class sirel_BigInt_t1 {
 			$ibi_this_gnu=&$this->ob_GNU_MP_int;
 			$this->ob_GNU_MP_int=gmp_mul($x_in, $ibi_this_gnu);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='3538a431-c00c-4e92-b433-f12021318dd7'");
 		} // catch
 	} //mul
 
@@ -529,8 +529,8 @@ class sirel_BigInt_t1 {
 			$this->b_array_representation_is_up_to_date=False;
 			$this->ob_GNU_MP_int=gmp_neg($this->ob_GNU_MP_int);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='33129063-23e9-425e-8533-f12021318dd7'");
 		} // catch
 	} //neg
 
@@ -551,8 +551,8 @@ function func_sirel_operators_BigInt_t1_add_ibi_int($ibi_a,$i_b) {
 		$ibi_out->add($ibi_a);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='a3d81d25-dc1c-4a38-8233-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_add_ibi_int
 
@@ -568,8 +568,8 @@ function func_sirel_operators_BigInt_t1_add_int_ibi($i_a,$ibi_b) {
 		$ibi_out->add($ibi_b);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='208a70b5-fd15-4e1a-b233-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_add_int_ibi
 
@@ -585,8 +585,8 @@ function func_sirel_operators_BigInt_t1_add_ibi_ibi($ibi_a,$ibi_b) {
 		$ibi_out->add($ibi_b);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='f151b42b-f162-443c-b533-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_add_ibi_ibi
 
@@ -618,8 +618,8 @@ function func_sirel_operators_BigInt_t1_add_substract_ibi_int($ibi_a,$i_b) {
 		$ibi_out->add($ibi_a);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='1731df6c-7394-457a-a433-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_add_substract_ibi_int
 
@@ -641,8 +641,8 @@ function func_sirel_operators_BigInt_t1_add_substract_int_ibi($i_a,$ibi_b) {
 		$ibi_out->neg();
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='e8e5a931-d511-4933-8233-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_add_substract_int_ibi
 
@@ -659,8 +659,8 @@ function func_sirel_operators_BigInt_t1_add_substract_ibi_ibi($ibi_a,$ibi_b) {
 		$ibi_out->add($ibi_a);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='213e6d2f-2908-4d12-8423-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_add_substract_ibi_ibi
 
@@ -684,8 +684,8 @@ function func_sirel_operators_BigInt_t1_mul_ibi_int($ibi_a,$i_b) {
 		$ibi_out->mul($ibi_a);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='4ce74935-9832-4ff7-8423-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_mul_ibi_int
 
@@ -701,8 +701,8 @@ function func_sirel_operators_BigInt_t1_mul_int_ibi($i_a,$ibi_b) {
 		$ibi_out->mul($ibi_b);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='6eb301c1-8ff8-43f5-a523-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_mul_int_ibi
 
@@ -718,8 +718,8 @@ function func_sirel_operators_BigInt_t1_mul_ibi_ibi($ibi_a,$ibi_b) {
 		$ibi_out->mul($ibi_b);
 		return $ibi_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+sirelBubble_t2($err_exception,
+" GUID='26364e55-3ac4-4da0-b423-f12021318dd7'");
 	} // catch
 } // func_sirel_operators_BigInt_t1_mul_ibi_ibi
 
@@ -733,4 +733,3 @@ sirel_operators::declare_operator(func_sirel_operators_BigInt_t1_mul_ibi_ibi,
 
 //-------------------------------------------------------------------------
 
-?>

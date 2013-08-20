@@ -40,7 +40,7 @@ class sirelInternetVerifications {
 	// ht[(string)'failure']==(boolean)<True/False>
 	// ht[(string)'msg']==(string)<failure message>
 	public static function absolute_domain_name_syntax(
-			$absolute_domain_name_candidate) {
+		$absolute_domain_name_candidate) {
 		try {
 			// A short summary of the RFC 1034:
 			//
@@ -97,14 +97,14 @@ class sirelInternetVerifications {
 			$s0=mb_ereg_replace("[\\s,;@!:\\(\\)\\[\\]]", "", $dn_candidate);
 			if(mb_strlen($s0)!=mb_strlen($dn_candidate)) {
 				$arht_out['msg']=$arht_out['msg'].
-						' contained unaccepted characters.';
+					' contained unaccepted characters.';
 				return $arht_out;
 			} // if
 			$s1=mb_ereg_replace("[.]", "", $s0);
 			if(250<mb_strlen($s1)) {
 				$arht_out['msg']=$arht_out['msg'].
-						' RFC 1034 allows at most 250 label characters per'.
-						'domain name.';
+					' RFC 1034 allows at most 250 label characters per'.
+					'domain name.';
 				return $arht_out;
 			} // if
 			// TODO: siia j2i pooleli. nyyd on vaja veel see 63-m2rgine
@@ -113,8 +113,8 @@ class sirelInternetVerifications {
 			$arht_out['msg']='';
 			return $arht_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='05c048ae-e44a-43bb-9c71-f12021318dd7'");
 		} // catch
 	} // absolute_domain_name_syntax
 
@@ -223,8 +223,8 @@ class sirelInternetVerifications {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='32a4e9f3-6dae-419d-90b5-f12021318dd7'");
 		} // catch
 	} // selftest_absolute_domain_name_syntax
 
@@ -265,8 +265,8 @@ class sirelInternetVerifications {
 //			$arht['msg']='';
 //			return $arht;
 //		}catch (Exception $err_exception) {
-//			sirelBubble(__FILE__,__LINE__,$err_exception,
-//					__CLASS__.'->'.__FUNCTION__.': ');
+//                   sirelBubble_t2($err_exception,
+//                       " GUID='faf95b10-26a3-454e-8ad4-f12021318dd7'");
 //		} // catch
 //	} // emailaddress
 //
@@ -406,8 +406,8 @@ class sirelInternetVerifications {
 //			$test_result['file_name']=__FILE__;
 //			return $test_result;
 //		}catch (Exception $err_exception) {
-//			sirelBubble(__FILE__,__LINE__,$err_exception,
-//					__CLASS__.'->'.__FUNCTION__.': ');
+//                       sirelBubble_t2($err_exception,
+//                           " GUID='2f8a2263-5b68-470c-aa21-f12021318dd7'");
 //		} // catch
 //	} // selftest_emailaddress
 
@@ -419,11 +419,10 @@ class sirelInternetVerifications {
 			//$ar_test_results[]=sirelInternetVerifications::selftest_emailaddress();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3a56b79e-1948-4653-9687-f12021318dd7'");
 		} // catch
 	} // selftest
 
 } // class sirelInternetVerifications
 
-?>

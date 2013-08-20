@@ -44,7 +44,7 @@ class sirel_test_sirel_math_boolean {
 			$b_x=sirel_math_boolean::conjunction_arht($arht_in,'aa','bb');
 			if($b_x!=True) {
 				$test_case['msg']='test 1, $b_x=='.$b_x.
-					"\n GUID='d55602d1-1b0c-453f-8c11-b14121015dd7'";
+					"\n GUID='c8d1fa1b-134c-416b-a264-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -53,7 +53,7 @@ class sirel_test_sirel_math_boolean {
 			$b_x=sirel_math_boolean::conjunction_arht($arht_in,'aa','bb');
 			if($b_x!=False) {
 				$test_case['msg']='test 2, $b_x=='.$b_x.
-					"\n GUID='e3e37632-1788-4397-a751-b14121015dd7'";
+					"\n GUID='8f65765f-5512-4925-b464-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -62,7 +62,7 @@ class sirel_test_sirel_math_boolean {
 			$b_x=sirel_math_boolean::conjunction_arht($arht_in,'aa','bb');
 			if($b_x!=False) {
 				$test_case['msg']='test 3, $b_x=='.$b_x.
-					"\n GUID='d147e54a-a163-4194-ae24-b14121015dd7'";
+					"\n GUID='0e685d57-fdda-4809-8464-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -76,7 +76,7 @@ class sirel_test_sirel_math_boolean {
 			} // catch
 			if($b_error_not_detected!=False) {
 				$test_case['msg']='test Err1, $b_x=='.$b_x.
-					"\n GUID='910314ce-87be-43bd-bc74-b14121015dd7'";
+					"\n GUID='2f250c4b-1d19-472a-a464-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -90,7 +90,7 @@ class sirel_test_sirel_math_boolean {
 			} // catch
 			if($b_error_not_detected!=False) {
 				$test_case['msg']='test Err2, $b_x=='.$b_x.
-					"\n GUID='c73e11fa-13bf-4d00-a361-b14121015dd7'";
+					"\n GUID='92941124-e262-4daa-a164-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -104,7 +104,7 @@ class sirel_test_sirel_math_boolean {
 			} // catch
 			if($b_error_not_detected!=False) {
 				$test_case['msg']='test Err3, $b_x=='.$b_x.
-					"\n GUID='ca2f85cb-43aa-44a7-b5e3-b14121015dd7'";
+					"\n GUID='90fbe93a-3648-4110-8164-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -113,8 +113,8 @@ class sirel_test_sirel_math_boolean {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1807c5f3-9a14-4ff2-8164-426131318dd7'");
 		} // catch
 	} // test_conjunction_arht
 
@@ -132,7 +132,7 @@ class sirel_test_sirel_math_boolean {
 			$b_x=sirel_math_boolean::disjunction_arht($arht_in,'aa','bb');
 			if($b_x!=False) {
 				$test_case['msg']='test 1, $b_x=='.$b_x.
-					"\n GUID='885421ae-9c1b-416d-ad44-b14121015dd7'";
+					"\n GUID='44be2543-d4be-47c6-a364-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -141,7 +141,7 @@ class sirel_test_sirel_math_boolean {
 			$b_x=sirel_math_boolean::disjunction_arht($arht_in,'aa','bb');
 			if($b_x!=True) {
 				$test_case['msg']='test 2, $b_x=='.$b_x.
-					"\n GUID='31b80a0b-06fb-4264-ae61-b14121015dd7'";
+					"\n GUID='a4503b39-b39d-451c-8154-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -150,7 +150,7 @@ class sirel_test_sirel_math_boolean {
 			$b_x=sirel_math_boolean::disjunction_arht($arht_in,'aa','bb');
 			if($b_x!=True) {
 				$test_case['msg']='test 3, $b_x=='.$b_x.
-					"\n GUID='95685de6-8d7e-4402-8181-b14121015dd7'";
+					"\n GUID='389f5051-d356-456c-8554-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -159,7 +159,7 @@ class sirel_test_sirel_math_boolean {
 			$b_x=sirel_math_boolean::disjunction_arht($arht_in,'aa','bb');
 			if($b_x!=True) {
 				$test_case['msg']='test 4, $b_x=='.$b_x.
-					"\n GUID='54a1d46c-97de-43e2-8031-b14121015dd7'";
+					"\n GUID='9a299a45-96d1-4de1-9454-426131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -168,8 +168,8 @@ class sirel_test_sirel_math_boolean {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3de9b5a3-2810-4ce6-a254-426131318dd7'");
 		} // catch
 	} // test_disjunction_arht
 
@@ -181,8 +181,8 @@ class sirel_test_sirel_math_boolean {
 			$ar_test_results[]=sirel_test_sirel_math_boolean::test_disjunction_arht();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='22593fb3-7d00-4aea-bd54-426131318dd7'");
 		} // catch
 	} // selftest
 

@@ -44,7 +44,7 @@ class sirel_test_sirel_core_ht {
 			if(!sirelLang::str1ContainsStr2($str1,$str2,0)) {
 				$test_case['msg']='$str2=="'.$str2.'" is not seen within '.
 					'$str1=="'.$str1.'".'.
-					"\n GUID='1f0ea548-3742-47e2-a449-714121015dd7'";
+					"\n GUID='d189c07d-de13-4789-af24-026131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -53,8 +53,8 @@ class sirel_test_sirel_core_ht {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='47b4f110-36f6-46aa-8424-026131318dd7'");
 		} // catch
 	} // test_1
 
@@ -65,8 +65,8 @@ class sirel_test_sirel_core_ht {
 			$ar_test_results[]=sirel_test_sirel_core_ht::test_1();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='83da2e25-5e17-4123-b524-026131318dd7'");
 		} // catch
 	} // selftest
 

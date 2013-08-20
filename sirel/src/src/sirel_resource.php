@@ -55,14 +55,14 @@ class sirelResource {
 			} // foreach
 			if(is_null($answer)) {
 				sirelThrowResourceException(__FILE__, __LINE__,
-						__CLASS__.'->'.__FUNCTION__.':: '.
-						'$text_number(=='.$text_number.') '.
-						'did not fit to any available interval.');
+					__CLASS__.'->'.__FUNCTION__.':: '.
+					'$text_number(=='.$text_number.') '.
+					'did not fit to any available interval.');
 			} // if
 			return $answer;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3f46ff62-dcc8-4dd1-b5a3-b12021318dd7'");
 		} // catch
 	} // get_text_get_file_name
 
@@ -73,12 +73,12 @@ class sirelResource {
 	private static $get_text_from_HDD_cache=array();
 
 	private static function get_text_from_HDD(&$yaml_file_name,
-			$text_number, &$language) {
+		$text_number, &$language) {
 		try {
 			$x=NULL;
 			if (!array_key_exists($yaml_file_name,sirelResource::$get_text_from_HDD_cache)) {
 				$x=sirelLang::YAML2array(sirelSiteConfig::$ui_messages_folder.
-						'/'.$yaml_file_name);
+					'/'.$yaml_file_name);
 				sirelResource::$get_text_from_HDD_cache[$yaml_file_name]=$x;
 			} else {
 				$x=sirelResource::$get_text_from_HDD_cache[$yaml_file_name];
@@ -86,19 +86,19 @@ class sirelResource {
 			$ar_msg=$x['msg_'.$text_number];
 			if(is_null($ar_msg)) {
 				sirelThrowResourceException(__FILE__, __LINE__, 'The '.
-						$yaml_file_name.' did not contain message number '.
-						$text_number.'.');
+					$yaml_file_name.' did not contain message number '.
+					$text_number.'.');
 			} // if
 			$msg=$ar_msg[$language];
 			if(is_null($msg)) {
 				sirelThrowResourceException(__FILE__, __LINE__, 'The '.
-						$yaml_file_name.' message number '.$text_number.
-						' did not contain message in language '.$language.' .');
+					$yaml_file_name.' message number '.$text_number.
+					' did not contain message in language '.$language.' .');
 			} // if
 			return $msg;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='38e07744-e9dd-475e-a3a3-b12021318dd7'");
 		} // catch
 	} // get_text_from_HDD
 
@@ -110,8 +110,8 @@ class sirelResource {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_int,sirelTD_is_mbstring',
-						$i_or_si_text_number);
+					__FUNCTION__,'sirelTD_is_int,sirelTD_is_mbstring',
+					$i_or_si_text_number);
 			} // if
 			$i_text_number=(int)$i_or_si_text_number;
 			if($i_text_number<1) {
@@ -121,21 +121,20 @@ class sirelResource {
 				$s_language=sirelSiteConfig::$language;
 			} else {
 				$s_language=sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
-						__LINE__,__CLASS__,__FUNCTION__,$s_language);
+					__LINE__,__CLASS__,__FUNCTION__,$s_language);
 			} // else
 			require_once(sirelSiteConfig::$ui_messages_folder.
-							'/ui_messages_configuration.php');
+					'/ui_messages_configuration.php');
 			$tf_name=sirelResource::get_text_get_file_name($i_text_number);
 			$x=sirelResource::get_text_from_HDD($tf_name,$i_text_number,
-					$s_language);
+				$s_language);
 			return $x;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1b207923-e439-4a61-93a3-b12021318dd7'");
 		} // catch
 	} // get_text
 
 
 } //class sirelResource
 
-?>

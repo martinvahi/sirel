@@ -102,8 +102,8 @@ class sirelDBgate {
 				sirelDBgate::$arht_data_types_PostgreSQL_inited_=True;
 			} // if
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='133119c4-1840-467e-8c41-122021318dd7'");
 		} // catch
 	} // init_ht_data_types_PostgreSQL
 
@@ -128,8 +128,8 @@ class sirelDBgate {
 				sirelDBgate::$arht_data_types_MySQL_inited_=True;
 			} // if
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='438952c2-cebe-401c-9411-122021318dd7'");
 		} // catch
 	} // init_ht_data_types_MySQL
 
@@ -154,8 +154,8 @@ class sirelDBgate {
 				sirelDBgate::$arht_data_types_SQLite3_inited_=True;
 			} // if
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='242caa94-578f-4ced-8d41-122021318dd7'");
 		} // catch
 	} // init_ht_data_types_SQLite3
 
@@ -196,8 +196,8 @@ class sirelDBgate {
 			} // switch
 			return $arht_data_types_normalized2native;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='529f38e3-fe3e-40ac-8231-122021318dd7'");
 		} // catch
 	} // get_ht_data_types_norm2native
 
@@ -237,8 +237,8 @@ class sirelDBgate {
 			} // switch
 			return $arht_data_types_native2normalized;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='37e62bd1-53c2-4cf6-8521-122021318dd7'");
 		} // catch
 	} // get_ht_data_types_native2norm
 
@@ -302,8 +302,9 @@ class sirelDBgate {
 			} // if
 			return $s_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': $ereg=='.$ereg);
+			sirelBubble_t2($err_exception,
+				' $ereg=='.$ereg.
+				"\n GUID='233d6be1-8261-4afa-a320-122021318dd7'");
 		} // catch
 	} // convert_normalized_db_data_types_2_native
 
@@ -339,8 +340,8 @@ class sirelDBgate {
 			} // switch
 			return $s_normalized_data_type;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1ec9d481-45b7-474c-a640-122021318dd7'");
 		} // catch
 	} // var_2_normalized_data_type
 
@@ -475,8 +476,8 @@ class sirelDBgate {
 			} // switch
 			return $answer;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='4a4e4dd4-7082-45e8-b250-122021318dd7'");
 		} // catch
 	} // cast_2_PHP_type
 
@@ -484,8 +485,8 @@ class sirelDBgate {
 	function __construct() {
 		try {
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='21c59645-defd-400e-ba50-122021318dd7'");
 		} // catch
 	} // constructor
 
@@ -561,8 +562,8 @@ class sirelDBgate {
 				} // IF
 			} // if
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='faf36e32-d613-404f-8140-122021318dd7'");
 		} // catch
 	} // connect_inithelp1
 
@@ -692,8 +693,8 @@ class sirelDBgate {
 			} //foreach
 			return $answer;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='1335e261-7189-496f-b430-122021318dd7'");
 		} // catch
 	} // get_existing_schema_names
 
@@ -736,8 +737,8 @@ class sirelDBgate {
 			} //foreach
 			return $answer;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='b32bf50c-1329-4478-9d20-122021318dd7'");
 		} // catch
 	} // get_existing_sequence_names_PostgreSQL
 
@@ -761,8 +762,8 @@ class sirelDBgate {
 			$s=$results[0][0];
 			$answer=sirelLang::commaseparated_list_2_array($s);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='3ee377d7-a485-4b61-a62f-122021318dd7'");
 		} // catch
 		return $answer;
 	} // get_schema_search_path_PostgreSQL
@@ -789,8 +790,8 @@ class sirelDBgate {
 			$this->exec_transaction($stm, $params);
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='61ba7daf-100e-4511-b5ef-122021318dd7'");
 		} // catch
 	} // create_schema_PostgreSQL
 
@@ -852,8 +853,8 @@ class sirelDBgate {
 			$this->exec_transaction($stm, $params);
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='f33f02db-ac67-425e-b9af-122021318dd7'");
 		} // catch
 	} // set_schema_search_path_PostgreSQL_base
 
@@ -886,8 +887,8 @@ class sirelDBgate {
 			$this->set_schema_search_path_PostgreSQL_base($path_schemas, False);
 			$this->set_schema_search_path_PostgreSQL_base($path_schemas, True);
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='42ea86c5-a628-4e5d-9b2f-122021318dd7'");
 		} // catch
 	} // set_schema_search_path_PostgreSQL
 
@@ -954,8 +955,8 @@ class sirelDBgate {
 					break;
 			} // switch
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='119e0c9e-1325-4359-8c6f-122021318dd7'");
 		} // catch
 	} // apply_schema
 
@@ -1014,8 +1015,8 @@ class sirelDBgate {
 			$this->b_exec_transaction_SQL_statement_compilation_params_cached_=True;
 			return $arht_out;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='477c4681-0a8c-428f-a74f-122021318dd7'");
 		} // catch
 	} // exec_transaction_SQL_statement_compilation_params
 
@@ -1137,12 +1138,12 @@ class sirelDBgate {
 			return $array_of_query_output_rows;
 		} catch (Exception $err_exception) {
 			if(sirelSiteConfig::$debug_PHP) {
-				echo('GUID="4c5244e5-73d7-430d-b2e6-f2006080bcd7" '.
+				echo('GUID="2ae4fc13-fbcf-432d-8641-122021318dd7" '.
 					$err_exception->getMessage());
 			} // if
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				$err_exception->getMessage());
+			sirelBubble_t2($err_exception,
+				$err_exception->getMessage().
+				"\n GUID='86d99694-f75e-40c4-aa1f-122021318dd7'");
 		} // catch
 	} // exec_transaction
 
@@ -1181,8 +1182,8 @@ class sirelDBgate {
 			$this->skip_existence_checks_=$b;
 			return $answer;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='529b0342-19a5-4a25-995e-122021318dd7'");
 		} // catch
 	} // table_exists_PostgreSQL
 
@@ -1262,8 +1263,8 @@ class sirelDBgate {
 			$this->skip_existence_checks_=$b;
 			return $rows;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='d5968064-5d76-450b-898e-122021318dd7'");
 		} // catch
 	} // get_column_names_PostgreSQL
 
@@ -1437,8 +1438,8 @@ class sirelDBgate {
 			} // foreach
 			return $arht_normalized;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='71c1a865-934b-4f34-873e-122021318dd7'");
 		} // catch
 	} // get_column_types_normalization
 
@@ -1471,8 +1472,8 @@ class sirelDBgate {
 			$this->skip_existence_checks_=$b;
 			return $rows_with_db_specific_type_names;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='03275957-8e80-49aa-831e-122021318dd7'");
 		} // catch
 	} // get_column_types_PostgreSQL
 
@@ -1487,8 +1488,8 @@ class sirelDBgate {
 			$rows_with_db_specific_type_names=$this->exec_transaction($stm,$params);
 			return $rows_with_db_specific_type_names;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='24692f33-70fa-4025-ad1e-122021318dd7'");
 		} // catch
 	} // get_column_types_MySQL
 
@@ -1548,9 +1549,9 @@ class sirelDBgate {
 			$this->exec_transaction($stm, $params);
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				$err_exception->getMessage());
+			sirelBubble_t2($err_exception,
+				$err_exception->getMessage().
+				"\n GUID='1a2fb822-9b01-4b20-8b1e-122021318dd7'");
 		} // catch
 	} // create_sequence_PostgreSQL(...)
 
@@ -1592,8 +1593,8 @@ class sirelDBgate {
 			} // if
 			$answer=$rows[0][0];
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='2a5cc3c4-0a60-478b-8c5d-122021318dd7'");
 		} // catch
 		return $answer;
 	} // generate_ID_PostgreSQL()
@@ -1618,8 +1619,8 @@ class sirelDBgate {
 			$this->exec_transaction($statement, $an_empty_array);
 			$this->b_generate_ID_MySQL_table_cleanup_=True;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='09874645-3993-4f1b-af2d-122021318dd7'");
 		} // catch
 	} // generate_ID_MySQL_table_cleanup()
 
@@ -1669,8 +1670,8 @@ class sirelDBgate {
 			} // if
 			$answer=$rows[0][0];
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='36193b51-4b84-4d26-863d-122021318dd7'");
 		} // catch
 		return $answer;
 	} // generate_ID_MySQL()
@@ -1729,8 +1730,8 @@ class sirelDBgate {
 // Don't forget to update the $this->get_ID_max_length(), if the
 // formt of the ID got changed.
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='35d47cf3-b892-4393-b64d-122021318dd7'");
 		} // catch
 		return $answer;
 	} // generate_ID()
@@ -1776,8 +1777,8 @@ class sirelDBgate {
 			} // while
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='121ca424-bc63-41a9-9d3d-122021318dd7'");
 		} // catch
 	} // delete_table(...)
 
@@ -1837,8 +1838,8 @@ class sirelDBgate {
 			} // if
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='edc95b63-a708-4469-a51d-122021318dd7'");
 		} // catch
 	} // ensure_table_existence(...)
 
@@ -1861,8 +1862,8 @@ class sirelDBgate {
 				$answer=$answer."\n----rowseparator------\n";
 			} // foreach
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='5529864a-e301-424e-995c-122021318dd7'");
 		} // catch
 		return $answer;
 	} // results2s(...)
@@ -1897,8 +1898,8 @@ class sirelDBgate_pool {
 				return $db;
 			} // else
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.':');
+			sirelBubble_t2($err_exception,
+				" GUID='de95f3be-2a5c-4faa-9d1c-122021318dd7'");
 		} // catch
 	} // get_db
 
@@ -1906,4 +1907,4 @@ class sirelDBgate_pool {
 
 
 //---------------------------------------------------------
-?>
+

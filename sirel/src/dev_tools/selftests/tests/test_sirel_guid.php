@@ -50,7 +50,7 @@ class sirel_test_sirel_GUID {
 			$s_x=sirelLang::s_get_char($s_guid, 14); // the version
 			if($s_x!='4') {
 				$test_case['msg']='test 1, $s_x=='.$s_x.
-					"\n GUID='2c2bf946-204a-407d-a515-814121015dd7'";
+					"\n GUID='2bed84d4-e38c-451d-bb44-126131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -58,7 +58,7 @@ class sirel_test_sirel_GUID {
 			$s_x=sirelLang::s_get_char($s_guid, 19); // the variant
 			if(($s_x!='8')&&($s_x!='9')&&($s_x!='a')&&($s_x!='b')) {
 				$test_case['msg']='test 2, $s_x=='.$s_x.
-					"\n GUID='24a71609-3b65-43ac-a415-814121015dd7'";
+					"\n GUID='f27573f5-6960-4098-8544-126131318dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -68,8 +68,8 @@ class sirel_test_sirel_GUID {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='6648f92a-214d-4e09-a544-126131318dd7'");
 		} // catch
 	} // selftest_test1
 
@@ -81,8 +81,8 @@ class sirel_test_sirel_GUID {
 
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='5cccda1a-c059-47a3-8544-126131318dd7'");
 		} // catch
 	} // selftest
 

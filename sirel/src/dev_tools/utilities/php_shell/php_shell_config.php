@@ -34,18 +34,19 @@
 // ------------------------------------------------------------------------
 
 class php_shell_config {
-	public static $b_activated=False;
+	//public static $b_activated=TRUE;
+	public static $b_activated=FALSE;
 	public static $s_path_lib_sirel='';// assigned below
 	public static $ar_paths_to_PHP_files_that_get_loaded_by_default=array();
 
-	//public static $s_security_mode='naive_password_authentication';
-	public static $s_security_mode='public_access';
+	public static $s_security_mode='naive_password_authentication';
+	//public static $s_security_mode='public_access';
 
 	public static $s_password=''; // assigned below, if needed
 } // class php_shell_config
 
 php_shell_config::$s_path_lib_sirel=realpath('./../../../../');
-php_shell_config::$s_password='47';
+//php_shell_config::$s_password='471';
 
 // To get at least somewhat meaningful feedback from the web browser, this 
 // php file should not catch any of its flaws, nor thorow them.

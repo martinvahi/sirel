@@ -366,4 +366,3 @@ class sirelHTMLPage {
 
 } // class sirelHTMLPage
 
-?>

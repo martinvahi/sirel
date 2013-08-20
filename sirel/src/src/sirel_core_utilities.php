@@ -41,6 +41,7 @@
 // but it is not limited to that.
 //------------------------------------------------------------------------
 
+require_once('sirel_core_base.php');
 
 // The reason for such an old fashioned approach is that there's
 // no function pointers in PHP5. The "exec('funcname(plapla)')"
@@ -94,7 +95,7 @@ class sirelUtils {
 	//     echo $x->a_.' '.$x->b_.'   |';
 	// }
 	public static function sort2columnTable(&$array_of_sirelPairs,
-			&$compare_func_wrapper) {
+		&$compare_func_wrapper) {
 		$ar=&$array_of_sirelPairs;
 		$cnt=count($ar);
 		if($cnt<2) {
@@ -152,7 +153,7 @@ class sirelUtils {
 
 
 	private static function fileperms_unix_h1($key,$bitinteger,
-			&$file_perms, &$ar) {
+		&$file_perms, &$ar) {
 		if(0<($file_perms&$bitinteger)) {
 			$ar[$key]=True;
 		} else {
@@ -189,13 +190,13 @@ class sirelUtils {
 				break;
 			case 'windows':
 				throw new Exception(__CLASS__.'->'.__FUNCTION__.
-						" needs to be tested for Windows first. The unix ".
-						"version of it will probably work without modification. ");
+					" needs to be tested for Windows first. The unix ".
+					"version of it will probably work without modification. ");
 				break;
 			default:
 				throw new Exception(__CLASS__.'->'.__FUNCTION__.
-						": operating system ".sirelSiteConfig::$operating_system.
-						" is not yet supported by this method. ");
+					": operating system ".sirelSiteConfig::$operating_system.
+					" is not yet supported by this method. ");
 				break;
 		} // switch
 	} // fileperms
@@ -208,7 +209,7 @@ class sirelUtils {
 
 	private static function uid_windows() {
 		throw new Exception(__CLASS__.'->'.__FUNCTION__.
-				' has not been implemented yet. ');
+			' has not been implemented yet. ');
 	} // uid_windows
 
 	// Returns the operating system user ID.
@@ -222,12 +223,12 @@ class sirelUtils {
 				break;
 			default:
 				throw new Exception(__CLASS__.'->'.__FUNCTION__.
-						": operating system ".sirelSiteConfig::$operating_system.
-						" is not yet supported by this method. ");
+					": operating system ".sirelSiteConfig::$operating_system.
+					" is not yet supported by this method. ".
+					"\nGUID='aa039028-f923-4dfa-a522-80a021318dd7'");
 				break;
 		} // switch
 	} // uid
 
 } // class sirelUtils
 
-?>

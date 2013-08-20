@@ -9,7 +9,7 @@ $application_root=realpath('./');
 $s_path_lib_sirel=realpath($application_root.'/../../../');
 define('s_path_lib_sirel',$s_path_lib_sirel); 
 require_once($s_path_lib_sirel.'/src/src/sirel.php');
-sirelSiteConfig::$s_fp_application_root=$application_root;
+sirelSiteConfig::$s_fp_angervaks_entry_parent_dir=$application_root;
 
 sirelSiteConfig::$site_titleprefix='Sirel Example 2';
 

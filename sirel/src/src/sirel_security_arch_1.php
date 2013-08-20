@@ -42,7 +42,7 @@ require_once("sirel_lang.php");
 class sirelSecurityArch_1 {
 
 	private static function calculate_delay_acquire_value($keyname,
-			$default_value) {
+		$default_value) {
 		$answer=$default_value*1.0;
 		if(array_key_exists($keyname, sirelSiteConfig::$various)) {
 			$x=sirelSiteConfig::$various[$keyname];
@@ -51,22 +51,22 @@ class sirelSecurityArch_1 {
 					$answer=$x;
 				} else {
 					sirelLogger::log(__FILE__,__LINE__,
-							'sirelSiteConfig::$various["'.$keyname.'"] had a '.
-							'negative value |||(=='.$x.').');
+						'sirelSiteConfig::$various["'.$keyname.'"] had a '.
+						'negative value |||(=='.$x.').');
 				} // else
 			}else {
 				sirelLogger::log(__FILE__,__LINE__,
-						'sirelSiteConfig::$various["'.$keyname.'"] is not '.
-						'an integer nor a double. It\'s class is|||'.
-						get_class($x).'  and value is '.$x);
+					'sirelSiteConfig::$various["'.$keyname.'"] is not '.
+					'an integer nor a double. It\'s class is|||'.
+					get_class($x).'  and value is '.$x);
 			}//else
 		} // if
 		$max_allowed=15.0;
 		if($max_allowed<$answer) {
 			sirelLogger::log(__FILE__,__LINE__,
-					$max_allowed.' < sirelSiteConfig::$various["'.$keyname.'"]'.
-					'|||(=='.$answer.') The value will be automatically '.
-					'changed to '.$max_allowed.'.');
+				$max_allowed.' < sirelSiteConfig::$various["'.$keyname.'"]'.
+				'|||(=='.$answer.') The value will be automatically '.
+				'changed to '.$max_allowed.'.');
 			$answer=$max_allowed;
 		} // if
 		return $answer;
@@ -84,10 +84,10 @@ class sirelSecurityArch_1 {
 		if(($min+$max)==0.0) {
 			$max=3;
 			sirelLogger::log(__FILE__,__LINE__,
-					'(sirelSiteConfig::$various["login_delay_min"] + '.
-					'sirelSiteConfig::$various["login_delay_max"]) == 0. '."\n".
-					'For security reasons the maximum '.
-					'delay will be automatically set to '.$max.'.');
+				'(sirelSiteConfig::$various["login_delay_min"] + '.
+				'sirelSiteConfig::$various["login_delay_max"]) == 0. '."\n".
+				'For security reasons the maximum '.
+				'delay will be automatically set to '.$max.'.');
 		} // if
 		$x=1000000;
 		return mt_rand($min*$x,$max*$x);
@@ -96,4 +96,3 @@ class sirelSecurityArch_1 {
 } // class sirelSecurityArch_1
 
 
-?>

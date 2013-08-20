@@ -41,6 +41,7 @@
 // but it is relatively self contained. :-)
 //------------------------------------------------------------------------
 
+require_once('sirel_core_base.php');
 
 
 // It's the duty of the log writers to make sure that the
@@ -411,12 +412,42 @@ class sirelLogger {
 		} // catch
 	} // log_impl
 
+	private function log_impl_t2($s_message,$s_log_writer_name) {
+		try {
+			if((!sirelSiteConfig::$debug_PHP)&&($log_writer_name=='debug')) {
+				// This allows one to leave the debug log statements
+				// in place. Of cource, one should acknowledge that it's
+				// appropriate to remove, at least comment out, the
+				// debug statements from stable code regions.
+				return;
+			} //if
+			if(array_key_exists($s_log_writer_name, $this->log_writers_)) {
+				$mg=mb_convert_encoding(''.$s_message,'UTF-8','auto');
+				// The format of the $msg is important for
+				// the default logwriter.
+				$msg='  |||message '.$mg;
+				$this->log_writers_[$s_log_writer_name]->log($msg);
+			} // if
+		} catch (Exception $err_exception) {
+			// We intentionally won't do anything here.
+		} // catch
+	} // log_impl_t2
+
 	// It is meant to be called like that:
 	// sirelLogger::log(__FILE__, __LINE__, 'hollallaa');
+	//
+	// It's deprecated.
 	public static function log($file,$line,$message,$log_writer_name=NULL) {
 		sirelLogger::get_instance()->log_impl($file,$line,$message,
 			$log_writer_name);
 	} //log
+
+	public static function log_t2($s_message,$s_log_writer_name='default') {
+		sirelLogger::get_instance()->log_impl_t2($s_message,
+			$s_log_writer_name);
+	} // log_t2
+
+
 
 	// Returns a class sirelOP instance.
 	public static function clear_log($log_writer_name=NULL) {
@@ -436,4 +467,3 @@ class sirelLogger {
 } //class sirelLogger
 
 
-?>

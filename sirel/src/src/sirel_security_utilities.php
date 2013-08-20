@@ -51,7 +51,7 @@ class sirel_security_utilities {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__,'sirelTD_is_int',$i_length);
+					__FUNCTION__,'sirelTD_is_int',$i_length);
 				sirelLang::assert_range(0,'<',$i_length,'*',42,'$i_length');
 			} // if
 			$arht=array();
@@ -71,8 +71,8 @@ class sirel_security_utilities {
 			$s_out=s_concat_array_of_strings($arht);
 			return $s_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-					__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='a9428b17-a285-45ea-8290-612021318dd7'");
 		} // catch
 	} // s_generate_random_ASCIIstyle_string
 
@@ -80,5 +80,4 @@ class sirel_security_utilities {
 //-------------------------------------------------------------------------
 } // sirel_security_utilities
 //=========================================================================
-?>
 

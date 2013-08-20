@@ -48,17 +48,17 @@ function func_sirel_operators_set_1_percentage_a_is_of_b($x_a,$x_b) {
 		$op_out->sb_failure='f';
 		return $op_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='84e7b029-fe94-4dfb-af88-222021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_percentage_a_is_of_b
 
 sirel_operators::declare_binary_operator_for_numbers('func_sirel_operators_set_1_percentage_a_is_of_b',
-		'percentage_a_is_of_b');
+	'percentage_a_is_of_b');
 
 //-------------------------------------------------------------------------
 function func_sirel_operators_set_1_sirelOP_to_s_with_sb_failure_handling_t1($x_sirelOP_instance,
-		$s_if_failure) {
+	$s_if_failure) {
 	try {
 		$op=&$x_sirelOP_instance;
 		$s_out=NULL;
@@ -69,36 +69,44 @@ function func_sirel_operators_set_1_sirelOP_to_s_with_sb_failure_handling_t1($x_
 		} // else
 		return $s_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='3edd475d-f803-4dd6-b288-222021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_sirelOP_to_s_with_sb_failure_handling_t1
 
 $op=new sirelOP();
 sirel_operators::declare_operator('func_sirel_operators_set_1_sirelOP_to_s_with_sb_failure_handling_t1',
-		'sirelOP_to_s_with_sb_failure_handling_t1',$op,'sample_of_s_if_falure');
+	'sirelOP_to_s_with_sb_failure_handling_t1',$op,'sample_of_s_if_falure');
 
 //-------------------------------------------------------------------------
 function func_sirel_operators_set_1_sirelOP_round_with_sb_failure_handling_t1($ob_sirelOP_instance,
-		// sirel_operators::exec has a workaround to a nasty bug that is related
-		// to this function and resides in the PHP implementation. Make sure
-		// that the bug workaround code is updated whenever this function is
-		// renamed.
-		$i_number_of_decimal_digits_to_round_to) {
+	// sirel_operators::exec has a workaround to a nasty bug that is related
+	// to this function and resides in the PHP implementation. Make sure
+	// that the bug workaround code is updated whenever this function is
+	// renamed.
+	$i_number_of_decimal_digits_to_round_to) {
 	try {
 		if(sirelSiteConfig::$debug_PHP) {
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_class_sirelOP', $ob_sirelOP_instance);
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_class_sirelOP', $ob_sirelOP_instance,
+				"\n GUID='60070f41-2d49-4778-b588-222021318dd7'");
 			$op=&$ob_sirelOP_instance;
 			if($op->sb_failure=='f') {
 				$sirelOP_value=$op->value;
-				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_float', $sirelOP_value);
+				sirelLang::assert_type(__FILE__, __LINE__,
+					__CLASS__, __FUNCTION__,
+					'sirelTD_is_float', $sirelOP_value,
+					"\n GUID='6917e75a-f73c-42e2-b188-222021318dd7'");
 			} // if
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_int', $i_number_of_decimal_digits_to_round_to);
-			sirelLang::assert_range(0,'<=',$i_number_of_decimal_digits_to_round_to, '*',
-					42, '$i_number_of_decimal_digits_to_round_to');
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_int', $i_number_of_decimal_digits_to_round_to,
+				"\n GUID='4eab6cdf-340a-4b02-b388-222021318dd7'");
+			sirelLang::assert_range(0,'<=',
+				$i_number_of_decimal_digits_to_round_to, '*',
+				42, '$i_number_of_decimal_digits_to_round_to',
+				"\n GUID='20491424-32a8-4c5d-a388-222021318dd7'");
 		} // if
 		$op=&$ob_sirelOP_instance;
 		$op_out=new sirelOP();
@@ -108,42 +116,48 @@ function func_sirel_operators_set_1_sirelOP_round_with_sb_failure_handling_t1($o
 			$op_out->value=&$op->value;
 		} else {
 			$op_out->value=round($op->value,
-					$i_number_of_decimal_digits_to_round_to);
+				$i_number_of_decimal_digits_to_round_to);
 		} // else
 		return $op_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='6f6cf51f-e42b-4918-b388-222021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_sirelOP_round_with_sb_failure_handling_t1
 
 $op=new sirelOP();
 sirel_operators::declare_operator('func_sirel_operators_set_1_sirelOP_round_with_sb_failure_handling_t1',
-		'sirelOP_round_with_sb_failure_handling_t1',$op,42);
+	'sirelOP_round_with_sb_failure_handling_t1',$op,42);
 
 //-------------------------------------------------------------------------
 // Always returns a string. Throws on regex and other errors.
 function func_sirel_operators_set_1_replace_by_regex_t1($s_regex,
-		$s_new_string,$s_haystack) {
+	$s_new_string,$s_haystack) {
 	try {
 		if(sirelSiteConfig::$debug_PHP) {
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_mbstring', $s_regex);
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_mbstring', $s_new_string);
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_mbstring', $s_haystack);
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_mbstring', $s_regex,
+				"\n GUID='fcbe8358-ebac-4b85-9388-222021318dd7'");
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_mbstring', $s_new_string,
+				"\n GUID='1f3a1ef3-dc97-48e1-8388-222021318dd7'");
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_mbstring', $s_haystack,
+				"\n GUID='06e0e848-165a-45e1-a288-222021318dd7'");
 		} // if
 		$s_hay=''.$s_haystack;
 		$s_out=mb_ereg_replace($s_regex,$s_new_string,$s_hay);
 		sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-				__FUNCTION__, 'sirelTD_is_mbstring', $s_out,
-				'The mb_ereg_replace returns a boolean value, '.
-				'the operation fails.');
+			__FUNCTION__, 'sirelTD_is_mbstring', $s_out,
+			'The mb_ereg_replace returns a boolean value, '.
+			'the operation fails.');
 		return $s_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='d87bd031-be77-4127-b288-222021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_replace_by_regex_t1
 
@@ -151,7 +165,7 @@ $s='ee';
 $s1='x';
 $s2='y';
 sirel_operators::declare_operator('func_sirel_operators_set_1_replace_by_regex_t1',
-		'replace_by_regex_t1',$s,$s1,$s2);
+	'replace_by_regex_t1',$s,$s1,$s2);
 
 //-------------------------------------------------------------------------
 // Returns a sirelOP instance, where the value field has been
@@ -161,24 +175,37 @@ sirel_operators::declare_operator('func_sirel_operators_set_1_replace_by_regex_t
 // to avoid some string instantiations and to make sure that it is explicitly 
 // set to a locale specific version of it.
 function func_sirel_operators_set_1_sirelOP_fd_to_s_t1($ob_sirelOP_instance,
-		$i_number_of_decimal_digits_to_round_to, $s_if_failure,$s_dot_character) {
+	$i_number_of_decimal_digits_to_round_to, $s_if_failure,$s_dot_character) {
 	try {
 		if(sirelSiteConfig::$debug_PHP) {
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_class_sirelOP', $ob_sirelOP_instance);
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_class_sirelOP', $ob_sirelOP_instance,
+				"\n GUID='bbcf376c-a9ec-490a-8378-222021318dd7'");
 			$op=&$ob_sirelOP_instance;
 			if($op->sb_failure=='f') {
 				$sirelOP_value=$op->value;
-				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_float', $sirelOP_value);
+				sirelLang::assert_type(__FILE__, __LINE__,
+					__CLASS__, __FUNCTION__,
+					'sirelTD_is_float', $sirelOP_value,
+					"\n GUID='982fa85d-7b9e-495f-8378-222021318dd7'");
 			} // if
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_int', $i_number_of_decimal_digits_to_round_to);
-			sirelLang::assert_range(0,'<=',$i_number_of_decimal_digits_to_round_to, '*',42, '$i_number_of_decimal_digits_to_round_to');
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_mbstring', $s_if_failure);
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_mbstring', $s_dot_character);
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_int', $i_number_of_decimal_digits_to_round_to,
+				"\n GUID='11144c07-2dbc-413a-9678-222021318dd7'");
+			sirelLang::assert_range(0,'<=',
+				$i_number_of_decimal_digits_to_round_to, '*',
+				42, '$i_number_of_decimal_digits_to_round_to',
+				"\n GUID='25e8e859-33aa-434c-9578-222021318dd7'");
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_mbstring', $s_if_failure,
+				"\n GUID='5b433c94-3bc2-4222-b678-222021318dd7'");
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__, __FUNCTION__,
+				'sirelTD_is_mbstring', $s_dot_character,
+				"\n GUID='7bb45a43-2d53-445a-b278-222021318dd7'");
 		} // if
 		$op=&$ob_sirelOP_instance;
 		$s_out='';
@@ -192,16 +219,16 @@ function func_sirel_operators_set_1_sirelOP_fd_to_s_t1($ob_sirelOP_instance,
 			$s_2=mb_ereg_replace($s_regex,$s_dot_character,$s_hay);
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-						__FUNCTION__, 'sirelTD_is_mbstring', $s_2,
-						'The mb_ereg_replace returns a boolean value, '.
-						'the operation fails.');
+					__FUNCTION__, 'sirelTD_is_mbstring', $s_2,
+					'The mb_ereg_replace returns a boolean value, '.
+					'the operation fails.');
 			} // if
 			$s_out=&$s_2;
 		} // else
 		return $s_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='84fe4458-08ce-4fb8-9378-222021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_sirelOP_fd_to_s_t1
 
@@ -209,7 +236,7 @@ $op=new sirelOP();
 $s1='x';
 $s2='y';
 sirel_operators::declare_operator('func_sirel_operators_set_1_sirelOP_fd_to_s_t1',
-		'sirelOP_fd_to_s_t1',$op,42,$s1,$s2);
+	'sirelOP_fd_to_s_t1',$op,42,$s1,$s2);
 
 //-------------------------------------------------------------------------
 // Reverses the order of characters in a string.
@@ -217,30 +244,23 @@ sirel_operators::declare_operator('func_sirel_operators_set_1_sirelOP_fd_to_s_t1
 function func_sirel_operators_set_1_str_reverse($s_in) {
 	try {
 		if(sirelSiteConfig::$debug_PHP) {
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-					__FUNCTION__, 'sirelTD_is_mbstring', $s_in);
+			sirelLang::assert_type(__FILE__, __LINE__,
+				__CLASS__,__FUNCTION__,
+				'sirelTD_is_mbstring',$s_in,
+				"\n GUID='922df227-7967-412e-9278-222021318dd7'");
 		} // if
-		$i_str_len=mb_strlen($s_in);
-		$s_out='';
-		if($i_str_len==0) {
-			return $s_out;
-		} // if
-		$s_char=NULL;
-		for($i=$i_str_len-1;0<=$i;$i--) {
-			$s_char=mb_substr($s_in, $i, 1);
-			$s_out=$s_out.$s_char;
-		} // for
+		$s_out=sirelLang::s_reverse_string($s_in);
 		return $s_out;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='47b47559-15fe-42fa-a378-222021318dd7'");
 	} // catch
 } // func_sirel_operators_set_1_str_reverse
 
 $s='ab';
 sirel_operators::declare_operator('func_sirel_operators_set_1_str_reverse',
-		'str_reverse',$s);
+	'str_reverse',$s);
 
 //-------------------------------------------------------------------------
-?>
+
 

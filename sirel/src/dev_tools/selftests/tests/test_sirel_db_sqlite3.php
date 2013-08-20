@@ -42,9 +42,8 @@ class sirel_test_db_sqlite3 {
 			$s_fp_db_file=$s_fp_tmp.'/sirel_test_db_sqlite3_tmp_1.db';
 			return $s_fp_db_file;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID=='f4091d47-46c5-40a8-b3d5-814121015dd7'");
+			sirelBubble_t2($err_exception,
+				" GUID='ed6e4a41-d93e-49a6-91a5-126131318dd7'");
 		} // catch
 	} // s_get_db_tmp_file_path
 
@@ -55,9 +54,8 @@ class sirel_test_db_sqlite3 {
 				unlink($s_fp_db_file);
 			} // if
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID=='4833a3d6-b5b1-425f-81c5-814121015dd7'");
+			sirelBubble_t2($err_exception,
+				" GUID='420b8edb-166a-4977-b4a5-126131318dd7'");
 		} // catch
 	} // del_db_file_if_it_exists
 
@@ -71,7 +69,7 @@ class sirel_test_db_sqlite3 {
 			//----tests-cases-start----------------------
 			$test_case['msg']='The class sirel_test_db_sqlite3'.
 				'is inclomplete and it should not be part of selftestss.'.
-				"\nGUID=='3dfe2bd2-a6a5-435b-83c5-814121015dd7'";
+				"\nGUID=='57dca850-1932-4c5c-94a5-126131318dd7'";
 			$test_case['line_number']=__LINE__;
 			$ar_tc[]=$test_case;
 			// TODO: sqlite3 is not yet supported, because
@@ -94,9 +92,8 @@ class sirel_test_db_sqlite3 {
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID=='b4003421-a404-4adc-b3c5-814121015dd7'");
+			sirelBubble_t2($err_exception,
+				" GUID='6b11a4bb-dffa-4152-92a5-126131318dd7'");
 		} // catch
 	} // test_db_connect
 
@@ -110,8 +107,8 @@ class sirel_test_db_sqlite3 {
 			$ar_test_results[]=sirel_test_db_sqlite3::test_db_connect();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+			sirelBubble_t2($err_exception,
+				" GUID='cbfe4745-f77b-4f74-b4a5-126131318dd7'");
 		} // catch
 	} // selftest
 

@@ -47,7 +47,8 @@
 //require_once('sirel_core.php');
 /*    *///require_once('sirel_text_concatenation.php');
 /*        *///require_once('sirel_lang.php');
-/*                */require_once('sirel_progfte.php');
+/*                *///require_once('sirel_progfte.php');
+/*                        */require_once('sirel_relay_t1.php');
 /*                */require_once('sirel_memcached.php');
 /*                *///require_once('sirel_type_normalizations.php');
 /*                        *///require_once('sirel_ix.php');
@@ -71,6 +72,7 @@
 /*                *///require_once('sirel_fs.php');
 /*                        */require_once('sirel_eval.php');
 /*                        *///require_once('sirel_raudrohi_support.php');
+/*                        *///require_once('sirel_relay_t1.php');
 /*                */require_once('sirel_units.php');
 /*                */require_once('sirel_guid.php');
 /*        *///require_once('sirel_html.php');
@@ -85,4 +87,4 @@
 //
 
 //=========================================================================
-?>
+

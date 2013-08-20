@@ -113,13 +113,12 @@ function sirel_GUID() {
 		$s_2=sirelLang::s_set_char($s_1, 23, '-');
 		return $s_2;
 	}catch (Exception $err_exception) {
-		sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': ');
+		sirelBubble_t2($err_exception,
+			" GUID='1ab5171e-ebb2-4dc0-91c8-022021318dd7'");
 	} // catch
 } // sirel_GUID
 
 //-------------------------------------------------------------------------
 
 //=========================================================================
-?>
 

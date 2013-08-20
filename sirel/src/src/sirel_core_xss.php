@@ -40,6 +40,8 @@
 // is code injection.
 //------------------------------------------------------------------------
 
+require_once('sirel_core_base.php');
+
 // The ideology of this interface is that any malicious
 // script should be presentable as text in an unmodified
 // manner. This entails that the filtering depends on the
@@ -53,33 +55,32 @@
 // possible to filter it according to the software that will receive/display
 // the script. In the case of the SQL injection one should try to
 // use  parametrized data entry whenever possible.
-class sirelCodeInjectionFilter{
+class sirelCodeInjectionFilter {
 
-    // Makes it safe to write the $text_to_filter into an HTML document.
-    public static function html(&$text_to_filter){
-        $answer=htmlentities($text_to_filter, ENT_QUOTES,'UTF-8');
-        return $answer;
-    } // html
+	// Makes it safe to write the $text_to_filter into an HTML document.
+	public static function html(&$text_to_filter) {
+		$answer=htmlentities($text_to_filter, ENT_QUOTES,'UTF-8');
+		return $answer;
+	} // html
 
-    // TODO: this method needs to be tested
-    public static function bash(&$text_to_filter){
-        // The current version of the filter spoils a script like
-        // echo ";"
-        // but as this method is required to handle both, correct
-        // bash syntax and incorrect bash syntax, the appropriate
-        // analyzer is left to the TODO list.
-        $s=mb_eregi_replace('"','\\"',mb_eregi_replace('`', '\\`', $text_to_filter));
-        $answer=mb_eregi_replace(';', '', mb_eregi_replace('$', '\\$', $s));
-        return $answer;
-    } // bash
+	// TODO: this method needs to be tested
+	public static function bash(&$text_to_filter) {
+		// The current version of the filter spoils a script like
+		// echo ";"
+		// but as this method is required to handle both, correct
+		// bash syntax and incorrect bash syntax, the appropriate
+		// analyzer is left to the TODO list.
+		$s=mb_eregi_replace('"','\\"',mb_eregi_replace('`', '\\`', $text_to_filter));
+		$answer=mb_eregi_replace(';', '', mb_eregi_replace('$', '\\$', $s));
+		return $answer;
+	} // bash
 
-    // This method is for cases, where it is not possible to use parametrized
-    // SQL queries. It's not perfect, but it's better than nothing.
-    public static function SQL(&$text_to_filter){
-        $answer=mb_eregi_replace(';', '', $text_to_filter);
-        return $answer;
-    } // SQL
+	// This method is for cases, where it is not possible to use parametrized
+	// SQL queries. It's not perfect, but it's better than nothing.
+	public static function SQL(&$text_to_filter) {
+		$answer=mb_eregi_replace(';', '', $text_to_filter);
+		return $answer;
+	} // SQL
 
 } // class sirelCodeInjectionFilter
 
-?>

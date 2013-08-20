@@ -50,17 +50,17 @@ class sireProgFTE {
 	public static function ht2ProgFTE(&$arht_in) {
 		try {
 			if (sirelSiteConfig::$debug_PHP) {
-				sirelLang::assert_type_CSL_free(__FILE__,
+				sirelLang::assert_type(__FILE__,
 					__LINE__, __CLASS__, __FUNCTION__,
 					'sirelTD_is_array', $arht_in);
 				$keys=array_keys($arht_in);
 				$x_value=null;
 				foreach ($keys as $x_key) {
 					$x_value=$arht_in[$x_key];
-					sirelLang::assert_type_CSL_free(__FILE__,
+					sirelLang::assert_type(__FILE__,
 						__LINE__, __CLASS__,__FUNCTION__,
 						'sirelTD_is_mbstring', $x_key);
-					sirelLang::assert_type_CSL_free(__FILE__,
+					sirelLang::assert_type(__FILE__,
 						__LINE__, __CLASS__,__FUNCTION__,
 						'sirelTD_is_mbstring', $x_value);
 				} // foreach
@@ -71,30 +71,28 @@ class sireProgFTE {
 						'/bonnet/sirel_progfte_v1.php');
 				sireProgFTE::$b_ProgFTE_v1_src_loaded=TRUE;
 			} // if
-			$s_progte=sirelLang::ht2ProgFTE_v1_impl($arht_in);
+			$s_progte=sireProgFTE_v1::ht2ProgFTE($arht_in);
 			return $s_progte;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='3b036285-07eb-44c2-8543-6043b0914dd7'\n");
+			sirelBubble_t2($err_exception,
+				" GUID='b95ba754-926e-4565-9396-712021318dd7'");
 		} // catch
 	} // ht2ProgFTE
 
 	public static function htOfht_2ProgFTE(&$hashtable_of_hashtables) {
 		try {
 			$keys=array_keys($hashtable_of_hashtables);
-			$elem_ht;
+			$ht_elem;
 			$arht_sprogftes=array();
 			foreach($keys as $key) {
-				$elem_ht=$hashtable_of_hashtables[$key];
-				$arht_sprogftes[$key]=sirelLang::ht2ProgFTE($elem_ht);
+				$ht_elem=$hashtable_of_hashtables[$key];
+				$arht_sprogftes[$key]=sireProgFTE::ht2ProgFTE($ht_elem);
 			} // foreach
 			$s_progte=sireProgFTE::ht2ProgFTE($arht_sprogftes);
 			return $s_progte;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.': '.
-				"\nGUID='f5030812-bc42-4516-9443-6043b0914dd7'\n");
+			sirelBubble_t2($err_exception,
+				" GUID='d6b5b125-1b2a-459a-9596-712021318dd7'");
 		} // catch
 	} // htOfht_2ProgFTE
 
@@ -123,7 +121,7 @@ class sireProgFTE {
 						__LINE__,__CLASS__.'->'.__FUNCTION__.
 						': ProgFTE_v'.$s_1.' is not yet '.
 						'supported by this function. '.
-						"\nGUID='579007a3-a388-4e90-b543-6043b0914dd7'");
+						"\nGUID='1a69b5d2-9029-4dd9-a996-712021318dd7'");
 				} // if
 			} else { // ProgFTE_v0
 				if(sireProgFTE::$b_ProgFTE_v0_src_loaded==FALSE) {
@@ -136,10 +134,9 @@ class sireProgFTE {
 			} // if
 			return $arht_out;
 		} catch (Exception $err_exception) {
-			sirelBubble(__FILE__,__LINE__,$err_exception,
-				__CLASS__.'->'.__FUNCTION__.
-				': $a_string=='.$s_progfte_candidate.
-				"  \nGUID='cc81bc5d-54e5-4b47-a443-6043b0914dd7'\n");
+			sirelBubble_t2($err_exception,
+				'$a_string=='.$s_progfte_candidate.
+				"\n GUID='5851b714-aaac-462b-b196-712021318dd7'");
 		} // catch
 	} // ProgFTE2ht
 
@@ -147,5 +144,4 @@ class sireProgFTE {
 
 
 //=========================================================================
-?>
 
