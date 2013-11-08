@@ -1,0 +1,28 @@
+===========================================================================
+=================  Sirel PHP Library TODO-list  ===========================
+===========================================================================
+
+x)  Implement the ROSTOFIS_v0
+    http://longterm.softf1.com/specifications/filicle/
+
+x)  Add Sqlite_3 support.
+
+x)  Fix MySQL support.
+
+x)  Add http://www.h2database.com/ 
+    support.
+
+x)  After the PHP 5.5 becomes mainstream in Debian Stable, 
+    create PHP file named sirel_library_control.php and add 
+    methods 
+
+        cache_sirel_bytecode_if_possible(); 
+
+        delete_sirel_bytecode_if_cached(); 
+
+    http://thephp.cc/viewpoints/blog/2013/06/php-5-5-out-of-the-box-bytecode-cache
+    http://ee1.php.net/manual/en/intro.opcache.php
+
+
+
+===========================================================================

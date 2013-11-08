@@ -38,8 +38,6 @@ try {
 			$ar_test_results=array_merge($ar_test_results,
 				sirel_test_sirel_type_normalizations::selftest());
 			$ar_test_results=array_merge($ar_test_results,
-				sirel_units::selftest());
-			$ar_test_results=array_merge($ar_test_results,
 				sirel_test_sirel_units::selftest());
 			$ar_test_results=array_merge($ar_test_results,
 				sirel_test_sirel_math_boolean::selftest());
@@ -64,6 +62,9 @@ try {
 
 			$ar_test_results=array_merge($ar_test_results,
 				sirel_test_various_1::selftest());
+
+			$ar_test_results=array_merge($ar_test_results,
+				sirel_test_sirel_htmlcg_funcset_1::selftest());
 
 			//$ar_test_results=array_merge($ar_test_results,
 			//	sirel_test_db_sqlite3::selftest());
@@ -136,4 +137,4 @@ try {
 } catch (Exception $err_exception) {
 	sirelDisplayException_t2($err_exception);
 } // catch
-?>
+

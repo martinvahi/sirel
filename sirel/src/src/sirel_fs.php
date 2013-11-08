@@ -65,7 +65,7 @@ class sirelFS {
 		} // catch
 	} // file2str
 
-	public function str2file($s_file_content,$s_file_path) {
+	public static function str2file($s_file_content,$s_file_path) {
 		$file_handle=NULL;
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
@@ -93,8 +93,9 @@ class sirelFS {
 	} // str2file
 
 
-	// It always retunrs an array of folder element paths, but
-	// the array may also be empty. It throws an exception, if
+	// It always retunrs an array of folder element names, NOT FULL PATHS.
+	// The element names are without linebreaks.
+	// The array may be empty. It throws an exception, if
 	// the folder does not exist.
 	public  static function ls($s_path_to_a_folder,$s_folder_element_name_regex='.*') {
 		try {
@@ -114,6 +115,7 @@ class sirelFS {
 			$b_go_on=True;
 			$dir_handle=opendir($s_path_to_a_folder);
 			$x=NULL;
+			$s_lc_emptystring='';
 			while ($b_go_on===True) {
 				$x=readdir($dir_handle);
 				if ($x===False) {
@@ -121,7 +123,7 @@ class sirelFS {
 				} else {
 					if (($x!==0)&&($x!=='')) {
 						if (($x!=='..')&&($x!=='.')) {
-							if(mb_ereg_match($s_folder_element_name_regex,$x)==True) {
+							if(mb_ereg_match($s_folder_element_name_regex,$x,$s_lc_emptystring)==True) {
 								array_push($ar_out,$x);
 							} // if
 						} // if

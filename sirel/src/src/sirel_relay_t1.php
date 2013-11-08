@@ -46,20 +46,20 @@ class sirel_relay_t1_implementation {
 	private $b_s_fp_tmpfolder_set_=FALSE;
 	private $s_fp_tmpfolder_=NULL;
 	private $s_fp_tmplink_=NULL; // if exists, then in the $s_fp_tmpfolder_
-	private $s_debug_msg_='';
+	private $s_err_msg_='';
 
 	public function __construct($s_fp_console_application) {
 		try {
 			sirelLang::assert_file_exists(__FILE__, __LINE__,
 				__CLASS__,__FUNCTION__,
 				$s_fp_console_application,
-				"\n GUID='81224c6b-6d67-4e4f-a94f-a07260418dd7'");
+				"\n GUID='578a2c30-949c-426a-91a7-41f2f080bdd7'");
 			$this->s_fp_console_application_=$s_fp_console_application;
 			$s_extension='txt';
 			$this->s_fp_metadata_=sirelFS::s_gen_tmpfilename($s_extension);
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='d6ec54a3-b2a0-411d-942f-a07260418dd7'");
+				" GUID='881fad3f-a074-4780-b1a7-41f2f080bdd7'");
 		}
 	} // constructor
 
@@ -74,7 +74,7 @@ class sirel_relay_t1_implementation {
 						'File deletion failed. '.
 						"\n".'$s_fp_response_file=='.
 						$s_fp_response_file.
-						"\nGUID='d4007a26-a3f3-4287-a07f-a07260418dd7'");
+						"\nGUID='c25fee4f-a583-4ccf-83a7-41f2f080bdd7'");
 				} // if
 				$this->b_s_fp_response_file_set_=FALSE;
 				$this->s_fp_response_file_=NULL;
@@ -85,7 +85,7 @@ class sirel_relay_t1_implementation {
 					sirelThrowLogicException_t2('File deletion failed. '.
 						"\n".'$s_fp_metadata=='.
 						$s_fp_metadata.
-						"\n GUID='84e12cf0-e7eb-41ae-b5ee-a07260418dd7'");
+						"\n GUID='1700d493-9707-4865-99a7-41f2f080bdd7'");
 				} // if
 			} // if
 			if($this->b_s_fp_tmpfolder_set_==TRUE) {
@@ -96,7 +96,7 @@ class sirel_relay_t1_implementation {
 							'Link deletion failed. '.
 							"\n".'$s_fp_tmplink=='.
 							$s_fp_tmplink.
-							"\n GUID='96711d45-a6d5-45cc-a41e-a07260418dd7'");
+							"\n GUID='dc81012d-7514-4d3e-a1a7-41f2f080bdd7'");
 					} // if
 				} // if
 				$s_fp_tmp_folder=$this->s_fp_tmpfolder_;
@@ -104,13 +104,13 @@ class sirel_relay_t1_implementation {
 					sirelThrowLogicException_t2('Failed to delete '.
 						'the temporary folder.'.
 						"\n $s_fp_tmp_folder==".$s_fp_tmp_folder.
-						"\n GUID='b26786f7-d308-4924-bb5e-a07260418dd7'");
+						"\n GUID='aee57522-fd58-46f1-afa7-41f2f080bdd7'");
 				} // if
 				$this->b_s_fp_tmpfolder_set_=FALSE;
 			} // if
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='43584d84-adf3-48f6-943e-a07260418dd7'");
+				" GUID='ea6f0846-266f-4334-b5a7-41f2f080bdd7'");
 		} // catch
 	} // delete_temporary_files
 
@@ -135,18 +135,19 @@ class sirel_relay_t1_implementation {
 			$arht_meta[$s_key_name]=$s_progfte_mth;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='180a2123-33ad-4483-ae4e-a07260418dd7'");
+				" GUID='a0af922c-fc32-477e-b1a7-41f2f080bdd7'");
 		} // catch
 	} // s_write_request_data_2_files_h1
 
 	private function s_write_request_data_2_files_h2_file_uploads(&$arht_meta) {
 		try {
 			// The maximum allowed upload size is determined
-			// either by using the php.ini or .htaccess and,
-			// supposedly, is not dynamically editable.
+			// either by using the php.ini or .htaccess or the
+			//
+			// http://www.php.net/manual/en/function.ini-set.php
+			// ini_set('upload_max_filesize',$i_size_in_bytes);
 			//
 			// http://stackoverflow.com/questions/2184513/php-change-the-maximum-upload-file-size
-			//
 			// http://www.php.net/manual/en/features.file-upload.post-method.php
 			//
 			$arht_meta['sb_file_uplad_attempted']='f';
@@ -156,7 +157,20 @@ class sirel_relay_t1_implementation {
 			if ($s_type!=$s_lc_ar) {
 				return;
 			} // if
-			$arht_userfile=$_FILES['sirel_form_file_field'];
+			if (count($_FILES)==0) {
+				// Some PHP versions define the $_FILES
+				// even, when the inbound request
+				// does not contain any file fields.
+				return;
+			} // if
+			$s_key='sirel_form_file_field';
+			if (array_key_exists($s_key,$_FILES)!==TRUE) {
+				$this->s_err_msg_=$this->s_err_msg_." <br/>\n".
+					'$_FILES[\''.$s_key.'\'] does not exist.'.
+					" <br/>\n".
+					"\n GUID='50644a72-db9c-49f3-b397-41f2f080bdd7'";
+			} // else
+			$arht_userfile=$_FILES[$s_key];
 			$s_type=sirelLang::type_2_s($arht_userfile);
 			if ($s_type!=$s_lc_ar) {
 				return;
@@ -182,12 +196,12 @@ class sirel_relay_t1_implementation {
 				sirelThrowLogicException_t2('Symlink creation failed. '.
 					"\n target == ".$s_fp_tmp_file.
 					"\n link == ".$s_fp_tmplink.
-					"\n GUID='bbf28e63-79d3-4a77-874e-a07260418dd7'");
+					"\n GUID='9348211a-5224-47e9-9197-41f2f080bdd7'");
 			} // if
 			$arht_meta['s_fp_tmp_uploaded_file']=$s_fp_tmplink;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='6466dcae-dd1f-46ae-b61e-a07260418dd7'");
+				" GUID='1d2b7a56-376a-49de-a497-41f2f080bdd7'");
 		} // catch
 	} // s_write_request_data_2_files_h2_file_uploads
 
@@ -204,7 +218,7 @@ class sirel_relay_t1_implementation {
 			sirelFS::str2file($s_progfte_meta,$this->s_fp_metadata_);
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='a466eca4-6b4e-4723-b35e-a07260418dd7'");
+				" GUID='14c88124-0fd8-4ff0-a397-41f2f080bdd7'");
 		} // catch
 	} // s_write_request_data_2_files
 
@@ -217,14 +231,8 @@ class sirel_relay_t1_implementation {
 			$s_response_type=$arht_meta['s_response_type'];
 			if ($s_response_type=='text') {
 				$s_response=$arht_meta['s_response'];
-				$s_0=$this->s_debug_msg_;
-				$s_1=NULL;
-				if(0<mb_strlen($s_0)) {
-					$s_1=$s_response.$this->s_debug_msg_;
-				} else {
-					$s_1=$s_response;
-				} // else
-				echo($s_1);
+				$s_0=($this->s_err_msg_).$s_response;
+				echo($s_0);
 				$this->delete_temporary_files();
 				return;
 			} // if
@@ -253,18 +261,18 @@ class sirel_relay_t1_implementation {
 				} else {
 					$this->delete_temporary_files();
 					die('Error: File not found. '.
-						"\nGUID='17d407c5-657a-43ff-913e-a07260418dd7'");
+						"\nGUID='1f628995-d326-4c95-b597-41f2f080bdd7'");
 				}
 				exit;
 			}  // if
 			sirelThrowLogicException(__FILE__, __LINE__,
 				__CLASS__.'->'.__FUNCTION__.': '.
 				'$s_response_type==\"'.$s_response_type.
-				"\"\nGUID='7e19aff1-414b-44c4-981e-a07260418dd7'");
+				"\"\nGUID='f006fff2-ddb2-4518-8a97-41f2f080bdd7'");
 		}catch (Exception $err_exception) {
 			$this->delete_temporary_files();
 			sirelBubble_t2($err_exception,
-				" GUID='38e10403-f5d1-4601-a22e-a07260418dd7'");
+				" GUID='2c7fa63d-8db4-4609-a297-41f2f080bdd7'");
 		} // catch
 	} // echo_or_relay_request_response_and_conditionally_exit
 
@@ -281,7 +289,7 @@ class sirel_relay_t1_implementation {
 		}catch (Exception $err_exception) {
 			$this->delete_temporary_files();
 			sirelBubble_t2($err_exception,
-				" GUID='33a16b34-8f60-4995-8d4d-a07260418dd7'");
+				" GUID='8798b44e-a89e-43fe-8597-41f2f080bdd7'");
 		} // catch
 	} // run_and_if_a_file_is_returned_then_exit
 
@@ -334,13 +342,13 @@ class sirel_relay_t1 {
 				sirelLang::assert_file_exists(__FILE__, __LINE__,
 					__CLASS__,__FUNCTION__,
 					$s_fp_console_application,
-					"\n GUID='8b85818f-245e-4833-94dd-a07260418dd7'");
+					"\n GUID='2dc45d24-a574-40d4-b197-41f2f080bdd7'");
 			} // if
 			$ob_engine=new sirel_relay_t1_implementation($s_fp_console_application);
 			$ob_engine->run_and_if_a_file_is_returned_then_exit();
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='453725a4-444a-438f-8a8d-a07260418dd7'");
+				" GUID='1f4ee341-9768-41c0-b597-41f2f080bdd7'");
 		} // catch
 	} // run_and_if_a_file_is_returned_then_exit
 

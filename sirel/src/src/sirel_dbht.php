@@ -165,8 +165,8 @@ class sirelDBht1 {
 // RENESSAATOR_BLOCK_ID=block_1
 // RENESSAATOR_SOURCE_LANGUAGE=Ruby
 // RENESSAATOR_SOURCE_START
-// SIREL_CODE_GENERATION=ENV['SIREL_CODE_GENERATION']
-// require(SIREL_CODE_GENERATION+"/by_file/sirel_dbht_block1.rb")
+// s_fp_cg=ENV['SIREL_HOME']+"/src/dev_tools/code_generation"
+// require(s_fp_cg+"/by_file/sirel_dbht_block1.rb")
 // ob_cg_X=SirelCG_sirelDBhtX_multiplier.new
 // puts ob_cg_X.multiply(i_number_of_copies=2)
 // RENESSAATOR_SOURCE_END
@@ -198,7 +198,7 @@ class sirelDBht2 {
 			sirelDBht2::$b_inited=True;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='d8005643-e8ce-462d-9137-712021318dd7'");
+				" GUID='cf399234-bcff-4ba9-9537-712021318dd7'");
 		} // catch
 	} // init
 
@@ -231,7 +231,7 @@ class sirelDBht2 {
 			return $b_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='4e0a0d36-a2a4-4c34-8337-712021318dd7'");
+				" GUID='535a2be8-cd8a-4a44-b337-712021318dd7'");
 		} // catch
 	} // exists_in_db
 
@@ -248,7 +248,7 @@ class sirelDBht2 {
 			return $x_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='57e8fa14-6b17-499d-a137-712021318dd7'");
+				" GUID='2804f742-e396-4c48-9437-712021318dd7'");
 		} // catch
 	} // get
 
@@ -259,7 +259,7 @@ class sirelDBht2 {
 			return $b_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='c3475e06-13fd-4c39-ae37-712021318dd7'");
+				" GUID='23ab4443-4e02-4fe7-ad37-712021318dd7'");
 		} // catch
 	} // has_key
 
@@ -271,7 +271,7 @@ class sirelDBht2 {
 			sirelDBht2::$dbht_instance->put($s_key,$x_value);
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='60edcd2b-4a7e-412f-a437-712021318dd7'");
+				" GUID='cb74a363-defe-4e36-b137-712021318dd7'");
 		} // catch
 	} // put
 
@@ -303,7 +303,7 @@ class sirelDBht3 {
 			sirelDBht3::$b_inited=True;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='2f4e4e1e-4977-4728-8137-712021318dd7'");
+				" GUID='cf399234-bcff-4ba9-9537-712021318dd7'");
 		} // catch
 	} // init
 
@@ -336,7 +336,7 @@ class sirelDBht3 {
 			return $b_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='8fa69a27-8813-4ab0-b437-712021318dd7'");
+				" GUID='535a2be8-cd8a-4a44-b337-712021318dd7'");
 		} // catch
 	} // exists_in_db
 
@@ -353,7 +353,7 @@ class sirelDBht3 {
 			return $x_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='531eff98-d6e6-426b-b627-712021318dd7'");
+				" GUID='2804f742-e396-4c48-9437-712021318dd7'");
 		} // catch
 	} // get
 
@@ -364,7 +364,7 @@ class sirelDBht3 {
 			return $b_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='39b4083d-3954-4836-8127-712021318dd7'");
+				" GUID='23ab4443-4e02-4fe7-ad37-712021318dd7'");
 		} // catch
 	} // has_key
 
@@ -376,7 +376,7 @@ class sirelDBht3 {
 			sirelDBht3::$dbht_instance->put($s_key,$x_value);
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='cc9e7a3c-671a-4abf-9127-712021318dd7'");
+				" GUID='cb74a363-defe-4e36-b137-712021318dd7'");
 		} // catch
 	} // put
 

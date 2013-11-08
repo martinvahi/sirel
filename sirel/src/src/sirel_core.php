@@ -34,7 +34,7 @@
 //------------------------------------------------------------------------
 
 /// Identation forms a tree, which depicts file dependencies.
-require_once('bonnet/sirel_core_initialisation.php');
+require_once('bonnet/sirel_core_initialisation_part_1.php');
 require_once('sirel_text_concatenation.php');
 //require_once('sirel_core_base.php');
 /*    *///require_once('sirel_core_log.php');
@@ -42,4 +42,5 @@ require_once('sirel_text_concatenation.php');
 /*    */require_once('sirel_core_utilities.php');
 /*    */require_once('sirel_core_xss.php');
 require_once('sirel_core_configuration.php');
+require_once('bonnet/sirel_core_initialisation_part_2.php');
 

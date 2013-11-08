@@ -1,5 +1,5 @@
 <?php
-// ------------------------------------------------------------------------
+//=========================================================================
 // Copyright (c) 2011, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
 // All rights reserved.
@@ -31,7 +31,7 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 // NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// ------------------------------------------------------------------------
+//=========================================================================
 require_once('sirel_lang.php');
 require_once('sirel_type_normalizations.php');
 
@@ -92,17 +92,9 @@ class sirel_units {
 // 'kg/(m^3)'=>42);
 
 //------------------------------------------------------------------
-// Returns True, if the unit is not supported by this class.
-//
-// This method is not public, because even if the conversion
-// from unit x to unit y is implemented in this class, there
-// are probably many units, to which it is theoretically possible
-// to convert values from units x, but the conversion is not
-// yet implemented by this class.
-//
-// As a result, the meaning of a a unit support is a bit vague
-// and quite specific to this class.
-	protected static function b_unit_not_supported($s_unit) {
+
+	// Returns True, if the unit is not supported by this class.
+	public static function b_unit_not_supported($s_unit) {
 		try {
 			if(sirelSiteConfig::$debug_PHP) {
 				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
@@ -636,76 +628,6 @@ class sirel_units {
 		} // catch
 	} // fd_convert
 
-//------------------------------------------------------------------
-	private static function test_sirel_units_b_unit_not_supported() {
-		try {
-			$test_result=array();
-			$ar_tc=array();
-//----tests-cases-start----------------------
-			$s_unit='kg'; // A Si unit.
-			$b=sirel_units::b_unit_not_supported($s_unit);
-			if($b==True) {
-				$test_case['msg']='$s_unit=="'.$s_unit.'" ';
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
-			} // if
-//-----
-			$s_unit='g'; // A non-Si unit.
-			$b=sirel_units::b_unit_not_supported($s_unit);
-			if($b==True) {
-				$test_case['msg']='$s_unit=="'.$s_unit.'" ';
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
-			} // if
-//-----
-			$s_unit='ThisUnitCanNotPossiblyBeSupported';
-			$b=sirel_units::b_unit_not_supported($s_unit);
-			if($b==False) {
-				$test_case['msg']='$s_unit=="'.$s_unit.'" ';
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
-			} // if
-//-----
-			$b_error_not_detected=True;
-			try {
-				$x=array();
-				$b=sirel_units::b_unit_not_supported($x); // type not supported
-			}catch (Exception $err_exception) {
-				$b_error_not_detected=False;
-			} // catch
-			if($b_error_not_detected) {
-				$test_case['msg']='typecheck 1';
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
-			} // if
-//----tests-cases-end------------------------
-			$test_result['test_cases']=$ar_tc;
-			$test_result['file_name']=__FILE__;
-			return $test_result;
-		}catch (Exception $err_exception) {
-			sirelBubble_t2($err_exception,
-				" GUID='b48e9de8-2a66-454a-9a21-712021318dd7'");
-		} // catch
-	} // test_sirel_units_b_unit_not_supported
-
-	public static function selftest() {
-		try {
-			$ar_test_results=array();
-// To avoid parsing the code of all of the selftests
-// every time the sirel_units is used, the most of the
-// sirel_units selftests are in test_sirel_units.php
-//
-// The next one is in this class only because it is not public.
-			$ar_test_results[]=sirel_units::test_sirel_units_b_unit_not_supported();
-			return $ar_test_results;
-		}catch (Exception $err_exception) {
-			sirelBubble_t2($err_exception,
-				" GUID='f3633901-81f6-4295-b021-712021318dd7'");
-		} // catch
-	} // selftest
-
 } // sirel_units
 
-
-// ---------------------------------------------------------
-
+//=========================================================================

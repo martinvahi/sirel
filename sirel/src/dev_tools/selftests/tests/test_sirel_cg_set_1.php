@@ -166,41 +166,11 @@ class sirel_test_sirel_cg_set_1 {
 
 //-------------------------------------------------------------------------
 
-	private static function test_s_js_fp_2_embedded_js_script_tag() {
-		try {
-			$test_result=array();
-			$ar_tc=array();
-			//----tests-cases-start----------------------
-			$s_path_lib_sirel=constant('s_path_lib_sirel');
-			$s_fp_datadir=$s_path_lib_sirel.'/src/dev_tools'.
-				'/selftests/data_for_tests';
-			//------------------
-			$s_fp=$s_fp_datadir.'/test_x1.js';
-			$s_x=sirel_cg_set_1::s_js_fp_2_embedded_js_script_tag($s_fp);
-			if(mb_strlen($s_x)<10) {
-				$test_case['msg']='test 1, $s_x=='.$s_x.
-					"\n GUID='4e0541cd-fb64-4d3c-a5e3-026131318dd7'";
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
-			} // if
-			//----tests-cases-end------------------------
-			$test_result['test_cases']=$ar_tc;
-			$test_result['file_name']=__FILE__;
-			return $test_result;
-		}catch (Exception $err_exception) {
-			sirelBubble_t2($err_exception,
-				" GUID='a2a2fc2a-424c-4daf-85e3-026131318dd7'");
-		} // catch
-	} // test_s_js_fp_2_embedded_js_script_tag
-
-//-------------------------------------------------------------------------
-
 	public static function selftest() {
 		try {
 			$ar_test_results=array();
 			$ar_test_results[]=sirel_test_sirel_cg_set_1::test_s_img_fp_2_armoured_img_tag();
 			$ar_test_results[]=sirel_test_sirel_cg_set_1::test_s_txt_2_verbatim_html();
-			$ar_test_results[]=sirel_test_sirel_cg_set_1::test_s_js_fp_2_embedded_js_script_tag();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
@@ -211,4 +181,3 @@ class sirel_test_sirel_cg_set_1 {
 //-------------------------------------------------------------------------
 } // class sirel_test_sirel_cg_set_1
 //=========================================================================
-?>

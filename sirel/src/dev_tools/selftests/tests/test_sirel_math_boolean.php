@@ -1,5 +1,5 @@
 <?php
-//------------------------------------------------------------------------
+//=========================================================================
 // Copyright (c) 2011, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
 //
@@ -30,7 +30,7 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 // NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//------------------------------------------------------------------------
+//=========================================================================
 
 class sirel_test_sirel_math_boolean {
 
@@ -95,18 +95,23 @@ class sirel_test_sirel_math_boolean {
 				$ar_tc[]=$test_case;
 			} // if
 			//-----
-			$b_error_not_detected=True;
-			try {
-				$arht_in=array('bb'=>'t'); // OK
-				$b_x=sirel_math_boolean::conjunction_arht($arht_in); // n_of_args<2
-			}catch (Exception $err_exception) {
-				$b_error_not_detected=False;
-			} // catch
-			if($b_error_not_detected!=False) {
-				$test_case['msg']='test Err3, $b_x=='.$b_x.
-					"\n GUID='90fbe93a-3648-4110-8164-426131318dd7'";
-				$test_case['line_number']=__LINE__;
-				$ar_tc[]=$test_case;
+			if(sirelSiteConfig::$debug_PHP) {
+				// Due to speed that kind of
+				// input verification is performed
+				// only in debug mode.
+				$b_error_not_detected=True;
+				try {
+					$arht_in=array('bb'=>'t'); // OK
+					$b_x=sirel_math_boolean::conjunction_arht($arht_in); // n_of_args<2
+				}catch (Exception $err_exception) {
+					$b_error_not_detected=False;
+				} // catch
+				if($b_error_not_detected!=False) {
+					$test_case['msg']='test Err3, $b_x=='.$b_x.
+						"\n GUID='90fbe93a-3648-4110-8164-426131318dd7'";
+					$test_case['line_number']=__LINE__;
+					$ar_tc[]=$test_case;
+				} // if
 			} // if
 			//----tests-cases-end------------------------
 			$test_result['test_cases']=$ar_tc;
@@ -188,5 +193,4 @@ class sirel_test_sirel_math_boolean {
 
 } // class sirel_test_sirel_math_boolean
 
-
-?>
+//=========================================================================

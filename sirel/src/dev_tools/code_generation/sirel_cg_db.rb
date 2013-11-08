@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
  Copyright 2010, martin.vahi@softf1.com that has an
@@ -34,28 +34,15 @@
 
 =end
 #==========================================================================
-if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
-end # if
+SIREL_HOME=ENV["SIREL_HOME"] if !defined? SIREL_HOME
+require SIREL_HOME+"/src/dev_tools/code_generation/sirel_cg0.rb"
 
-require "rubygems"
-require "monitor"
-if defined? KIBUVITS_HOME
-   require KIBUVITS_HOME+"/experimental/kibuvits_msgc.rb"
-   require KIBUVITS_HOME+"/experimental/kibuvits_str.rb"
-   require KIBUVITS_HOME+"/experimental/kibuvits_gstatement.rb"
-   require KIBUVITS_HOME+"/experimental/kibuvits_cg.rb"
-else
-   require "kibuvits_msgc.rb"
-   require "kibuvits_src.rb"
-   require "kibuvits_gstatement.rb"
-   require "kibuvits_cg.rb"
-end # if
+require KIBUVITS_HOME+"/src/include/kibuvits_msgc.rb"
+require KIBUVITS_HOME+"/src/include/kibuvits_gstatement.rb"
+require KIBUVITS_HOME+"/src/include/kibuvits_cg.rb"
 
-require "singleton"
+#--------------------------------------------------------------------------
 
-#==========================================================================
 class Sirel_cg_db_table_init
    def init_templates
       s_warning=""+

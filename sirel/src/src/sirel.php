@@ -47,6 +47,7 @@
 //require_once('sirel_core.php');
 /*    *///require_once('sirel_text_concatenation.php');
 /*        *///require_once('sirel_lang.php');
+/*                */require_once('bonnet/sirel_adhoc_funcset_t1.php');
 /*                *///require_once('sirel_progfte.php');
 /*                        */require_once('sirel_relay_t1.php');
 /*                */require_once('sirel_memcached.php');
@@ -56,11 +57,12 @@
 /*                                        */require_once('sirel_operators_set_1.php');
 /*                                        */require_once('sirel_bigint_t1.php');
 /*                        */require_once('sirel_math_boolean.php');
+/*                        */require_once('code_generation/sirel_htmlcg_table_t1.php');
 /*                *///require_once('sirel_resource.php');
 /*                        */require_once('sirel_javascript.php');
 /*                */require_once('sirel_security_arch_1.php');
 /*                */require_once('sirel_security_utilities.php');
-/*                */require_once('sirel_cg_set_1.php');
+/*                */require_once('code_generation/sirel_cg_set_1.php');
 /*                *///require_once('sirel_db.php');
 /*                        *///require_once('sirel_dbcomm.php');
 /*                                *///require_once('sirel_dbhashtable.php');
@@ -71,17 +73,18 @@
 /*                        */require_once('sirel_text_normalizations.php');
 /*                *///require_once('sirel_fs.php');
 /*                        */require_once('sirel_eval.php');
-/*                        *///require_once('sirel_raudrohi_support.php');
+/*                        *///require_once('code_generation/sirel_htmlcg_funcset_1.php');
+/*                                *///require_once('sirel_dbhashtable.php');
+/*                                *///require_once('sirel_html.php');
+/*                                        *///require_once('sirel_javascript.php');
+/*                                        */require_once('sirel_raudrohi_support.php');
 /*                        *///require_once('sirel_relay_t1.php');
 /*                */require_once('sirel_units.php');
 /*                */require_once('sirel_guid.php');
-/*        *///require_once('sirel_html.php');
-/*                *///require_once('sirel_javascript.php');
-/*                */require_once('sirel_raudrohi_support.php');
 /*        */require_once('bonnet/sirel_db_format_signature.php');
 /*        *///require_once('sirel_wml.php');
 
-// TODO: Update it by sirel_dbcalc.php and alike. 
+// TODO: Update it by sirel_dbcalc.php and alike.
 //       It needs a bit studying, which ones of those are worth including.
 //       Some of the files might be merged, etc.
 //

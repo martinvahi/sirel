@@ -1,5 +1,5 @@
 <?php
-//------------------------------------------------------------------------
+//=========================================================================
 // Copyright (c) 2011, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
 //
@@ -30,50 +30,60 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 // NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//------------------------------------------------------------------------
+//=========================================================================
 
 // It's just a collection of tests that one did not want
 // to wrap to a bunch of separate PHP files.
 class sirel_test_various_1 {
 
 
-	private static function test_sirel_fs_ls() {
+	private static function test_sirel_various_set_1() {
 		try {
 			$test_result=array();
 			$ar_tc=array();
 			//----tests-cases-start----------------------
-			/*
 			$ar=sirelFS::ls('./');
-			if(!sirelLang::str1ContainsStr2($str1,$str2,0)) {
-				$test_case['msg']='$str2=="'.$str2.'" is not seen within '.
-						'$str1=="'.$str1.'".'.
-			"\n GUID='76117516-dd16-4513-a4e0-626131318dd7'";
+			$i_0=count($ar);
+			if($i_0!=3) {
+				$s_0='';
+				if (1<=$i_0) {
+					$s_0=' $ar[0]=='.$ar[0];
+				} // if
+				$test_case['msg']='$i_0=='.$i_0.$s_0.
+					"\n GUID='14edd198-7dbb-4531-ba4c-b3b38031add7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
-			*/
+			//---------
+			$s_0=sirelSiteConfig::s_get_sirel_version();
+			if(mb_strlen($s_0)==0) {
+				$test_case['msg']='$s_0=='.$s_0.
+					"\n GUID='753b7b20-f794-4eae-b15c-b3b38031add7'";
+				$test_case['line_number']=__LINE__;
+				$ar_tc[]=$test_case;
+			} // if
 			//----tests-cases-end------------------------
 			$test_result['test_cases']=$ar_tc;
 			$test_result['file_name']=__FILE__;
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='82191378-4bd2-4407-89e0-626131318dd7'");
+				" GUID='426ac9d3-d8fb-4286-9b3c-b3b38031add7'");
 		} // catch
-	} // test_sirel_fs_ls
+	} // test_sirel_various_set_1
 
 
 	public static function selftest() {
 		try {
 			$ar_test_results=array();
-			$ar_test_results[]=sirel_test_various_1::test_sirel_fs_ls();
+			$ar_test_results[]=sirel_test_various_1::test_sirel_various_set_1();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='0bfcd53e-47f5-4cef-a2e0-626131318dd7'");
+				" GUID='3b89e782-692e-47dc-853c-b3b38031add7'");
 		} // catch
 	} // selftest
 
 } // class sirel_test_various_1
 
-?>
+//=========================================================================

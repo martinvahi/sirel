@@ -1,5 +1,5 @@
 <?php
-//-------------------------------------------------------------------------
+//=========================================================================
 // Copyright (c) 2011, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
 //
@@ -30,7 +30,7 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 // NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//-------------------------------------------------------------------------
+//=========================================================================
 
 class sirel_test_sirel_fs {
 
@@ -46,7 +46,7 @@ class sirel_test_sirel_fs {
 			$b_x=sirel_ix::arht_has_keys($arht_in,'aa');
 			if($b_x!=True) {
 				$test_case['msg']='test 1, $b_x=='.$b_x.
-					"\n GUID='7a0730be-d338-4a25-82c4-126131318dd7'";
+					"\n GUID='445cf484-d1e0-4d3b-815a-f2a140c18dd7'";
 				$test_case['line_number']=__LINE__;
 				$ar_tc[]=$test_case;
 			} // if
@@ -58,9 +58,81 @@ class sirel_test_sirel_fs {
 			return $test_result;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='afb16264-a838-4b7f-83c4-126131318dd7'");
+				" GUID='439c0211-086e-4edb-ab5a-f2a140c18dd7'");
 		} // catch
 	} // test_arht_has_keys
+
+//-------------------------------------------------------------------------
+
+	private static function test_ls() {
+		try {
+			$test_result=array();
+			$ar_tc=array();
+			//----tests-cases-start----------------------
+			$s_path_lib_sirel=constant('s_path_lib_sirel');
+			$s_fp_data=$s_path_lib_sirel.
+				'/src/dev_tools/selftests'.
+				'/data_for_tests/set_of_css_files_1';
+			//--------------
+			$s_folder_element_name_regex='.*';
+			$arht_fn=sirelFS::ls($s_fp_data,
+				$s_folder_element_name_regex);
+			$i_x=count($arht_fn);
+			if($i_x!=2) {
+				$test_case['msg']='test 1a, $i_x=='.$i_x.
+					"\n GUID='4b402ae2-20dc-4dcd-a64a-f2a140c18dd7'";
+				$test_case['line_number']=__LINE__;
+				$ar_tc[]=$test_case;
+			} // if
+			$s_x_0=$arht_fn[0];
+			$s_x_1=$arht_fn[1];
+			if($s_x_0==$s_x_1) {
+				$test_case['msg']='test 1b, '.
+					"\n".'$s_x_0=='.$s_x_0.
+					"\n".'$s_x_1=='.$s_x_1.
+					"\n GUID='dc1b9912-5ce2-4025-803a-f2a140c18dd7'";
+				$test_case['line_number']=__LINE__;
+				$ar_tc[]=$test_case;
+			} // if
+			if(($s_x_0!='aa.css')&&($s_x_0!='bb.css')) {
+				$test_case['msg']='test 1c, '.
+					"\n".'$s_x_0=='.$s_x_0.
+					"\n".'$s_x_1=='.$s_x_1.
+					"\n GUID='5d3ae8d1-4cc4-4882-b45a-f2a140c18dd7'";
+				$test_case['line_number']=__LINE__;
+				$ar_tc[]=$test_case;
+			} // if
+			if(($s_x_1!='aa.css')&&($s_x_1!='bb.css')) {
+				$test_case['msg']='test 1d, '.
+					"\n".'$s_x_0=='.$s_x_0.
+					"\n".'$s_x_1=='.$s_x_1.
+					"\n GUID='19a1bdb1-c171-47ee-9e4a-f2a140c18dd7'";
+				$test_case['line_number']=__LINE__;
+				$ar_tc[]=$test_case;
+			} // if
+			//------
+			$s_x_2=mb_ereg_replace('[\n\r]|[ ]', '', $s_x_0);
+			$i_x_0=mb_strlen($s_x_0);
+			$i_x_1=mb_strlen($s_x_2);
+			if($i_x_0!=$i_x_1) {
+				$test_case['msg']='test 1d, '.
+					"\n".'$s_x_0=='.$s_x_0.
+					"\n".'$i_x_0=='.$i_x_0.
+					"\n".'$i_x_1=='.$i_x_1.
+					"\n GUID='3eedf9b5-3d5a-4a28-944a-f2a140c18dd7'";
+				$test_case['line_number']=__LINE__;
+				$ar_tc[]=$test_case;
+			} // if
+			//------
+			//----tests-cases-end------------------------
+			$test_result['test_cases']=$ar_tc;
+			$test_result['file_name']=__FILE__;
+			return $test_result;
+		}catch (Exception $err_exception) {
+			sirelBubble_t2($err_exception,
+				" GUID='48b89304-b021-477e-9c2a-f2a140c18dd7'");
+		} // catch
+	} // test_ls
 
 //-------------------------------------------------------------------------
 
@@ -68,14 +140,16 @@ class sirel_test_sirel_fs {
 		try {
 			$ar_test_results=array();
 			$ar_test_results[]=sirel_test_sirel_fs::test_arht_has_keys();
+			$ar_test_results[]=sirel_test_sirel_fs::test_ls();
 			return $ar_test_results;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='c42efb85-2f76-4851-bdc4-126131318dd7'");
+				" GUID='a2499b97-de89-44e1-bb5a-f2a140c18dd7'");
 		} // catch
 	} // selftest
 
 //-------------------------------------------------------------------------
 } // class sirel_test_sirel_fs
-//-------------------------------------------------------------------------
-?>
+
+//=========================================================================
+

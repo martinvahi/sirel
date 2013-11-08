@@ -103,7 +103,7 @@ class sirelDBgate {
 			} // if
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='133119c4-1840-467e-8c41-122021318dd7'");
+				" GUID='d6ed99a4-a47a-43a4-9056-c1a27021add7'");
 		} // catch
 	} // init_ht_data_types_PostgreSQL
 
@@ -129,7 +129,7 @@ class sirelDBgate {
 			} // if
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='438952c2-cebe-401c-9411-122021318dd7'");
+				" GUID='3462043d-a4ed-402c-ad46-c1a27021add7'");
 		} // catch
 	} // init_ht_data_types_MySQL
 
@@ -155,7 +155,7 @@ class sirelDBgate {
 			} // if
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='242caa94-578f-4ced-8d41-122021318dd7'");
+				" GUID='cd58a8f6-5ccc-4a1c-a545-c1a27021add7'");
 		} // catch
 	} // init_ht_data_types_SQLite3
 
@@ -197,7 +197,7 @@ class sirelDBgate {
 			return $arht_data_types_normalized2native;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='529f38e3-fe3e-40ac-8231-122021318dd7'");
+				" GUID='e2386451-3ce8-4abf-aa25-c1a27021add7'");
 		} // catch
 	} // get_ht_data_types_norm2native
 
@@ -238,7 +238,7 @@ class sirelDBgate {
 			return $arht_data_types_native2normalized;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='37e62bd1-53c2-4cf6-8521-122021318dd7'");
+				" GUID='25643065-5a6f-4b2e-8015-c1a27021add7'");
 		} // catch
 	} // get_ht_data_types_native2norm
 
@@ -304,7 +304,7 @@ class sirelDBgate {
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
 				' $ereg=='.$ereg.
-				"\n GUID='233d6be1-8261-4afa-a320-122021318dd7'");
+				"\n GUID='e390bb6f-19c2-4a65-9245-c1a27021add7'");
 		} // catch
 	} // convert_normalized_db_data_types_2_native
 
@@ -341,7 +341,7 @@ class sirelDBgate {
 			return $s_normalized_data_type;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='1ec9d481-45b7-474c-a640-122021318dd7'");
+				" GUID='4e010b74-2d1f-41b9-bc25-c1a27021add7'");
 		} // catch
 	} // var_2_normalized_data_type
 
@@ -477,7 +477,7 @@ class sirelDBgate {
 			return $answer;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='4a4e4dd4-7082-45e8-b250-122021318dd7'");
+				" GUID='23a31bd3-adbe-4a4c-ba45-c1a27021add7'");
 		} // catch
 	} // cast_2_PHP_type
 
@@ -486,7 +486,7 @@ class sirelDBgate {
 		try {
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='21c59645-defd-400e-ba50-122021318dd7'");
+				" GUID='144f7de5-1ad6-4081-ac45-c1a27021add7'");
 		} // catch
 	} // constructor
 
@@ -503,7 +503,7 @@ class sirelDBgate {
 				__CLASS__.'->'.$function.': '.
 				$this->msg_not_connected_);
 		} // if
-	} // assert_connection_to_the_db_exists(...)
+	} // assert_connection_to_the_db_exists
 
 	protected function dbstring(&$database_descriptor) {
 		$x=$database_descriptor->db_type_;
@@ -563,7 +563,7 @@ class sirelDBgate {
 			} // if
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='faf36e32-d613-404f-8140-122021318dd7'");
+				" GUID='b1ec8917-4ced-4447-8fa4-c1a27021add7'");
 		} // catch
 	} // connect_inithelp1
 
@@ -574,21 +574,23 @@ class sirelDBgate {
 	// reach this method.
 	public function connect(&$database_descriptor, $convert_to_UTF8=False) {
 		try {
-			if(is_null($database_descriptor)) {
-				sirelThrowLogicException(__FILE__,__LINE__,
-					__CLASS__.'->'.__FUNCTION__.':: '.
-					'$database_descriptor had a value of NULL.');
+			if(sirelSiteConfig::$debug_PHP) {
+				if(is_null($database_descriptor)) {
+					sirelThrowLogicException(__FILE__,__LINE__,
+						__CLASS__.'->'.__FUNCTION__.':: '.
+						'$database_descriptor had a value of NULL.');
+				} // if
+				if(get_class($database_descriptor)!='sirelDatabaseDescriptor') {
+					$x=sirelLang::type_2_s($database_descriptor);
+					sirelThrowLogicException(__FILE__,__LINE__,
+						__CLASS__.'->'.__FUNCTION__.':: '.
+						'$database_descriptor is required to be of '.
+						'sirelDatabaseDescriptor. ||| '.
+						'sirelLang::type_2_s($database_descriptor)=='.$x);
+				} // if
+				sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
+					__FUNCTION__, 'sirelTD_is_bool', $convert_to_UTF8);
 			} // if
-			if(get_class($database_descriptor)!='sirelDatabaseDescriptor') {
-				$x=sirelLang::type_2_s($database_descriptor);
-				sirelThrowLogicException(__FILE__,__LINE__,
-					__CLASS__.'->'.__FUNCTION__.':: '.
-					'$database_descriptor is required to be of '.
-					'sirelDatabaseDescriptor. ||| '.
-					'sirelLang::type_2_s($database_descriptor)=='.$x);
-			} // if
-			sirelLang::assert_type(__FILE__, __LINE__, __CLASS__,
-				__FUNCTION__, 'sirelTD_is_bool', $convert_to_UTF8);
 			if(!$this->pdodc_connected_) {
 				$this->db_descriptor_=&$database_descriptor;
 				$this->db_descriptor_->db_type_=
@@ -634,8 +636,10 @@ class sirelDBgate {
 	// a connection to the database is required to be established
 	// before a call to this method.
 	public function set_schema($schema) {
-		$schema=sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
-			__LINE__, __CLASS__,__FUNCTION__,$schema);
+		if(sirelSiteConfig::$debug_PHP) {
+			$schema=sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,
+				__LINE__, __CLASS__,__FUNCTION__,$schema);
+		} // if
 		$this->assert_connection_to_the_db_exists(__FILE__,__LINE__,
 			__FUNCTION__);
 		$shemas_supported=False;
@@ -667,7 +671,7 @@ class sirelDBgate {
 		$this->apply_schema_method_in_use=True;
 		$this->apply_schema();
 		$this->apply_schema_method_in_use=False;
-	} // set_schema(...)
+	} // set_schema
 
 	// Returns an array of schema names or NULL, if no schemas exist.
 	// For MySQL it returns database names.
@@ -694,7 +698,7 @@ class sirelDBgate {
 			return $answer;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='1335e261-7189-496f-b430-122021318dd7'");
+				" GUID='d82a2adb-95fb-44c7-ba34-c1a27021add7'");
 		} // catch
 	} // get_existing_schema_names
 
@@ -706,9 +710,12 @@ class sirelDBgate {
 	// the $array_of_schema_names;
 	private function get_existing_sequence_names_PostgreSQL(&$array_of_schema_names) {
 		$schemas=&$array_of_schema_names;
-		sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,__FUNCTION__,
-			'sirelTD_is_array',$schemas);
 		try {
+			if(sirelSiteConfig::$debug_PHP) {
+				sirelLang::assert_type(__FILE__,__LINE__,
+					__CLASS__,__FUNCTION__,
+					'sirelTD_is_array',$schemas);
+			} // if
 			$stm0='SELECT sequence_name FROM information_schema.sequences '.
 				'WHERE sequence_catalog=\''.$this->db_descriptor_->db_name_.
 				'\' AND sequence_schema=\'';
@@ -717,7 +724,8 @@ class sirelDBgate {
 			$params=array();
 			$answer0=array();
 			foreach($schemas as $schema) {
-				sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,__FUNCTION__,
+				sirelLang::assert_type(__FILE__,__LINE__,
+					__CLASS__,__FUNCTION__,
 					'sirelTD_is_mbstring',$schema);
 				$stm=$stm0.$schema.'\' ;';
 				$rows=$this->exec_transaction($stm, $params);
@@ -738,7 +746,7 @@ class sirelDBgate {
 			return $answer;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='b32bf50c-1329-4478-9d20-122021318dd7'");
+				" GUID='25b496a1-73d2-4169-9254-c1a27021add7'");
 		} // catch
 	} // get_existing_sequence_names_PostgreSQL
 
@@ -763,7 +771,7 @@ class sirelDBgate {
 			$answer=sirelLang::commaseparated_list_2_array($s);
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='3ee377d7-a485-4b61-a62f-122021318dd7'");
+				" GUID='4351ca15-e537-4cbb-8454-c1a27021add7'");
 		} // catch
 		return $answer;
 	} // get_schema_search_path_PostgreSQL
@@ -771,9 +779,12 @@ class sirelDBgate {
 	// Creates a schema, if it does not exist, and throws an exception, if
 	// it already exists.
 	private function create_schema_PostgreSQL(&$schema_name) {
-		sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,__FUNCTION__,
-			'sirelTD_is_mbstring',$schema_name);
 		try {
+			if(sirelSiteConfig::$debug_PHP) {
+				sirelLang::assert_type(__FILE__,__LINE__,
+					__CLASS__,__FUNCTION__,
+					'sirelTD_is_mbstring',$schema_name);
+			} // if
 			$s=sirelLang::mb_trim($schema_name);
 			if($s=='') {
 				sirelThrowLogicException(__FILE__, __LINE__,
@@ -791,7 +802,7 @@ class sirelDBgate {
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='61ba7daf-100e-4511-b5ef-122021318dd7'");
+				" GUID='2081a045-07e5-4fcc-b624-c1a27021add7'");
 		} // catch
 	} // create_schema_PostgreSQL
 
@@ -854,7 +865,7 @@ class sirelDBgate {
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='f33f02db-ac67-425e-b9af-122021318dd7'");
+				" GUID='c65ad6ae-4fb4-4e15-8534-c1a27021add7'");
 		} // catch
 	} // set_schema_search_path_PostgreSQL_base
 
@@ -867,8 +878,10 @@ class sirelDBgate {
 	private function set_schema_search_path_PostgreSQL(
 		&$array_of_schema_names) {
 		try {
-			sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,__FUNCTION__,
-				'sirelTD_is_array',$array_of_schema_names);
+			if(sirelSiteConfig::$debug_PHP) {
+				sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,__FUNCTION__,
+					'sirelTD_is_array',$array_of_schema_names);
+			} // if
 			$path_schemas=&$array_of_schema_names;
 			if(count($path_schemas)==0) {
 				sirelThrowLogicException(__FILE__, __LINE__,
@@ -888,7 +901,7 @@ class sirelDBgate {
 			$this->set_schema_search_path_PostgreSQL_base($path_schemas, True);
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='42ea86c5-a628-4e5d-9b2f-122021318dd7'");
+				" GUID='52db3001-fc7a-4313-ba24-c1a27021add7'");
 		} // catch
 	} // set_schema_search_path_PostgreSQL
 
@@ -956,7 +969,7 @@ class sirelDBgate {
 			} // switch
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='119e0c9e-1325-4359-8c6f-122021318dd7'");
+				" GUID='a307c8bd-9ba7-473d-a443-c1a27021add7'");
 		} // catch
 	} // apply_schema
 
@@ -1016,7 +1029,7 @@ class sirelDBgate {
 			return $arht_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='477c4681-0a8c-428f-a74f-122021318dd7'");
+				" GUID='1004e655-b5af-48e4-8753-c1a27021add7'");
 		} // catch
 	} // exec_transaction_SQL_statement_compilation_params
 
@@ -1138,12 +1151,12 @@ class sirelDBgate {
 			return $array_of_query_output_rows;
 		} catch (Exception $err_exception) {
 			if(sirelSiteConfig::$debug_PHP) {
-				echo('GUID="2ae4fc13-fbcf-432d-8641-122021318dd7" '.
+				echo('GUID="f4d2c237-22fd-448f-8a46-c1a27021add7" '.
 					$err_exception->getMessage());
 			} // if
 			sirelBubble_t2($err_exception,
 				$err_exception->getMessage().
-				"\n GUID='86d99694-f75e-40c4-aa1f-122021318dd7'");
+				"\n GUID='15b84b67-07ca-4f4e-a253-c1a27021add7'");
 		} // catch
 	} // exec_transaction
 
@@ -1183,7 +1196,7 @@ class sirelDBgate {
 			return $answer;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='529b0342-19a5-4a25-995e-122021318dd7'");
+				" GUID='42f8a539-1041-4aca-9433-c1a27021add7'");
 		} // catch
 	} // table_exists_PostgreSQL
 
@@ -1205,8 +1218,10 @@ class sirelDBgate {
 	// Returns True, if the $table_name exists
 	// in the database. Returns False otherwise.
 	public function table_exists($table_name) {
-		sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,__LINE__,
-			__CLASS__,__FUNCTION__,$table_name);
+		if(sirelSiteConfig::$debug_PHP) {
+			sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,__LINE__,
+				__CLASS__,__FUNCTION__,$table_name);
+		} // if
 		$this->assert_connection_to_the_db_exists(__FILE__,__LINE__,
 			__FUNCTION__);
 		$answer=False;
@@ -1233,7 +1248,7 @@ class sirelDBgate {
 				$err_exception->getMessage());
 		} // catch
 		return $answer;
-	} // table_exists(...)
+	} // table_exists
 
 	private function get_column_names_PostgreSQL(&$table_name) {
 		try {
@@ -1264,7 +1279,7 @@ class sirelDBgate {
 			return $rows;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='d5968064-5d76-450b-898e-122021318dd7'");
+				" GUID='2e48e0a1-d445-4a89-a233-c1a27021add7'");
 		} // catch
 	} // get_column_names_PostgreSQL
 
@@ -1304,8 +1319,10 @@ class sirelDBgate {
 
 // Returns an array of column names.
 	public function get_column_names($table_name) {
-		sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,__LINE__,
-			__CLASS__,__FUNCTION__,$table_name);
+		if(sirelSiteConfig::$debug_PHP) {
+			sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,__LINE__,
+				__CLASS__,__FUNCTION__,$table_name);
+		} // if
 		$this->assert_connection_to_the_db_exists(__FILE__,__LINE__,
 			__FUNCTION__);
 		$rows_of_column_names;
@@ -1439,7 +1456,7 @@ class sirelDBgate {
 			return $arht_normalized;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='71c1a865-934b-4f34-873e-122021318dd7'");
+				" GUID='2f129183-1a13-457a-9153-c1a27021add7'");
 		} // catch
 	} // get_column_types_normalization
 
@@ -1473,7 +1490,7 @@ class sirelDBgate {
 			return $rows_with_db_specific_type_names;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='03275957-8e80-49aa-831e-122021318dd7'");
+				" GUID='b5736917-1f8d-4c63-9552-c1a27021add7'");
 		} // catch
 	} // get_column_types_PostgreSQL
 
@@ -1489,15 +1506,17 @@ class sirelDBgate {
 			return $rows_with_db_specific_type_names;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='24692f33-70fa-4025-ad1e-122021318dd7'");
+				" GUID='160fee04-358e-4efa-9c22-c1a27021add7'");
 		} // catch
 	} // get_column_types_MySQL
 
 	// Returns a hashtable, where the key is a column name and
 	// the value is a string that describes the column type.
 	public function get_column_types($table_name) {
-		sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,__LINE__,
-			__CLASS__,__FUNCTION__,$table_name);
+		if(sirelSiteConfig::$debug_PHP) {
+			sirelLang::assert_is_string_nonempty_after_trimming(__FILE__,__LINE__,
+				__CLASS__,__FUNCTION__,$table_name);
+		} // if
 		$this->assert_connection_to_the_db_exists(__FILE__,__LINE__,
 			__FUNCTION__);
 		$rows_with_db_specific_type_names;
@@ -1551,9 +1570,9 @@ class sirelDBgate {
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
 				$err_exception->getMessage().
-				"\n GUID='1a2fb822-9b01-4b20-8b1e-122021318dd7'");
+				"\n GUID='34f67912-937b-4b38-ad52-c1a27021add7'");
 		} // catch
-	} // create_sequence_PostgreSQL(...)
+	} // create_sequence_PostgreSQL
 
 	private function generate_ID_PostgreSQL() {
 		$answer=NULL;
@@ -1594,10 +1613,10 @@ class sirelDBgate {
 			$answer=$rows[0][0];
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='2a5cc3c4-0a60-478b-8c5d-122021318dd7'");
+				" GUID='63ef014e-00b5-448c-87f2-c1a27021add7'");
 		} // catch
 		return $answer;
-	} // generate_ID_PostgreSQL()
+	} // generate_ID_PostgreSQL
 
 	// The next 2 vars are for hacks that reduce the number of SQL statements.
 	private $b_generate_ID_MySQL_table_cleanup_=False;
@@ -1620,9 +1639,9 @@ class sirelDBgate {
 			$this->b_generate_ID_MySQL_table_cleanup_=True;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='09874645-3993-4f1b-af2d-122021318dd7'");
+				" GUID='c820cef0-5331-454b-b552-c1a27021add7'");
 		} // catch
-	} // generate_ID_MySQL_table_cleanup()
+	} // generate_ID_MySQL_table_cleanup
 
 
 // As of 2009 the MySQL (MariaDB) does not have a
@@ -1671,10 +1690,10 @@ class sirelDBgate {
 			$answer=$rows[0][0];
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='36193b51-4b84-4d26-863d-122021318dd7'");
+				" GUID='567c7084-73fb-4f09-8722-c1a27021add7'");
 		} // catch
 		return $answer;
-	} // generate_ID_MySQL()
+	} // generate_ID_MySQL
 
 
 // Returns a string ID that is
@@ -1718,38 +1737,38 @@ class sirelDBgate {
 					the '.__CLASS__.'->dbstring(...).');
 					break;
 			} // switch
-// We'll stay one bit below the 2^31, as one does not know
-// all of the internals of the mt_rand().
+			// We'll stay one bit below the 2^31, as one does not know
+			// all of the internals of the mt_rand().
 			$n=1073741823;
-// The underschores ("_") are needed for making different ID-s
-// from random numbers that woud yield a same sequence of characters
-// if concatenated. For example: (10 134 12), (101 3 412), etc.
+			// The underschores ("_") are needed for making different ID-s
+			// from random numbers that woud yield a same sequence of characters
+			// if concatenated. For example: (10 134 12), (101 3 412), etc.
 			$answer=$answer.'_'.mt_rand(0,$n);
 			$answer=$answer.'_'.mt_rand(0,$n);
 			$answer=$answer.'_'.mt_rand(0,$n);
-// Don't forget to update the $this->get_ID_max_length(), if the
-// formt of the ID got changed.
+			// Don't forget to update the $this->get_ID_max_length(), if the
+			// formt of the ID got changed.
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='35d47cf3-b892-4393-b64d-122021318dd7'");
+				" GUID='3febd592-74a0-4e62-9751-c1a27021add7'");
 		} // catch
 		return $answer;
-	} // generate_ID()
+	} // generate_ID
 
-// Returns the maximum number of characters that the string
-// returned by sirelDBgate->generate_ID() contains.
+	// Returns the maximum number of characters that the string
+	// returned by sirelDBgate->generate_ID() contains.
 	public function get_ID_max_length() {
-// One will not run out of 10-base digits, if there are 2
-// 10-base digits per 4 bits.
-//
-// For 64-bit systems it makes (64/4)*2=32 10-base digits per integer.
-// 5*32+4=164
+		// One will not run out of 10-base digits, if there are 2
+		// 10-base digits per 4 bits.
+		//
+		// For 64-bit systems it makes (64/4)*2=32 10-base digits per integer.
+		// 5*32+4=164
 		return 164;
-	} // get_ID_max_length(...)
+	} // get_ID_max_length
 
-// It won't throw an exception, if it is called with table names
-// that do not exist. It checks the existence before trying to
-// do anything.
+	// It won't throw an exception, if it is called with table names
+	// that do not exist. It checks the existence before trying to
+	// do anything.
 	public function delete_table(&$table_name) {
 		try {
 			if (!$this->skip_existence_checks_) {
@@ -1778,24 +1797,31 @@ class sirelDBgate {
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='121ca424-bc63-41a9-9d3d-122021318dd7'");
+				" GUID='155080e1-1aaa-498d-8821-c1a27021add7'");
 		} // catch
-	} // delete_table(...)
+	} // delete_table
 
 	private function ensure_table_existence_input_verification(&$table_name,
 		&$column_descriptions,&$overwrite,$function_name,$line) {
-		$table_name=sirelLang::assert_is_string_nonempty_after_trimming(
-			__FILE__,$line, __CLASS__,$function_name,$table_name);
-		$column_descriptions=sirelLang::assert_is_string_nonempty_after_trimming(
-			__FILE__,$line,__CLASS__,$function_name,$column_descriptions);
-		sirelLang::assert_type(__FILE__, $line, __CLASS__, $function_name,
-			'sirelTD_is_bool', $overwrite);
-		$this->assert_connection_to_the_db_exists(__FILE__,$line,
-			$function_name);
-// There's no point of checking the format of the $column_descriptions,
-// because the location of the fault would be determined anyway and
-// it would just add a bunch of string operations to the cost.
-	} // ensure_table_existence_input_verification(...)
+		try {
+			if(sirelSiteConfig::$debug_PHP) {
+				$table_name=sirelLang::assert_is_string_nonempty_after_trimming(
+					__FILE__,$line, __CLASS__,$function_name,$table_name);
+			} // if
+			$column_descriptions=sirelLang::assert_is_string_nonempty_after_trimming(
+				__FILE__,$line,__CLASS__,$function_name,$column_descriptions);
+			sirelLang::assert_type(__FILE__, $line, __CLASS__, $function_name,
+				'sirelTD_is_bool', $overwrite);
+			$this->assert_connection_to_the_db_exists(__FILE__,$line,
+				$function_name);
+			// There's no point of checking the format of the $column_descriptions,
+			// because the location of the fault would be determined anyway and
+			// it would just add a bunch of string operations to the cost.
+		} catch (Exception $err_exception) {
+			sirelBubble_t2($err_exception,
+				" GUID='57ee0a83-5139-4337-9a11-c1a27021add7'");
+		} // catch
+	} // ensure_table_existence_input_verification
 
 // If a table named $table_name does not exist, it is created. If it
 // does exist and $overwrite==True, it is deleted and a new table
@@ -1839,9 +1865,9 @@ class sirelDBgate {
 			$this->skip_existence_checks_=$b;
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='edc95b63-a708-4469-a51d-122021318dd7'");
+				" GUID='95c0bacd-5512-428e-a3d1-c1a27021add7'");
 		} // catch
-	} // ensure_table_existence(...)
+	} // ensure_table_existence
 
 // Converts the sirelDBgate->exec_transaction(...) output to a string.
 // General usage scenario:
@@ -1853,8 +1879,11 @@ class sirelDBgate {
 		$answer='';
 		$ar=&$array_of_exec_transaction_results;
 		try {
-			sirelLang::assert_type(__FILE__,__LINE__,__CLASS__,__FUNCTION__,
-				'sirelTD_is_array',$ar);
+			if(sirelSiteConfig::$debug_PHP) {
+				sirelLang::assert_type(__FILE__,__LINE__,
+					__CLASS__,__FUNCTION__,
+					'sirelTD_is_array',$ar);
+			} // if
 			foreach($ar as $row) {
 				foreach($row as $column) {
 					$answer=$answer.$column.' | ';
@@ -1863,10 +1892,10 @@ class sirelDBgate {
 			} // foreach
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='5529864a-e301-424e-995c-122021318dd7'");
+				" GUID='114620c1-1b26-4ad3-a011-c1a27021add7'");
 		} // catch
 		return $answer;
-	} // results2s(...)
+	} // results2s
 
 
 	function __destruct() {
@@ -1891,7 +1920,7 @@ class sirelDBgate_pool {
 				$database_descriptor->db_name_;
 			if(array_key_exists($hash_string,sirelDBgate_pool::$dbs_)) {
 				return sirelDBgate_pool::$dbs_[$hash_string];
-			}else {
+			} else {
 				$db=new sirelDBgate();
 				$db->connect($database_descriptor);
 				sirelDBgate_pool::$dbs_[$hash_string]=$db;
@@ -1899,7 +1928,7 @@ class sirelDBgate_pool {
 			} // else
 		} catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				" GUID='de95f3be-2a5c-4faa-9d1c-122021318dd7'");
+				" GUID='5446a6ab-0e65-4cef-8b51-c1a27021add7'");
 		} // catch
 	} // get_db
 

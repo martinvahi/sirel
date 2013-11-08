@@ -41,7 +41,7 @@ class sirel_type_normalizations {
 //--------------------------------------------------------------------
 	// Returns an integer. If the origin type is not supported
 	// or the conversion is not possible, an exception will be thrown.
-	public static function to_i(&$i_or_s_or_fd) {
+	public static function to_i($i_or_s_or_fd) {
 		try {
 			$s_type=sirelLang::type_2_s($i_or_s_or_fd);
 			$i_out=0;
@@ -65,18 +65,19 @@ class sirel_type_normalizations {
 						} // if
 						$i_out=(int)$i_or_s_or_fd;
 					} else {
-						throw new Exception(
+						throw(new Exception(
 						__CLASS__.'->'.__FUNCTION__.
 							': There\'s no branch for type '.
 							'$s_type=='.$s_type.
-							'  $i_or_s_or_fd=='.$i_or_s_or_fd.'.');
+							'  $i_or_s_or_fd=='.
+							(float)$i_or_s_or_fd.'.'));
 					} // else
 				} // else
 			} // else
 			return $i_out;
 		}catch (Exception $err_exception) {
 			sirelBubble_t2($err_exception,
-				'$i_or_s_or_fd=='.$i_or_s_or_fd.
+				'$i_or_s_or_fd=='.(float)$i_or_s_or_fd.
 				"\n GUID='332d6804-ca59-42e1-aa35-322021318dd7'");
 		} // catch
 	} // to_i
@@ -84,7 +85,7 @@ class sirel_type_normalizations {
 //--------------------------------------------------------------------
 	// Returns a float.  If the origin type is not supported or
 	// the conversion is not possible, an exception will be thrown.
-	public static function to_fd(&$i_or_s_or_fd) {
+	public static function to_fd($i_or_s_or_fd) {
 		try {
 			$s_type=sirelLang::type_2_s($i_or_s_or_fd);
 			$fd_out=0.0;
@@ -95,29 +96,29 @@ class sirel_type_normalizations {
 			if(sirelLang::str1EqualsStr2($s_type, 'sirelTD_is_mbstring')) {
 				$s1=mb_ereg_replace(' ','',$i_or_s_or_fd);
 				$s2=mb_ereg_replace('[,]','.', $s1);
-				if(sirelSiteConfig::$debug_PHP) {
-					$i_n=mb_substr_count($s2, '.');
-					if(1<$i_n) {
-						throw new Exception('The $i_or_s_or_fd was of type '.
-							'string and after converting all of the '.
-							'commas to dots it contained more than '.
-							'one dot. $i_or_s_or_fd=="'.$i_or_s_or_fd.'"');
-					} // if
+				$i_n=mb_substr_count($s2, '.');
+				if(1<$i_n) {
+					throw new Exception('The $i_or_s_or_fd was of type '.
+						'string and after converting all of the '.
+						'commas to dots it contained more than '.
+						'one dot. $i_or_s_or_fd=="'.$i_or_s_or_fd.'"');
 				} // if
 				$fd_out=floatval($s2);
 				return $fd_out;
 			} // if
 			if(sirelLang::str1EqualsStr2($s_type, 'sirelTD_is_int')) {
-				$fd_out=(float)$i_or_s_or_fd;
+				$fd_out=(string)$i_or_s_or_fd;
 				return $fd_out;
 			} // if
+			$s_0=sirel_code_bloat_due_to_interpreter_warnings_t1($i_or_s_or_fd);
 			throw new Exception(
 			__CLASS__.'->'.__FUNCTION__.
 				': There\'s no branch for type $s_type=='.$s_type.
-				'  $i_or_s_or_fd=='.$i_or_s_or_fd.'.');
+				'  $i_or_s_or_fd=='.$s_0.'.');
 		}catch (Exception $err_exception) {
+			$s_0=sirel_code_bloat_due_to_interpreter_warnings_t1($i_or_s_or_fd);
 			sirelBubble_t2($err_exception,
-				'$i_or_s_or_fd=='.$i_or_s_or_fd.
+				'$i_or_s_or_fd=='.$s_0.
 				" GUID='c237f902-2fc4-450b-9055-322021318dd7'");
 		} // catch
 	} // to_fd
@@ -126,7 +127,7 @@ class sirel_type_normalizations {
 //--------------------------------------------------------------------
 	// Accepts a boolean or a string, which equals 't' or 'f'.
 	// Throws or returns a boolean.
-	public static function to_b(&$b_or_sb) {
+	public static function to_b($b_or_sb) {
 		try {
 			$s_type=sirelLang::type_2_s($b_or_sb);
 			$b_out=NULL;
@@ -145,16 +146,18 @@ class sirel_type_normalizations {
 						$b_or_sb.'" ');
 				} // else
 			} else {
+				$s_0=sirel_code_bloat_due_to_interpreter_warnings_t1($b_or_sb);
 				throw new Exception(
 				__CLASS__.'->'.__FUNCTION__.
 					': There\'s no branch for type '.
 					'$s_type=='.$s_type.
-					'  $b_or_sb=='.$b_or_sb.'.');
+					'  $b_or_sb=='.$s_0.'.');
 			} // else
 			return $b_out;
 		} catch (Exception $err_exception) {
+			$s_0=sirel_code_bloat_due_to_interpreter_warnings_t1($b_or_sb);
 			sirelBubble_t2($err_exception,
-				'$i_or_s_or_fd=='.$b_or_sb.
+				'$i_or_s_or_fd=='.$s_0.
 				"\n GUID='36c21a51-dd20-49b0-af15-322021318dd7'");
 		} // catch
 	} // to_b

@@ -1,5 +1,5 @@
 <?php
-//------------------------------------------------------------------------
+//=========================================================================
 // Copyright (c) 2011, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
 //
@@ -30,7 +30,7 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 // NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//------------------------------------------------------------------------
+//=========================================================================
 
 function sirel_test_sirel_operators_operfunc_1($i) {
 	$i_out=$i+4;
@@ -503,5 +503,5 @@ class sirel_test_sirel_operators {
 
 } // class sirel_test_sirel_operators
 
+//=========================================================================
 
-?>

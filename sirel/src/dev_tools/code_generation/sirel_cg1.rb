@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
  Copyright 2010, martin.vahi@softf1.com that has an
@@ -35,19 +35,14 @@
 
 =end
 #==========================================================================
-if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
-   require KIBUVITS_HOME+"/src/include/kibuvits_boot.rb"
-end # if
+SIREL_HOME=ENV["SIREL_HOME"] if !defined? SIREL_HOME
+require SIREL_HOME+"/src/dev_tools/code_generation/sirel_cg0.rb"
 
 require KIBUVITS_HOME+"/src/include/kibuvits_msgc.rb"
 require KIBUVITS_HOME+"/src/include/kibuvits_gstatement.rb"
 require KIBUVITS_HOME+"/src/include/kibuvits_cg.rb"
 
-require "singleton"
-
-#==========================================================================
+#--------------------------------------------------------------------------
 
 class Sirel_cg1
    attr_reader :s_form_declr_arht, :s_form_declr_ar
@@ -57,32 +52,32 @@ class Sirel_cg1
    attr_reader :s_form_func_b_entry_point
 
    def init_templates
-      s_warning=""+
-      "	   // WARNING: This function resides in an autogeneration region.\n"
+      s_warning=$kibuvits_lc_space+
+      "// WARNING: This function resides in an autogeneration region.\n"
 
-      @s_form_declr_arht=""+
+      @s_form_declr_arht=$kibuvits_lc_emptystring+
       "	private $cg_arht_[CODEGENERATION_BLANK_0]_ = array();\n"
       @s_form_declr_ar=@s_form_declr_arht.gsub("arht","ar")
 
-      @s_form_func_arht_add_s=""+
+      @s_form_func_arht_add_s=$kibuvits_lc_emptystring+
       "	public function add_2_arht_[CODEGENERATION_BLANK_0]($s_name, $s_value) {\n"+
       s_warning+
       "		$this->cg_arht_[CODEGENERATION_BLANK_0]_[$s_name] = $s_value;\n"+
       "	} // add_2_arht_[CODEGENERATION_BLANK_0]\n"
 
-      @s_form_func_ar_add=""+
+      @s_form_func_ar_add=$kibuvits_lc_emptystring+
       "	public function add_2_ar_[CODEGENERATION_BLANK_0]($x_value) {\n"+
       s_warning+
       "		array_push($this->cg_ar_[CODEGENERATION_BLANK_0]_,$x_value);\n"+
       "	} // add_2_ar_[CODEGENERATION_BLANK_0]\n"
 
-      @s_form_func_ar_add_s=""+
+      @s_form_func_ar_add_s=$kibuvits_lc_emptystring+
       "	public function add_2_ar_[CODEGENERATION_BLANK_0]($s_value) {\n"+
       s_warning+
       "		array_push($this->cg_ar_[CODEGENERATION_BLANK_0]_,$s_value);\n"+
       "	} // add_2_ar_[CODEGENERATION_BLANK_0]\n"
 
-      @s_form_func_arht_to_s=""+
+      @s_form_func_arht_to_s=$kibuvits_lc_emptystring+
       "	public function to_s_arht_[CODEGENERATION_BLANK_0]($s_separator=[CODEGENERATION_BLANK_4]) {\n"+
       s_warning+
       "     $s_prefix='';\n"+

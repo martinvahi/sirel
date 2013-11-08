@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 #==========================================================================
 =begin
  Copyright 2010, martin.vahi@softf1.com that has an
@@ -7,27 +7,13 @@
  BSD license: http://www.opensource.org/licenses/bsd-license.php
 =end
 #==========================================================================
-if !defined? KIBUVITS_HOME
-   x=ENV['KIBUVITS_HOME']
-   KIBUVITS_HOME=x if (x!=nil and x!="")
-end # if
+SIREL_HOME=ENV["SIREL_HOME"] if !defined? SIREL_HOME
+require SIREL_HOME+"/src/dev_tools/code_generation/sirel_cg0.rb"
 
-require "rubygems"
-require "monitor"
-if defined? KIBUVITS_HOME
-   require  KIBUVITS_HOME+"/src/include/kibuvits_str.rb"
-   require  KIBUVITS_HOME+"/src/include/kibuvits_io.rb"
-else
-   require  "kibuvits_str.rb"
-   require  "kibuvits_io.rb"
-end # if
+require KIBUVITS_HOME+"/src/include/kibuvits_io.rb"
+require KIBUVITS_HOME+"/src/include/kibuvits_str.rb"
 
-if !defined? SIREL_CODE_GENERATION
-   x=ENV['SIREL_CODE_GENERATION']
-   SIREL_CODE_GENERATION=x if (x!=nil and x!="")
-end # if
-#require SIREL_CODE_GENERATION+"/sirel_cg1.rb"
-#==========================================================================
+#--------------------------------------------------------------------------
 
 class SirelCG_sirelDBhtX_multiplier
    def initialize
@@ -43,7 +29,7 @@ class SirelCG_sirelDBhtX_multiplier
 
    def init_s_template
       s_sirel_home=ENV['SIREL_HOME']
-      s_php=file2str(s_sirel_home+"/src/sirel_dbht.php")
+      s_php=file2str(s_sirel_home+"/src/src/sirel_dbht.php")
       s_start="CODE_GENERATION_TEMPLATE_START"
       s_end="CODE_GENERATION_TEMPLATE_END"
       s_hay,ht_out=Kibuvits_str.pick_by_instance(s_start,s_end,s_php)

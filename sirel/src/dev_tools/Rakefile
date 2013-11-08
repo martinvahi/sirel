@@ -1,0 +1,200 @@
+#!/usr/bin/env rake
+#==========================================================================
+=begin
+
+ Author: martin.vahi@softf1.com that has an
+ Estonian personal identification code of 38108050020.
+
+ This Rakefile is under the MIT license.
+
+ Permission is hereby granted, free of charge, to any person 
+ obtaining a copy of this software and associated documentation 
+ files (the "Software"), to deal in the Software without restriction, 
+ including without limitation the rights to use, copy, modify, merge, 
+ publish, distribute, sublicense, and/or sell copies of the Software, 
+ and to permit persons to whom the Software is furnished to do so, 
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be 
+ included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+
+=end
+#==========================================================================
+
+require 'rake'
+require 'pathname'
+require 'rubygems'
+
+if !defined? SIREL_HOME
+   # This Rakefile is included to code generation scripts as
+   # $SIREL_HOME/src/dev_tools/code_generation/sirel_cg0.rb
+   # Consequently the __FILE__ has 2 different values.
+   s_0=nil
+   ob_pth=Pathname.new(__FILE__).realpath
+   s_fn=ob_pth.basename.to_s
+   case s_fn
+   when "Rakefile"
+      s_0=ob_pth.realpath.parent.parent.parent.to_s
+   when "sirel_cg0.rb"
+      s_0=ob_pth.realpath.parent.parent.parent.parent.to_s
+   else
+      kibuvits_throw("\nThere's a flaw. s_fn=="+s_fn.to_s+
+      "\nob_pth.to_s=="+ob_pth.to_s+
+      "\nGUID='14f6c26b-7662-4852-9420-9041d0b0add7'")
+   end # case s_mode
+   SIREL_HOME=s_0
+   SIREL_RAKEFILE_DEFINES_THE_SIREL_HOME=true
+   # Renessaator blocks within JavaScript files can depend
+   # on the environment variable.
+   ENV["SIREL_HOME"]=SIREL_HOME
+end # if
+
+if !defined? MMMV_DEVEL_TOOLS_HOME
+   MMMV_DEVEL_TOOLS_HOME=SIREL_HOME+"/src/dev_tools/lib/mmmv_devel_tools"
+   ENV["MMMV_DEVEL_TOOLS_HOME"]=MMMV_DEVEL_TOOLS_HOME
+end # if
+
+require MMMV_DEVEL_TOOLS_HOME+"/src/api/mmmv_devel_tools_public_interface.rb"
+
+s_mmmv_devel_tools_expected_version="2.3.0"
+if MMMV_DEVEL_TOOLS_VERSION!=s_mmmv_devel_tools_expected_version
+   msg="\n\nThe Ruby constant, MMMV_DEVEL_TOOLS_VERSION=="+
+   MMMV_DEVEL_TOOLS_VERSION+
+   "\n but it is expected to be "+s_mmmv_devel_tools_expected_version+
+   "\n\nExiting.\n\n"
+   kibuvits_writeln(msg)
+   exit
+end # if
+
+s_kibuvits_expected_version="1.7.0"
+if KIBUVITS_s_NUMERICAL_VERSION!=s_kibuvits_expected_version
+   msg="\n\nThe Ruby constant, KIBUVITS_s_NUMERICAL_VERSION=="+
+   KIBUVITS_s_NUMERICAL_VERSION+
+   "\n but it is expected to be "+s_kibuvits_expected_version+
+   "\n\nExiting.\n\n"
+   kibuvits_writeln(msg)
+   exit
+end # if
+
+if !defined? SIREL_s_VERSION
+   SIREL_s_VERSION="1.8.0"
+end # if
+
+if !defined? PROJECT_CG_HOME
+   PROJECT_CG_HOME=SIREL_HOME+
+   "/src/dev_tools/code_generation"
+   # Renessaator blocks within JavaScript files can depend
+   # on the environment variable.
+   ENV["PROJECT_CG_HOME"]=PROJECT_CG_HOME
+end # if
+
+if !defined? KIBUVITS_HOME
+   raise(Exception.new("\nRuby constant KIBUVITS_HOME not defined "+
+   "despite the fact that it should have been defined within the "+
+   "breakdancemake initialization code."))
+end # if
+
+require KIBUVITS_HOME+"/src/include/kibuvits_rake.rb"
+
+s_required_breakdancemake_version="v_1_1_0"
+if Breakdancemake.s_version!=s_required_breakdancemake_version
+   kibuvits_writeln("\nThe required Breakdancemake version is "+
+   s_required_breakdancemake_version+", but \n"+
+   "Breakdancemake.s_version=="+Breakdancemake.s_version.to_s+
+   "\nGUID='cad65f24-acc6-475c-b320-9041d0b0add7'\n\n")
+   exit
+end # if
+
+SIREL_b_DEBUG=true
+#SIREL_b_DEBUG=false
+
+SIREL_FOUNDER_NAME="Martin Vahi"
+SIREL_FOUNDER_EMAIL="martin.vahi@softf1.com"
+
+#--------------------------------------------------------------------------
+$sirel_ht_b_client_project_uses=Hash.new
+#$sirel_ht_b_client_project_uses["raudrohi"]=false
+#--------------------------------------------------------------------------
+
+class Sirel_PHP_Library_rakefile_codeset_t1
+
+   attr_reader :msgcs
+   attr_reader :s_project_fp_prefix_src
+   attr_reader :s_project_fp_prefix_dev_tools
+
+   #--------------------------------------------------------------------------
+
+   def initialize
+      @msgcs=C_mmmv_devel_tools.msgcs
+      @s_project_fp_prefix_src=SIREL_HOME+"/src/src"
+      @s_project_fp_prefix_dev_tools=SIREL_HOME+"/src/dev_tools"
+   end # initialize
+
+   #--------------------------------------------------------------------------
+
+end # class Sirel_PHP_Library_rakefile_codeset_t1
+
+SIREL_NS_T1=Sirel_PHP_Library_rakefile_codeset_t1.new
+
+#--------------------------------------------------------------------------
+
+if defined? SIREL_RAKEFILE_DEFINES_THE_SIREL_HOME
+   # This Rakefile can be included to Sirel PHP Library
+   # client code Rakefiles. If this if-statemend did not exist,
+   # the Sirel PHP Library Rakefile tasks would be included to
+   # the list of tasks of the client code Rakefile.
+
+   task :run_renessaator do
+      s_fp_sirel_selftests_home=SIREL_NS_T1.s_project_fp_prefix_dev_tools+"/selftests"
+      #-------------------------------------
+      # The "+" is used instead of the Array.new.concat
+      # due to some Ruby bug that changed the value of
+      # the resultant array elements. Looks like some memory
+      # corruption bug. "ruby --version" output:
+      #
+      #     "ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-linux]"
+      #
+      b_return_long_paths=true
+      ar_fp_0=Kibuvits_fs.ar_glob_recursively_t1(SIREL_NS_T1.s_project_fp_prefix_src,
+      "*.php",b_return_long_paths)
+      ar_fp_1=Kibuvits_fs.ar_glob_recursively_t1(s_fp_sirel_selftests_home+"/tests",
+      "test_sirel_*.php",b_return_long_paths)
+      ar_fp_2=ar_fp_0+ar_fp_1+Dir.glob(s_fp_sirel_selftests_home+"/*.php")
+      #-------------------------------------
+      kibuvits_writeln("Running the Renessaator on "+ar_fp_2.size.to_s+" files ...")
+      i_cache_max_size=300
+      s_fp_cg=PROJECT_CG_HOME
+      ar_fp=[s_fp_cg,(PROJECT_CG_HOME+"/../Rakefile")]
+      C_mmmv_devel_tools.run_renessaator_t1(
+      ar_fp_2,ar_fp,i_cache_max_size)
+      kibuvits_writeln("Renessaator jobs complete.")
+   end # run_renessaator
+
+   task :build => [:run_renessaator]  do
+      kibuvits_writeln("Building of the Sirel PHP Library in progress...")
+      # There's nothing to be done here.
+      kibuvits_writeln("Sirel PHP Library building thread complete.")
+   end # build
+
+   task :b => [:run_renessaator] do
+      kibuvits_writeln("Lightweight building of the Sirel PHP Library in progress...")
+      # There's nothing to be done here.
+      kibuvits_writeln("Sirel PHP Library building thread complete.")
+   end # b
+
+   task :default do
+      kibuvits_writeln(Kibuvits_rake.s_list_tasks())
+   end # default
+
+end # if
+
+#==========================================================================
+

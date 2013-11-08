@@ -1,5 +1,5 @@
 <?php
-//-------------------------------------------------------------------------
+//=========================================================================
 // Copyright (c) 2011, martin.vahi@softf1.com that has an
 // Estonian personal identification code of 38108050020.
 //
@@ -380,5 +380,5 @@ class sirel_test_sirel_operators_set_1 {
 
 } // class sirel_test_sirel_operators_set_1
 
+//=========================================================================
 
-?>
